@@ -966,7 +966,7 @@ IndexCore.prototype.typeAheadValueOption = null;
 module.exports = function exitPromise(fn, _setTimeout) {
   _setTimeout(fn, 0);
 };
-},{}],"../../../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/node_modules/events/events.js":[function(require,module,exports) {
+},{}],"../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/node_modules/events/events.js":[function(require,module,exports) {
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -1425,7 +1425,7 @@ IndexBrowser.prototype._clean = function () {
   this.removeAllListeners('error');
   this.removeAllListeners('result');
 };
-},{"inherits":"../node_modules/inherits/inherits_browser.js","events":"../../../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/node_modules/events/events.js"}],"../node_modules/algoliasearch/src/Index.js":[function(require,module,exports) {
+},{"inherits":"../node_modules/inherits/inherits_browser.js","events":"../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/node_modules/events/events.js"}],"../node_modules/algoliasearch/src/Index.js":[function(require,module,exports) {
 var inherits = require('inherits');
 
 var IndexCore = require('./IndexCore.js');
@@ -3032,7 +3032,7 @@ function coerce(val) {
   return val;
 }
 
-},{"ms":"../node_modules/ms/index.js"}],"../../../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/node_modules/process/browser.js":[function(require,module,exports) {
+},{"ms":"../node_modules/ms/index.js"}],"../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/node_modules/process/browser.js":[function(require,module,exports) {
 
 // shim for using process in browser
 var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
@@ -3400,7 +3400,7 @@ function localstorage() {
     return window.localStorage;
   } catch (e) {}
 }
-},{"./debug":"../node_modules/debug/src/debug.js","process":"../../../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/node_modules/process/browser.js"}],"../node_modules/algoliasearch/src/store.js":[function(require,module,exports) {
+},{"./debug":"../node_modules/debug/src/debug.js","process":"../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/node_modules/process/browser.js"}],"../node_modules/algoliasearch/src/store.js":[function(require,module,exports) {
 var global = arguments[3];
 var debug = require('debug')('algoliasearch:src/hostIndexState.js');
 
@@ -6490,7 +6490,7 @@ return Promise$1;
 
 
 
-},{"process":"../../../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/node_modules/process/browser.js"}],"../node_modules/querystring-es3/encode.js":[function(require,module,exports) {
+},{"process":"../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/node_modules/process/browser.js"}],"../node_modules/querystring-es3/encode.js":[function(require,module,exports) {
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -7090,7 +7090,108 @@ var AlgoliaSearch = require('../../AlgoliaSearch.js');
 var createAlgoliasearch = require('../createAlgoliasearch.js');
 
 module.exports = createAlgoliasearch(AlgoliaSearch, 'Browser');
-},{"../../AlgoliaSearch.js":"../node_modules/algoliasearch/src/AlgoliaSearch.js","../createAlgoliasearch.js":"../node_modules/algoliasearch/src/browser/createAlgoliasearch.js"}],"utils.js":[function(require,module,exports) {
+},{"../../AlgoliaSearch.js":"../node_modules/algoliasearch/src/AlgoliaSearch.js","../createAlgoliasearch.js":"../node_modules/algoliasearch/src/browser/createAlgoliasearch.js"}],"../node_modules/deepmerge/dist/umd.js":[function(require,module,exports) {
+var define;
+var global = arguments[3];
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : global.deepmerge = factory();
+})(this, function () {
+  'use strict';
+
+  var isMergeableObject = function isMergeableObject(value) {
+    return isNonNullObject(value) && !isSpecial(value);
+  };
+
+  function isNonNullObject(value) {
+    return !!value && typeof value === 'object';
+  }
+
+  function isSpecial(value) {
+    var stringValue = Object.prototype.toString.call(value);
+    return stringValue === '[object RegExp]' || stringValue === '[object Date]' || isReactElement(value);
+  } // see https://github.com/facebook/react/blob/b5ac963fb791d1298e7f396236383bc955f916c1/src/isomorphic/classic/element/ReactElement.js#L21-L25
+
+
+  var canUseSymbol = typeof Symbol === 'function' && Symbol.for;
+  var REACT_ELEMENT_TYPE = canUseSymbol ? Symbol.for('react.element') : 0xeac7;
+
+  function isReactElement(value) {
+    return value.$$typeof === REACT_ELEMENT_TYPE;
+  }
+
+  function emptyTarget(val) {
+    return Array.isArray(val) ? [] : {};
+  }
+
+  function cloneUnlessOtherwiseSpecified(value, options) {
+    return options.clone !== false && options.isMergeableObject(value) ? deepmerge(emptyTarget(value), value, options) : value;
+  }
+
+  function defaultArrayMerge(target, source, options) {
+    return target.concat(source).map(function (element) {
+      return cloneUnlessOtherwiseSpecified(element, options);
+    });
+  }
+
+  function getMergeFunction(key, options) {
+    if (!options.customMerge) {
+      return deepmerge;
+    }
+
+    var customMerge = options.customMerge(key);
+    return typeof customMerge === 'function' ? customMerge : deepmerge;
+  }
+
+  function mergeObject(target, source, options) {
+    var destination = {};
+
+    if (options.isMergeableObject(target)) {
+      Object.keys(target).forEach(function (key) {
+        destination[key] = cloneUnlessOtherwiseSpecified(target[key], options);
+      });
+    }
+
+    Object.keys(source).forEach(function (key) {
+      if (!options.isMergeableObject(source[key]) || !target[key]) {
+        destination[key] = cloneUnlessOtherwiseSpecified(source[key], options);
+      } else {
+        destination[key] = getMergeFunction(key, options)(target[key], source[key], options);
+      }
+    });
+    return destination;
+  }
+
+  function deepmerge(target, source, options) {
+    options = options || {};
+    options.arrayMerge = options.arrayMerge || defaultArrayMerge;
+    options.isMergeableObject = options.isMergeableObject || isMergeableObject;
+    var sourceIsArray = Array.isArray(source);
+    var targetIsArray = Array.isArray(target);
+    var sourceAndTargetTypesMatch = sourceIsArray === targetIsArray;
+
+    if (!sourceAndTargetTypesMatch) {
+      return cloneUnlessOtherwiseSpecified(source, options);
+    } else if (sourceIsArray) {
+      return options.arrayMerge(target, source, options);
+    } else {
+      return mergeObject(target, source, options);
+    }
+  }
+
+  deepmerge.all = function deepmergeAll(array, options) {
+    if (!Array.isArray(array)) {
+      throw new Error('first argument should be an array');
+    }
+
+    return array.reduce(function (prev, next) {
+      return deepmerge(prev, next, options);
+    }, {});
+  };
+
+  var deepmerge_1 = deepmerge;
+  return deepmerge_1;
+});
+},{}],"utils.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -7104,21 +7205,50 @@ exports.isObject = isObject;
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+/**
+ * Check if value is a string
+ *
+ * @param {*} value
+ */
 function isString(value) {
   return typeof value === 'string' || value instanceof String;
 }
+/**
+ * Check if value is a number
+ *
+ * @param {*} value
+ */
+
 
 function isNumber(value) {
   return typeof value === 'number' && isFinite(value);
 }
+/**
+ * Check if value is an array
+ *
+ * @param {*} value
+ */
+
 
 function isArray(value) {
   return Array.isArray(value);
 }
+/**
+ * Check if value is a function
+ *
+ * @param {*} value
+ */
+
 
 function isFunction(value) {
   return typeof value === 'function';
 }
+/**
+ * Check if value is an object
+ *
+ * @param {*} value
+ */
+
 
 function isObject(value) {
   return value && _typeof(value) === 'object' && value.constructor === Object;
@@ -7137,18 +7267,33 @@ var _utils = require("./utils");
 var NO_DATA_TEXT = '';
 var options;
 
-function style() {
-  var code = "\n        .sidebar {\n            --search-link-hover-color: #fff;\n            padding-top: 0;\n        }\n\n        .search {\n            margin-bottom: 20px;\n            padding: 6px;\n            border-bottom: 1px solid #eee;\n        }\n\n        .search .input-wrap {\n            display: flex;\n            align-items: center;\n        }\n\n        .search .results-panel {\n            display: none;\n        }\n\n        .search .results-panel.show {\n            display: block;\n        }\n\n        .search a:hover {\n            color: var(--search-link-hover-color);\n        }\n\n        .search input {\n            outline: none;\n            border: none;\n            width: 100%;\n            padding: 0 7px;\n            line-height: 36px;\n            font-size: 14px;\n        }\n\n        .search input::-webkit-search-decoration,\n        .search input::-webkit-search-cancel-button,\n        .search input {\n            -webkit-appearance: none;\n            -moz-appearance: none;\n            appearance: none;\n        }\n        .search .clear-button {\n            width: 36px;\n            text-align: right;\n            display: none;\n        }\n\n        .search .clear-button.show {\n            display: block;\n        }\n\n        .search .clear-button svg {\n            transform: scale(.5);\n        }\n\n        .search h2 {\n            font-size: 17px;\n            margin: 10px 0;\n        }\n\n        .search a {\n            text-decoration: none;\n            color: inherit;\n        }\n\n        .search .matching-post {\n            border-bottom: 1px solid #eee;\n        }\n\n        .search .matching-post:last-child {\n            border-bottom: 0;\n        }\n\n        .search p {\n            font-size: 14px;\n            overflow: hidden;\n            text-overflow: ellipsis;\n            display: -webkit-box;\n            -webkit-line-clamp: 2;\n            -webkit-box-orient: vertical;\n        }\n\n        .search p.empty {\n            text-align: center;\n        }\n\n        .app-name.hide, .sidebar-nav.hide {\n            display: none;\n        }";
-  Docsify.dom.style(code);
-}
-
-function tpl() {
+function renderBase() {
   var defaultValue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-  var html = "\n        <div class=\"input-wrap\">\n            <input type=\"search\" value=\"".concat(defaultValue, "\" />\n            <div class=\"clear-button\">\n                <svg width=\"26\" height=\"24\">\n                    <circle cx=\"12\" cy=\"12\" r=\"11\" fill=\"#ccc\" />\n                    <path stroke=\"white\" stroke-width=\"2\" d=\"M8.25,8.25,15.75,15.75\" />\n                    <path stroke=\"white\" stroke-width=\"2\"d=\"M8.25,15.75,15.75,8.25\" />\n                </svg>\n            </div>\n        </div>\n        <div class=\"results-panel\"></div>\n        </div>\n    ");
+  var html = options.templates.base(defaultValue, options);
   var el = Docsify.dom.create('div', html);
   var aside = Docsify.dom.find('aside');
   Docsify.dom.toggleClass(el, 'search');
   Docsify.dom.before(aside, el);
+}
+
+function renderResponse(response) {
+  var _options = options,
+      algolia = _options.algolia;
+  var _options$templates = options.templates,
+      resultSet = _options$templates.resultSet,
+      resultItem = _options$templates.resultItem;
+
+  if (algolia.multi) {
+    var results = response.results;
+    return results.map(function (results) {
+      return resultSet(results, response, options);
+    }).join('');
+  } else {
+    var hits = response.hits;
+    return hits.map(function (result) {
+      return resultItem(result, response, options);
+    }).join('');
+  }
 }
 
 function doSearch(value) {
@@ -7159,6 +7304,7 @@ function doSearch(value) {
   var $clearBtn = Docsify.dom.find($search, '.clear-button');
   var $sidebarNav = Docsify.dom.find('.sidebar-nav');
   var $appName = Docsify.dom.find('.app-name');
+  var query;
 
   if (!value) {
     $panel.classList.remove('show');
@@ -7177,17 +7323,28 @@ function doSearch(value) {
     return;
   }
 
-  var _options = options,
-      algolia = _options.algolia;
-  var searchClient = algolia.indexMap[algolia.currentIndex(algolia.indexMap)];
-  searchClient.search(value).then(function (_ref) {
-    var hits = _ref.hits;
-    var html = '';
-    hits.forEach(function (set) {
-      var title = set._highlightResult.title;
-      var body = set._snippetResult.body;
-      html += "\n                    <div class=\"matching-post\">\n                        <a href=\"".concat(set.slug, "\">\n                            <h2>").concat(title.value, "</h2>\n                            <p>").concat(body.value, "</p>\n                        </a>\n                    </div>\n                ");
+  var _options2 = options,
+      algolia = _options2.algolia;
+  var searchClient = algolia.multi ? algolia.client : algolia.indexMap[algolia.currentIndex(algolia.indexMap)];
+
+  if (!(0, _utils.isArray)(algolia.indexes)) {
+    console.error('Algolia Search Plugin: When multi search is enabled, you must provided more than one index');
+    return;
+  }
+
+  if (algolia.multi) {
+    query = algolia.indexes.map(function (_ref) {
+      var index = _ref.index;
+      return {
+        indexName: index,
+        query: value
+      };
     });
+  } else {
+    query = value;
+  }
+
+  searchClient.search(query).then(renderResponse).then(function (html) {
     $panel.classList.add('show');
     $clearBtn.classList.add('show');
     $panel.innerHTML = html || '<p class="empty">No Results</p>';
@@ -7262,8 +7419,8 @@ function updateOptions(opts) {
 function init(opts, vm) {
   var keywords = vm.router.parse().query.s;
   updateOptions(opts);
-  style();
-  tpl(keywords);
+  Docsify.dom.style(options.templates.style(options));
+  renderBase(keywords);
   bindEvents();
   keywords && setTimeout(function () {
     return doSearch(keywords);
@@ -7275,45 +7432,112 @@ function update(opts, vm) {
   updatePlaceholder(opts.placeholder, vm.route.path);
   updateNoData(opts.noData, vm.route.path);
 }
+},{"./utils":"utils.js"}],"render.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _utils = require("./utils");
+
+var base = function base() {
+  var defaultValue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var options = arguments.length > 1 ? arguments[1] : undefined;
+  return "\n    <div class=\"input-wrap\">\n        <input type=\"search\" value=\"".concat(defaultValue, "\" />\n        <div class=\"clear-button\">\n            <svg width=\"26\" height=\"24\">\n                <circle cx=\"12\" cy=\"12\" r=\"11\" fill=\"#ccc\" />\n                <path stroke=\"white\" stroke-width=\"2\" d=\"M8.25,8.25,15.75,15.75\" />\n                <path stroke=\"white\" stroke-width=\"2\"d=\"M8.25,15.75,15.75,8.25\" />\n            </svg>\n        </div>\n    </div>\n    <div class=\"results-panel\"></div>\n    </div>\n");
+};
+
+var style = function style(options) {
+  return "\n    .sidebar {\n        --search-link-hover-color: #fff;\n        padding-top: 0;\n    }\n\n    .search {\n        margin-bottom: 20px;\n        padding: 6px;\n        border-bottom: 1px solid #eee;\n    }\n\n    .search .input-wrap {\n        display: flex;\n        align-items: center;\n    }\n\n    .search .results-panel {\n        display: none;\n    }\n\n    .search .results-panel.show {\n        display: block;\n    }\n\n    .search a:hover {\n        color: var(--search-link-hover-color);\n    }\n\n    .search input {\n        outline: none;\n        border: none;\n        width: 100%;\n        padding: 0 7px;\n        line-height: 36px;\n        font-size: 14px;\n    }\n\n    .search input::-webkit-search-decoration,\n    .search input::-webkit-search-cancel-button,\n    .search input {\n        -webkit-appearance: none;\n        -moz-appearance: none;\n        appearance: none;\n    }\n    .search .clear-button {\n        width: 36px;\n        text-align: right;\n        display: none;\n    }\n\n    .search .clear-button.show {\n        display: block;\n    }\n\n    .search .clear-button svg {\n        transform: scale(.5);\n    }\n\n    .search h2 {\n        font-size: 17px;\n        margin: 10px 0;\n    }\n\n    .search a {\n        text-decoration: none;\n        color: inherit;\n    }\n\n    .search .matching-post {\n        border-bottom: 1px solid #eee;\n    }\n\n    .search .matching-post:last-child {\n        border-bottom: 0;\n    }\n\n    .search p {\n        font-size: 14px;\n        overflow: hidden;\n        text-overflow: ellipsis;\n        display: -webkit-box;\n        -webkit-line-clamp: 2;\n        -webkit-box-orient: vertical;\n    }\n\n    .search p.empty {\n        text-align: center;\n    }\n\n    .app-name.hide, .sidebar-nav.hide {\n        display: none;\n    }\n";
+};
+
+var resultItem = function resultItem(result) {
+  var title = result._highlightResult.title;
+  var body = result._snippetResult.body;
+  return "\n        <div class=\"matching-post\">\n            <a href=\"".concat(result.slug, "\">\n                <h2>").concat(title.value, "</h2>\n                <p>").concat(body.value, "</p>\n            </a>\n        </div>\n    ");
+};
+
+var resultSet = function resultSet(set, response, options) {
+  var hits = set.hits,
+      index = set.index;
+  var noData = options.noData,
+      templates = options.templates,
+      multi = options.algolia.multi;
+  var innerHTML = "<p>".concat(noData, "</p>");
+  var label = index;
+
+  if (hits.length) {
+    innerHTML = hits.map(function (result) {
+      return templates.resultItem(result, response, options);
+    }).join('');
+  }
+
+  if ((0, _utils.isObject)(multi)) {
+    label = multi[index];
+  }
+
+  return "\n        <div class=\"matching-set\">\n            <h2 class=\"matching-set-heading\">".concat(label, "</h2>\n            ").concat(innerHTML, "\n        </div>\n    ");
+};
+
+var _default = {
+  base: base,
+  style: style,
+  resultItem: resultItem,
+  resultSet: resultSet
+};
+exports.default = _default;
 },{"./utils":"utils.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _algoliasearch = _interopRequireDefault(require("algoliasearch"));
 
+var _deepmerge = _interopRequireDefault(require("deepmerge"));
+
 var _component = require("./component");
 
 var _utils = require("./utils");
 
+var _render = _interopRequireDefault(require("./render"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var CONFIG = {
+var DEFAULT_CONFIG = {
   placeholder: 'Type to search',
   noData: 'No Results!',
   hideOtherSidebarContent: false,
   namespace: undefined,
+  templates: {
+    base: _render.default.base,
+    style: _render.default.style,
+    resultItem: _render.default.resultItem,
+    resultSet: _render.default.resultSet
+  },
   algolia: {
+    multi: undefined,
     token: undefined,
     appId: undefined,
     indexes: undefined,
     defaultIndex: undefined,
+    indexMap: {},
     currentIndex: function currentIndex() {
       return this.defaultIndex;
     }
   }
 };
+var CONFIG;
 
 var install = function install(hook, vm) {
-  var opts = vm.config.search || CONFIG;
+  var opts = vm.config.search; // Merge user options with default
 
   if ((0, _utils.isObject)(opts)) {
-    CONFIG.placeholder = opts.placeholder || CONFIG.placeholder;
-    CONFIG.noData = opts.noData || CONFIG.noData;
-    CONFIG.hideOtherSidebarContent = opts.hideOtherSidebarContent || CONFIG.hideOtherSidebarContent;
-    CONFIG.algolia = Object.assign(CONFIG.algolia, opts.algolia);
-    CONFIG.algolia.indexMap = {};
-  }
+    CONFIG = (0, _deepmerge.default)(DEFAULT_CONFIG, opts);
+  } else {
+    CONFIG = DEFAUlT_CONFIG;
+  } // Set up algolia client
 
-  CONFIG.algolia.client = (0, _algoliasearch.default)(CONFIG.algolia.appId, CONFIG.algolia.token);
+
+  CONFIG.algolia.client = (0, _algoliasearch.default)(CONFIG.algolia.appId, CONFIG.algolia.token); // Create search client and configure indexes if necessary
 
   if ((0, _utils.isArray)(CONFIG.algolia.indexes)) {
     CONFIG.algolia.indexes.forEach(function (index) {
@@ -7338,6 +7562,9 @@ var install = function install(hook, vm) {
     var _client2 = CONFIG.algolia.client.initIndex(_index);
 
     CONFIG.algolia.indexMap[_index] = _client2;
+  } else {
+    console.error('Invalid configuration');
+    return;
   }
 
   hook.mounted(function () {
@@ -7352,7 +7579,7 @@ var install = function install(hook, vm) {
 };
 
 $docsify.plugins = [].concat(install, $docsify.plugins);
-},{"algoliasearch":"../node_modules/algoliasearch/src/browser/builds/algoliasearch.js","./component":"component.js","./utils":"utils.js"}],"../../../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"algoliasearch":"../node_modules/algoliasearch/src/browser/builds/algoliasearch.js","deepmerge":"../node_modules/deepmerge/dist/umd.js","./component":"component.js","./utils":"utils.js","./render":"render.js"}],"../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -7380,7 +7607,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55745" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61115" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -7555,5 +7782,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
+},{}]},{},["../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
 //# sourceMappingURL=/index.js.map

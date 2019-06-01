@@ -2,11 +2,12 @@
 
 This plugin is a modification of the [full text search plugin](https://docsify.js.org/#/plugins?id=full-text-search) with many of the same settings that leverages algolia search.
 
-| Option       | Type                | Description                                                                                                                                                                                                                                                               | Default                                  | Required |
+| Parameter    | Type                | Description                                                                                                                                                                                                                                                               | Default                                  | Required |
 |--------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
 | token        | string              | Public API token                                                                                                                                                                                                                                                          | -                                        | ✓        |
 | appId        | string              | The application ID                                                                                                                                                                                                                                                        | -                                        | ✓        |
 | defaultIndex | string              |  If multiple indexes are provided, you can specify the default index to use, otherwise the first index provided will be the default                                                                                                                                       | The first provided index                 |          |
+| multi        | boolean|array       | Display the results from multiple indexes                                                                                                                                                                                                                                 | -                                        |          |
 | indexes      | string|object|array | The indexes to be searched                                                                                                                                                                                                                                                | A list of indexes with optional settings | ✓        |
 | currentIndex | function            |  If you need to specify the current index based on certain conditions, i.e. a slug in your url for different versions of documentation you can do it here.  This function must return the name of the index.  This function passes the `indexMap` as it's only parameter. |  -                                       |          |
 
@@ -37,6 +38,14 @@ A full list of configurable options is below.
 
             hideOtherSidebarContent: false, // whether or not to hide other sidebar content
 
+            // template overrides
+            templates: {
+                base: options => '',
+                style: options => '',
+                resultItem: (result, response, options) => '',
+                resultSet: (result, response, options) => '',
+            },
+
             // algolia options
             algolia: {
                 token: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', // https://www.algolia.com/doc/guides/security/api-keys/
@@ -45,6 +54,9 @@ A full list of configurable options is below.
 
                 // single index
                 indexes: 'v4',
+
+                // default multi settings
+                multi: true,
 
                 // single index with settings
                 indexes: {
@@ -81,3 +93,33 @@ A full list of configurable options is below.
     }
 </script>
 ```
+
+## Overriding Templates/Styles
+
+To override any of the rendered HTML you can provided your own render functions.  There are four render functions:
+- `base` - renders the search box and necessary structure for the results
+- `style` - renders the required styles for default templates
+- `resultItem` - renders a single result item
+- `resultSet` - renders a set of results, this function uses the `resultItem` function
+
+Each function is passed the following arguments:
+
+- `base`
+  - `defaultValue` - the search query string
+  - `options` - the configuration options object
+- `style`
+  - `options` - the configuration options object
+- `resultItem`
+  - `result` - the individual result object
+  - `response` - the entire response returned from the algolia client
+  - `options` - the configuration options object
+- `resultsSet`
+  - `results` - the results array
+  - `response` - the entire response returned from the algolia client
+  - `options` - the configuration options object
+
+
+
+## Methods
+
+You may clear the results programatically by calling `DocsifyAlgoliaSearchPlugin.clearResults();`.
