@@ -1,8 +1,13 @@
 import { isObject } from './utils';
 
 const style = (options) =>  `
-    .sidebar {
+    :root {
         --search-link-hover-color: #fff;
+        --search-results-heading-font-size: 17px;
+        --search-results-heading-padding: .5em 0;
+    }
+
+    .sidebar {
         padding-top: 0;
     }
 
@@ -81,6 +86,35 @@ const style = (options) =>  `
 
     .search .matching-post {
         border-bottom: 1px solid #eee;
+    }
+
+    .search h2.matching-set-heading {
+        background-color: var(--mono-base);
+        position: relative;
+        display: block;
+        padding: var(--search-results-heading-padding);
+        font-size: var(--search-results-heading-font-size);
+        border-bottom: 1px solid var(--sidebar-border-color);
+    }
+
+    .search .matching-set-heading::before,
+    .search .matching-set-heading::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--mono-base);
+        border-bottom: 1px solid var(--sidebar-border-color);
+    }
+
+    .search .matching-set-heading::before {
+        left: 100%;
+    }
+
+    .search .matching-set-heading::after {
+        right: 100%;
     }
 
     .search .matching-post:last-child {
