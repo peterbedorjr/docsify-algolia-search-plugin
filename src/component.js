@@ -19,7 +19,7 @@ function renderResponse(response) {
     if (algolia.multi) {
         const { results } = response;
 
-        return results.map(results => resultSet(results, response, options)).join('');
+        return results.map(results => resultSet(results, response, NO_DATA_TEXT, options)).join('');
     } else {
         const { hits } = response;
 
@@ -58,7 +58,7 @@ function doSearch(value, clearInput = false) {
         ? algolia.client
         : algolia.indexMap[algolia.currentIndex(algolia.indexMap)];
 
-    if (! isArray(algolia.indexes)) {
+    if (! isArray(algolia.indexes) && algolia.multi) {
         console.error('Algolia Search Plugin: When multi search is enabled, you must provided more than one index');
         return;
     }
@@ -77,7 +77,7 @@ function doSearch(value, clearInput = false) {
         .then((html) => {
             $panel.classList.add('show');
             $clearBtn.classList.add('show');
-            $panel.innerHTML = html || '<p class="empty">No Results</p>';
+            $panel.innerHTML = html || `<p class="empty">${NO_DATA_TEXT}</p>`;
 
             if (options.hideOtherSidebarContent) {
                 $sidebarNav.classList.add('hide');
@@ -120,7 +120,7 @@ function bindEvents(indexMap) {
 function updatePlaceholder(text, path) {
     const $input = Docsify.dom.getNode('.search input[type="search"]');
 
-    if (!$input) {
+    if (! $input) {
         return;
     }
 
@@ -156,7 +156,6 @@ export function init(opts, vm) {
 }
 
 export function update(opts, vm) {
-    updateOptions(opts);
     updatePlaceholder(opts.placeholder, vm.route.path);
     updateNoData(opts.noData, vm.route.path);
 }

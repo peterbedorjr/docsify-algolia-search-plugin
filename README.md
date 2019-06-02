@@ -58,6 +58,13 @@ A full list of configurable options is below.
                 // default multi settings
                 multi: true,
 
+                // overriding section labels
+                // NOTE: The key name MUST match the index names
+                multi: {
+                    v3: 'Version 3',
+                    v4: 'Version 4',
+                },
+
                 // single index with settings
                 indexes: {
                     index: 'v4',
@@ -116,8 +123,10 @@ Each function is passed the following arguments:
 - `resultsSet`
   - `results` - the results array
   - `response` - the entire response returned from the algolia client
+  - `noData` - The text set if no results are returned
   - `options` - the configuration options object
 
+For more details custom templates, refer to the [default functions](src/render.js).
 
 
 ## Methods

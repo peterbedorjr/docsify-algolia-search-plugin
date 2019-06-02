@@ -124,9 +124,9 @@ const resultItem = result => {
     `;
 }
 
-const resultSet = (set, response, options) => {
+const resultSet = (set, response, noData, options) => {
     const { hits, index } = set;
-    const { noData, templates, algolia: { multi } } = options;
+    const { templates, algolia: { multi } } = options;
     let innerHTML = `<p>${noData}</p>`;
     let label = index;
 

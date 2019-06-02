@@ -7286,7 +7286,7 @@ function renderResponse(response) {
   if (algolia.multi) {
     var results = response.results;
     return results.map(function (results) {
-      return resultSet(results, response, options);
+      return resultSet(results, response, NO_DATA_TEXT, options);
     }).join('');
   } else {
     var hits = response.hits;
@@ -7327,7 +7327,7 @@ function doSearch(value) {
       algolia = _options2.algolia;
   var searchClient = algolia.multi ? algolia.client : algolia.indexMap[algolia.currentIndex(algolia.indexMap)];
 
-  if (!(0, _utils.isArray)(algolia.indexes)) {
+  if (!(0, _utils.isArray)(algolia.indexes) && algolia.multi) {
     console.error('Algolia Search Plugin: When multi search is enabled, you must provided more than one index');
     return;
   }
@@ -7347,7 +7347,7 @@ function doSearch(value) {
   searchClient.search(query).then(renderResponse).then(function (html) {
     $panel.classList.add('show');
     $clearBtn.classList.add('show');
-    $panel.innerHTML = html || '<p class="empty">No Results</p>';
+    $panel.innerHTML = html || "<p class=\"empty\">".concat(NO_DATA_TEXT, "</p>");
 
     if (options.hideOtherSidebarContent) {
       $sidebarNav.classList.add('hide');
@@ -7428,7 +7428,6 @@ function init(opts, vm) {
 }
 
 function update(opts, vm) {
-  updateOptions(opts);
   updatePlaceholder(opts.placeholder, vm.route.path);
   updateNoData(opts.noData, vm.route.path);
 }
@@ -7458,11 +7457,10 @@ var resultItem = function resultItem(result) {
   return "\n        <div class=\"matching-post\">\n            <a href=\"".concat(result.slug, "\">\n                <h2>").concat(title.value, "</h2>\n                <p>").concat(body.value, "</p>\n            </a>\n        </div>\n    ");
 };
 
-var resultSet = function resultSet(set, response, options) {
+var resultSet = function resultSet(set, response, noData, options) {
   var hits = set.hits,
       index = set.index;
-  var noData = options.noData,
-      templates = options.templates,
+  var templates = options.templates,
       multi = options.algolia.multi;
   var innerHTML = "<p>".concat(noData, "</p>");
   var label = index;
