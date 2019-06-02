@@ -1,98 +1,7784 @@
-parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcelRequire,u="function"==typeof require&&require;function f(t,n){if(!r[t]){if(!e[t]){var i="function"==typeof parcelRequire&&parcelRequire;if(!n&&i)return i(t,!0);if(o)return o(t,!0);if(u&&"string"==typeof t)return u(t);var c=new Error("Cannot find module '"+t+"'");throw c.code="MODULE_NOT_FOUND",c}p.resolve=function(r){return e[t][1][r]||r},p.cache={};var l=r[t]=new f.Module(t);e[t][0].call(l.exports,p,l,l.exports,this)}return r[t].exports;function p(e){return f(p.resolve(e))}}f.isParcelRequire=!0,f.Module=function(e){this.id=e,this.bundle=f,this.exports={}},f.modules=e,f.cache=r,f.parent=o,f.register=function(r,t){e[r]=[function(e,r){r.exports=t},{}]};for(var c=0;c<t.length;c++)try{f(t[c])}catch(e){i||(i=e)}if(t.length){var l=f(t[t.length-1]);"object"==typeof exports&&"undefined"!=typeof module?module.exports=l:"function"==typeof define&&define.amd?define(function(){return l}):n&&(this[n]=l)}if(parcelRequire=f,i)throw i;return f}({"4Bm0":[function(require,module,exports) {
-"function"==typeof Object.create?module.exports=function(t,e){t.super_=e,t.prototype=Object.create(e.prototype,{constructor:{value:t,enumerable:!1,writable:!0,configurable:!0}})}:module.exports=function(t,e){t.super_=e;var o=function(){};o.prototype=e.prototype,t.prototype=new o,t.prototype.constructor=t};
-},{}],"Sh+V":[function(require,module,exports) {
-var t=Object.prototype.hasOwnProperty,r=Object.prototype.toString;module.exports=function(o,e,a){if("[object Function]"!==r.call(e))throw new TypeError("iterator must be a function");var l=o.length;if(l===+l)for(var n=0;n<l;n++)e.call(a,o[n],n,o);else for(var c in o)t.call(o,c)&&e.call(a,o[c],c,o)};
-},{}],"QKhG":[function(require,module,exports) {
-"use strict";var r=require("inherits");function e(r,e){var t=require("foreach"),o=this;"function"==typeof Error.captureStackTrace?Error.captureStackTrace(this,this.constructor):o.stack=(new Error).stack||"Cannot get a stacktrace, browser is too old",this.name="AlgoliaSearchError",this.message=r||"Unknown error",e&&t(e,function(r,e){o[e]=r})}function t(t,o){function a(){var r=Array.prototype.slice.call(arguments,0);"string"!=typeof r[0]&&r.unshift(o),e.apply(this,r),this.name="AlgoliaSearch"+t+"Error"}return r(a,e),a}r(e,Error),module.exports={AlgoliaSearchError:e,UnparsableJSON:t("UnparsableJSON","Could not parse the incoming response as JSON, see err.more for details"),RequestTimeout:t("RequestTimeout","Request timed out before getting a response"),Network:t("Network","Network issue, see err.more for details"),JSONPScriptFail:t("JSONPScriptFail","<script> was loaded but did not call our provided callback"),JSONPScriptError:t("JSONPScriptError","<script> unable to load due to an `error` event on it"),Unknown:t("Unknown","Unknown error occured")};
-},{"inherits":"4Bm0","foreach":"Sh+V"}],"Yu17":[function(require,module,exports) {
-module.exports=o;var e=require("./errors.js");function o(o,t){return function(n,r,i){if("function"==typeof n&&"object"==typeof r||"object"==typeof i)throw new e.AlgoliaSearchError("index.search usage is index.search(query, params, cb)");0===arguments.length||"function"==typeof n?(i=n,n=""):1!==arguments.length&&"function"!=typeof r||(i=r,r=void 0),"object"==typeof n&&null!==n?(r=n,n=void 0):null==n&&(n="");var a,c="";return void 0!==n&&(c+=o+"="+encodeURIComponent(n)),void 0!==r&&(r.additionalUA&&(a=r.additionalUA,delete r.additionalUA),c=this.as._getSearchParams(r,c)),this._search(c,t,i,a)}}
-},{"./errors.js":"QKhG"}],"F888":[function(require,module,exports) {
-module.exports=function(n,r){var o=!1;return function(){return o||(console.warn(r),o=!0),n.apply(this,arguments)}};
-},{}],"8OXg":[function(require,module,exports) {
-module.exports=function(e,a){var l=e.toLowerCase().replace(/[\.\(\)]/g,"");return"algoliasearch: `"+e+"` was replaced by `"+a+"`. Please see https://github.com/algolia/algoliasearch-client-javascript/wiki/Deprecated#"+l};
-},{}],"MuiK":[function(require,module,exports) {
-var r=require("foreach");module.exports=function o(e){var t=Array.prototype.slice.call(arguments);return r(t,function(r){for(var t in r)r.hasOwnProperty(t)&&("object"==typeof e[t]&&"object"==typeof r[t]?e[t]=o({},e[t],r[t]):void 0!==r[t]&&(e[t]=r[t]))}),e};
-},{"foreach":"Sh+V"}],"S7SM":[function(require,module,exports) {
-module.exports=function(r){return JSON.parse(JSON.stringify(r))};
-},{}],"uTT0":[function(require,module,exports) {
-"use strict";var t=Object.prototype.toString;module.exports=function(e){var o=t.call(e),r="[object Arguments]"===o;return r||(r="[object Array]"!==o&&null!==e&&"object"==typeof e&&"number"==typeof e.length&&e.length>=0&&"[object Function]"===t.call(e.callee)),r};
-},{}],"orz+":[function(require,module,exports) {
-"use strict";var t;if(!Object.keys){var r=Object.prototype.hasOwnProperty,e=Object.prototype.toString,o=require("./isArguments"),n=Object.prototype.propertyIsEnumerable,l=!n.call({toString:null},"toString"),c=n.call(function(){},"prototype"),i=["toString","toLocaleString","valueOf","hasOwnProperty","isPrototypeOf","propertyIsEnumerable","constructor"],a=function(t){var r=t.constructor;return r&&r.prototype===t},f={$applicationCache:!0,$console:!0,$external:!0,$frame:!0,$frameElement:!0,$frames:!0,$innerHeight:!0,$innerWidth:!0,$onmozfullscreenchange:!0,$onmozfullscreenerror:!0,$outerHeight:!0,$outerWidth:!0,$pageXOffset:!0,$pageYOffset:!0,$parent:!0,$scrollLeft:!0,$scrollTop:!0,$scrollX:!0,$scrollY:!0,$self:!0,$webkitIndexedDB:!0,$webkitStorageInfo:!0,$window:!0},u=function(){if("undefined"==typeof window)return!1;for(var t in window)try{if(!f["$"+t]&&r.call(window,t)&&null!==window[t]&&"object"==typeof window[t])try{a(window[t])}catch(e){return!0}}catch(e){return!0}return!1}(),p=function(t){if("undefined"==typeof window||!u)return a(t);try{return a(t)}catch(r){return!1}};t=function(t){var n=null!==t&&"object"==typeof t,a="[object Function]"===e.call(t),f=o(t),u=n&&"[object String]"===e.call(t),s=[];if(!n&&!a&&!f)throw new TypeError("Object.keys called on a non-object");var $=c&&a;if(u&&t.length>0&&!r.call(t,0))for(var w=0;w<t.length;++w)s.push(String(w));if(f&&t.length>0)for(var g=0;g<t.length;++g)s.push(String(g));else for(var h in t)$&&"prototype"===h||!r.call(t,h)||s.push(String(h));if(l)for(var y=p(t),d=0;d<i.length;++d)y&&"constructor"===i[d]||!r.call(t,i[d])||s.push(i[d]);return s}}module.exports=t;
-},{"./isArguments":"uTT0"}],"ywQn":[function(require,module,exports) {
-"use strict";var e=Array.prototype.slice,t=require("./isArguments"),r=Object.keys,n=r?function(e){return r(e)}:require("./implementation"),c=Object.keys;n.shim=function(){Object.keys?function(){var e=Object.keys(arguments);return e&&e.length===arguments.length}(1,2)||(Object.keys=function(r){return t(r)?c(e.call(r)):c(r)}):Object.keys=n;return Object.keys||n},module.exports=n;
-},{"./isArguments":"uTT0","./implementation":"orz+"}],"8q90":[function(require,module,exports) {
-module.exports=function(e,r){var o=require("object-keys"),u=require("foreach"),n={};return u(o(e),function(o){!0!==r(o)&&(n[o]=e[o])}),n};
-},{"object-keys":"ywQn","foreach":"Sh+V"}],"REa7":[function(require,module,exports) {
-var r={}.toString;module.exports=Array.isArray||function(t){return"[object Array]"==r.call(t)};
-},{}],"BDy2":[function(require,module,exports) {
-var r=require("foreach");module.exports=function(e,u){var n=[];return r(e,function(r,o){n.push(u(r,o,e))}),n};
-},{"foreach":"Sh+V"}],"ig01":[function(require,module,exports) {
-var e=require("./buildSearchMethod.js"),t=require("./deprecate.js"),a=require("./deprecatedMessage.js");function r(e,t){this.indexName=t,this.as=e,this.typeAheadArgs=null,this.typeAheadValueOption=null,this.cache={}}module.exports=r,r.prototype.clearCache=function(){this.cache={}},r.prototype.search=e("query"),r.prototype.similarSearch=t(e("similarQuery"),a("index.similarSearch(query[, callback])","index.search({ similarQuery: query }[, callback])")),r.prototype.browse=function(e,t,a){var r,o,n=require("./merge.js");0===arguments.length||1===arguments.length&&"function"==typeof arguments[0]?(r=0,a=arguments[0],e=void 0):"number"==typeof arguments[0]?(r=arguments[0],"number"==typeof arguments[1]?o=arguments[1]:"function"==typeof arguments[1]&&(a=arguments[1],o=void 0),e=void 0,t=void 0):"object"==typeof arguments[0]?("function"==typeof arguments[1]&&(a=arguments[1]),t=arguments[0],e=void 0):"string"==typeof arguments[0]&&"function"==typeof arguments[1]&&(a=arguments[1],t=void 0),t=n({},t||{},{page:r,hitsPerPage:o,query:e});var s=this.as._getSearchParams(t,"");return this.as._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/browse",body:{params:s},hostType:"read",callback:a})},r.prototype.browseFrom=function(e,t){return this.as._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/browse",body:{cursor:e},hostType:"read",callback:t})},r.prototype.searchForFacetValues=function(e,t){var a=require("./clone.js"),r=require("./omit.js");if(void 0===e.facetName||void 0===e.facetQuery)throw new Error("Usage: index.searchForFacetValues({facetName, facetQuery, ...params}[, callback])");var o=e.facetName,n=r(a(e),function(e){return"facetName"===e}),s=this.as._getSearchParams(n,"");return this.as._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/facets/"+encodeURIComponent(o)+"/query",hostType:"read",body:{params:s},callback:t})},r.prototype.searchFacet=t(function(e,t){return this.searchForFacetValues(e,t)},a("index.searchFacet(params[, callback])","index.searchForFacetValues(params[, callback])")),r.prototype._search=function(e,t,a,r){return this.as._jsonRequest({cache:this.cache,method:"POST",url:t||"/1/indexes/"+encodeURIComponent(this.indexName)+"/query",body:{params:e},hostType:"read",fallback:{method:"GET",url:"/1/indexes/"+encodeURIComponent(this.indexName),body:{params:e}},callback:a,additionalUA:r})},r.prototype.getObject=function(e,t,a){1!==arguments.length&&"function"!=typeof t||(a=t,t=void 0);var r="";if(void 0!==t){r="?attributes=";for(var o=0;o<t.length;++o)0!==o&&(r+=","),r+=t[o]}return this.as._jsonRequest({method:"GET",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/"+encodeURIComponent(e)+r,hostType:"read",callback:a})},r.prototype.getObjects=function(e,t,a){var r=require("isarray"),o=require("./map.js");if(!r(e))throw new Error("Usage: index.getObjects(arrayOfObjectIDs[, callback])");var n=this;1!==arguments.length&&"function"!=typeof t||(a=t,t=void 0);var s={requests:o(e,function(e){var a={indexName:n.indexName,objectID:e};return t&&(a.attributesToRetrieve=t.join(",")),a})};return this.as._jsonRequest({method:"POST",url:"/1/indexes/*/objects",hostType:"read",body:s,callback:a})},r.prototype.as=null,r.prototype.indexName=null,r.prototype.typeAheadArgs=null,r.prototype.typeAheadValueOption=null;
-},{"./buildSearchMethod.js":"Yu17","./deprecate.js":"F888","./deprecatedMessage.js":"8OXg","./merge.js":"MuiK","./clone.js":"S7SM","./omit.js":"8q90","isarray":"REa7","./map.js":"BDy2"}],"nb0e":[function(require,module,exports) {
-module.exports=function(o,e){e(o,0)};
-},{}],"Gy9D":[function(require,module,exports) {
-"use strict";var e,t="object"==typeof Reflect?Reflect:null,n=t&&"function"==typeof t.apply?t.apply:function(e,t,n){return Function.prototype.apply.call(e,t,n)};function r(e){console&&console.warn&&console.warn(e)}e=t&&"function"==typeof t.ownKeys?t.ownKeys:Object.getOwnPropertySymbols?function(e){return Object.getOwnPropertyNames(e).concat(Object.getOwnPropertySymbols(e))}:function(e){return Object.getOwnPropertyNames(e)};var i=Number.isNaN||function(e){return e!=e};function o(){o.init.call(this)}module.exports=o,o.EventEmitter=o,o.prototype._events=void 0,o.prototype._eventsCount=0,o.prototype._maxListeners=void 0;var s=10;function u(e){return void 0===e._maxListeners?o.defaultMaxListeners:e._maxListeners}function f(e,t,n,i){var o,s,f;if("function"!=typeof n)throw new TypeError('The "listener" argument must be of type Function. Received type '+typeof n);if(void 0===(s=e._events)?(s=e._events=Object.create(null),e._eventsCount=0):(void 0!==s.newListener&&(e.emit("newListener",t,n.listener?n.listener:n),s=e._events),f=s[t]),void 0===f)f=s[t]=n,++e._eventsCount;else if("function"==typeof f?f=s[t]=i?[n,f]:[f,n]:i?f.unshift(n):f.push(n),(o=u(e))>0&&f.length>o&&!f.warned){f.warned=!0;var p=new Error("Possible EventEmitter memory leak detected. "+f.length+" "+String(t)+" listeners added. Use emitter.setMaxListeners() to increase limit");p.name="MaxListenersExceededWarning",p.emitter=e,p.type=t,p.count=f.length,r(p)}return e}function p(){for(var e=[],t=0;t<arguments.length;t++)e.push(arguments[t]);this.fired||(this.target.removeListener(this.type,this.wrapFn),this.fired=!0,n(this.listener,this.target,e))}function v(e,t,n){var r={fired:!1,wrapFn:void 0,target:e,type:t,listener:n},i=p.bind(r);return i.listener=n,r.wrapFn=i,i}function h(e,t,n){var r=e._events;if(void 0===r)return[];var i=r[t];return void 0===i?[]:"function"==typeof i?n?[i.listener||i]:[i]:n?y(i):c(i,i.length)}function a(e){var t=this._events;if(void 0!==t){var n=t[e];if("function"==typeof n)return 1;if(void 0!==n)return n.length}return 0}function c(e,t){for(var n=new Array(t),r=0;r<t;++r)n[r]=e[r];return n}function l(e,t){for(;t+1<e.length;t++)e[t]=e[t+1];e.pop()}function y(e){for(var t=new Array(e.length),n=0;n<t.length;++n)t[n]=e[n].listener||e[n];return t}Object.defineProperty(o,"defaultMaxListeners",{enumerable:!0,get:function(){return s},set:function(e){if("number"!=typeof e||e<0||i(e))throw new RangeError('The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received '+e+".");s=e}}),o.init=function(){void 0!==this._events&&this._events!==Object.getPrototypeOf(this)._events||(this._events=Object.create(null),this._eventsCount=0),this._maxListeners=this._maxListeners||void 0},o.prototype.setMaxListeners=function(e){if("number"!=typeof e||e<0||i(e))throw new RangeError('The value of "n" is out of range. It must be a non-negative number. Received '+e+".");return this._maxListeners=e,this},o.prototype.getMaxListeners=function(){return u(this)},o.prototype.emit=function(e){for(var t=[],r=1;r<arguments.length;r++)t.push(arguments[r]);var i="error"===e,o=this._events;if(void 0!==o)i=i&&void 0===o.error;else if(!i)return!1;if(i){var s;if(t.length>0&&(s=t[0]),s instanceof Error)throw s;var u=new Error("Unhandled error."+(s?" ("+s.message+")":""));throw u.context=s,u}var f=o[e];if(void 0===f)return!1;if("function"==typeof f)n(f,this,t);else{var p=f.length,v=c(f,p);for(r=0;r<p;++r)n(v[r],this,t)}return!0},o.prototype.addListener=function(e,t){return f(this,e,t,!1)},o.prototype.on=o.prototype.addListener,o.prototype.prependListener=function(e,t){return f(this,e,t,!0)},o.prototype.once=function(e,t){if("function"!=typeof t)throw new TypeError('The "listener" argument must be of type Function. Received type '+typeof t);return this.on(e,v(this,e,t)),this},o.prototype.prependOnceListener=function(e,t){if("function"!=typeof t)throw new TypeError('The "listener" argument must be of type Function. Received type '+typeof t);return this.prependListener(e,v(this,e,t)),this},o.prototype.removeListener=function(e,t){var n,r,i,o,s;if("function"!=typeof t)throw new TypeError('The "listener" argument must be of type Function. Received type '+typeof t);if(void 0===(r=this._events))return this;if(void 0===(n=r[e]))return this;if(n===t||n.listener===t)0==--this._eventsCount?this._events=Object.create(null):(delete r[e],r.removeListener&&this.emit("removeListener",e,n.listener||t));else if("function"!=typeof n){for(i=-1,o=n.length-1;o>=0;o--)if(n[o]===t||n[o].listener===t){s=n[o].listener,i=o;break}if(i<0)return this;0===i?n.shift():l(n,i),1===n.length&&(r[e]=n[0]),void 0!==r.removeListener&&this.emit("removeListener",e,s||t)}return this},o.prototype.off=o.prototype.removeListener,o.prototype.removeAllListeners=function(e){var t,n,r;if(void 0===(n=this._events))return this;if(void 0===n.removeListener)return 0===arguments.length?(this._events=Object.create(null),this._eventsCount=0):void 0!==n[e]&&(0==--this._eventsCount?this._events=Object.create(null):delete n[e]),this;if(0===arguments.length){var i,o=Object.keys(n);for(r=0;r<o.length;++r)"removeListener"!==(i=o[r])&&this.removeAllListeners(i);return this.removeAllListeners("removeListener"),this._events=Object.create(null),this._eventsCount=0,this}if("function"==typeof(t=n[e]))this.removeListener(e,t);else if(void 0!==t)for(r=t.length-1;r>=0;r--)this.removeListener(e,t[r]);return this},o.prototype.listeners=function(e){return h(this,e,!0)},o.prototype.rawListeners=function(e){return h(this,e,!1)},o.listenerCount=function(e,t){return"function"==typeof e.listenerCount?e.listenerCount(t):a.call(e,t)},o.prototype.listenerCount=a,o.prototype.eventNames=function(){return this._eventsCount>0?e(this._events):[]};
-},{}],"704E":[function(require,module,exports) {
-"use strict";module.exports=r;var e=require("inherits"),t=require("events").EventEmitter;function r(){}e(r,t),r.prototype.stop=function(){this._stopped=!0,this._clean()},r.prototype._end=function(){this.emit("end"),this._clean()},r.prototype._error=function(e){this.emit("error",e),this._clean()},r.prototype._result=function(e){this.emit("result",e)},r.prototype._clean=function(){this.removeAllListeners("stop"),this.removeAllListeners("end"),this.removeAllListeners("error"),this.removeAllListeners("result")};
-},{"inherits":"4Bm0","events":"Gy9D"}],"4hKF":[function(require,module,exports) {
-var e=require("inherits"),t=require("./IndexCore.js"),o=require("./deprecate.js"),n=require("./deprecatedMessage.js"),r=require("./exitPromise.js"),s=require("./errors"),i=o(function(){},n("forwardToSlaves","forwardToReplicas"));function a(){t.apply(this,arguments)}function d(e,t,o){return function o(n,r){var s={page:n||0,hitsPerPage:t||100},i=r||[];return e(s).then(function(e){var t=e.hits,n=e.nbHits,r=t.map(function(e){return delete e._highlightResult,e}),a=i.concat(r);return a.length<n?o(s.page+1,a):a})}().then(function(e){if("function"!=typeof o)return e;o(e)})}module.exports=a,e(a,t),a.prototype.addObject=function(e,t,o){return 1!==arguments.length&&"function"!=typeof t||(o=t,t=void 0),this.as._jsonRequest({method:void 0!==t?"PUT":"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+(void 0!==t?"/"+encodeURIComponent(t):""),body:e,hostType:"write",callback:o})},a.prototype.addObjects=function(e,t){if(!require("isarray")(e))throw new Error("Usage: index.addObjects(arrayOfObjects[, callback])");for(var o={requests:[]},n=0;n<e.length;++n){var r={action:"addObject",body:e[n]};o.requests.push(r)}return this.as._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/batch",body:o,hostType:"write",callback:t})},a.prototype.partialUpdateObject=function(e,t,o){1!==arguments.length&&"function"!=typeof t||(o=t,t=void 0);var n="/1/indexes/"+encodeURIComponent(this.indexName)+"/"+encodeURIComponent(e.objectID)+"/partial";return!1===t&&(n+="?createIfNotExists=false"),this.as._jsonRequest({method:"POST",url:n,body:e,hostType:"write",callback:o})},a.prototype.partialUpdateObjects=function(e,t,o){1!==arguments.length&&"function"!=typeof t||(o=t,t=!0);if(!require("isarray")(e))throw new Error("Usage: index.partialUpdateObjects(arrayOfObjects[, callback])");for(var n={requests:[]},r=0;r<e.length;++r){var s={action:!0===t?"partialUpdateObject":"partialUpdateObjectNoCreate",objectID:e[r].objectID,body:e[r]};n.requests.push(s)}return this.as._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/batch",body:n,hostType:"write",callback:o})},a.prototype.saveObject=function(e,t){return this.as._jsonRequest({method:"PUT",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/"+encodeURIComponent(e.objectID),body:e,hostType:"write",callback:t})},a.prototype.saveObjects=function(e,t){if(!require("isarray")(e))throw new Error("Usage: index.saveObjects(arrayOfObjects[, callback])");for(var o={requests:[]},n=0;n<e.length;++n){var r={action:"updateObject",objectID:e[n].objectID,body:e[n]};o.requests.push(r)}return this.as._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/batch",body:o,hostType:"write",callback:t})},a.prototype.deleteObject=function(e,t){if("function"==typeof e||"string"!=typeof e&&"number"!=typeof e){var o=new s.AlgoliaSearchError(e&&"function"!=typeof e?"ObjectID must be a string":"Cannot delete an object without an objectID");return"function"==typeof(t=e)?t(o):this.as._promise.reject(o)}return this.as._jsonRequest({method:"DELETE",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/"+encodeURIComponent(e),hostType:"write",callback:t})},a.prototype.deleteObjects=function(e,t){var o=require("isarray"),n=require("./map.js");if(!o(e))throw new Error("Usage: index.deleteObjects(arrayOfObjectIDs[, callback])");var r={requests:n(e,function(e){return{action:"deleteObject",objectID:e,body:{objectID:e}}})};return this.as._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/batch",body:r,hostType:"write",callback:t})},a.prototype.deleteByQuery=o(function(e,t,o){var n=require("./clone.js"),s=require("./map.js"),i=this,a=i.as;1===arguments.length||"function"==typeof t?(o=t,t={}):t=n(t),t.attributesToRetrieve="objectID",t.hitsPerPage=1e3,t.distinct=!1,this.clearCache();var d=this.search(e,t).then(function(e){if(0===e.nbHits)return e;var t=s(e.hits,function(e){return e.objectID});return i.deleteObjects(t).then(c).then(u)});function c(e){return i.waitTask(e.taskID)}function u(){return i.deleteByQuery(e,t)}if(!o)return d;d.then(function(){r(function(){o(null)},a._setTimeout||setTimeout)},function(e){r(function(){o(e)},a._setTimeout||setTimeout)})},n("index.deleteByQuery()","index.deleteBy()")),a.prototype.deleteBy=function(e,t){return this.as._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/deleteByQuery",body:{params:this.as._getSearchParams(e,"")},hostType:"write",callback:t})},a.prototype.browseAll=function(e,t){"object"==typeof e&&(t=e,e=void 0);var o=require("./merge.js"),n=new(require("./IndexBrowser")),r=this.as,s=this,i=r._getSearchParams(o({},t||{},{query:e}),"");function a(e){var t;n._stopped||(t=void 0!==e?{cursor:e}:{params:i},r._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(s.indexName)+"/browse",hostType:"read",body:t,callback:d}))}function d(e,t){n._stopped||(e?n._error(e):(n._result(t),void 0!==t.cursor?a(t.cursor):n._end()))}return a(),n},a.prototype.ttAdapter=o(function(e){var t=this;return function(o,n,r){var s;s="function"==typeof r?r:n,t.search(o,e,function(e,t){s(e||t.hits)})}},"ttAdapter is not necessary anymore and will be removed in the next version,\nhave a look at autocomplete.js (https://github.com/algolia/autocomplete.js)"),a.prototype.waitTask=function(e,t){var o=100,n=5e3,s=0,i=this,a=i.as,d=function t(){return a._jsonRequest({method:"GET",hostType:"read",url:"/1/indexes/"+encodeURIComponent(i.indexName)+"/task/"+e}).then(function(e){var r=o*++s*s;return r>n&&(r=n),"published"!==e.status?a._promise.delay(r).then(t):e})}();if(!t)return d;d.then(function(e){r(function(){t(null,e)},a._setTimeout||setTimeout)},function(e){r(function(){t(e)},a._setTimeout||setTimeout)})},a.prototype.clearIndex=function(e){return this.as._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/clear",hostType:"write",callback:e})},a.prototype.getSettings=function(e,t){1===arguments.length&&"function"==typeof e&&(t=e,e={}),e=e||{};var o=encodeURIComponent(this.indexName);return this.as._jsonRequest({method:"GET",url:"/1/indexes/"+o+"/settings?getVersion=2"+(e.advanced?"&advanced="+e.advanced:""),hostType:"read",callback:t})},a.prototype.searchSynonyms=function(e,t){return"function"==typeof e?(t=e,e={}):void 0===e&&(e={}),this.as._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/synonyms/search",body:e,hostType:"read",callback:t})},a.prototype.exportSynonyms=function(e,t){return d(this.searchSynonyms.bind(this),e,t)},a.prototype.saveSynonym=function(e,t,o){"function"==typeof t?(o=t,t={}):void 0===t&&(t={}),void 0!==t.forwardToSlaves&&i();var n=t.forwardToSlaves||t.forwardToReplicas?"true":"false";return this.as._jsonRequest({method:"PUT",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/synonyms/"+encodeURIComponent(e.objectID)+"?forwardToReplicas="+n,body:e,hostType:"write",callback:o})},a.prototype.getSynonym=function(e,t){return this.as._jsonRequest({method:"GET",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/synonyms/"+encodeURIComponent(e),hostType:"read",callback:t})},a.prototype.deleteSynonym=function(e,t,o){"function"==typeof t?(o=t,t={}):void 0===t&&(t={}),void 0!==t.forwardToSlaves&&i();var n=t.forwardToSlaves||t.forwardToReplicas?"true":"false";return this.as._jsonRequest({method:"DELETE",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/synonyms/"+encodeURIComponent(e)+"?forwardToReplicas="+n,hostType:"write",callback:o})},a.prototype.clearSynonyms=function(e,t){"function"==typeof e?(t=e,e={}):void 0===e&&(e={}),void 0!==e.forwardToSlaves&&i();var o=e.forwardToSlaves||e.forwardToReplicas?"true":"false";return this.as._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/synonyms/clear?forwardToReplicas="+o,hostType:"write",callback:t})},a.prototype.batchSynonyms=function(e,t,o){"function"==typeof t?(o=t,t={}):void 0===t&&(t={}),void 0!==t.forwardToSlaves&&i();var n=t.forwardToSlaves||t.forwardToReplicas?"true":"false";return this.as._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/synonyms/batch?forwardToReplicas="+n+"&replaceExistingSynonyms="+(t.replaceExistingSynonyms?"true":"false"),hostType:"write",body:e,callback:o})},a.prototype.searchRules=function(e,t){return"function"==typeof e?(t=e,e={}):void 0===e&&(e={}),this.as._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/rules/search",body:e,hostType:"read",callback:t})},a.prototype.exportRules=function(e,t){return d(this.searchRules.bind(this),e,t)},a.prototype.saveRule=function(e,t,o){if("function"==typeof t?(o=t,t={}):void 0===t&&(t={}),!e.objectID)throw new s.AlgoliaSearchError("Missing or empty objectID field for rule");var n=!0===t.forwardToReplicas?"true":"false";return this.as._jsonRequest({method:"PUT",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/rules/"+encodeURIComponent(e.objectID)+"?forwardToReplicas="+n,body:e,hostType:"write",callback:o})},a.prototype.getRule=function(e,t){return this.as._jsonRequest({method:"GET",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/rules/"+encodeURIComponent(e),hostType:"read",callback:t})},a.prototype.deleteRule=function(e,t,o){"function"==typeof t?(o=t,t={}):void 0===t&&(t={});var n=!0===t.forwardToReplicas?"true":"false";return this.as._jsonRequest({method:"DELETE",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/rules/"+encodeURIComponent(e)+"?forwardToReplicas="+n,hostType:"write",callback:o})},a.prototype.clearRules=function(e,t){"function"==typeof e?(t=e,e={}):void 0===e&&(e={});var o=!0===e.forwardToReplicas?"true":"false";return this.as._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/rules/clear?forwardToReplicas="+o,hostType:"write",callback:t})},a.prototype.batchRules=function(e,t,o){"function"==typeof t?(o=t,t={}):void 0===t&&(t={});var n=!0===t.forwardToReplicas?"true":"false";return this.as._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/rules/batch?forwardToReplicas="+n+"&clearExistingRules="+(!0===t.clearExistingRules?"true":"false"),hostType:"write",body:e,callback:o})},a.prototype.setSettings=function(e,t,o){1!==arguments.length&&"function"!=typeof t||(o=t,t={}),void 0!==t.forwardToSlaves&&i();var n=t.forwardToSlaves||t.forwardToReplicas?"true":"false";return this.as._jsonRequest({method:"PUT",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/settings?forwardToReplicas="+n,hostType:"write",body:e,callback:o})},a.prototype.listUserKeys=o(function(e){return this.listApiKeys(e)},n("index.listUserKeys()","client.listApiKeys()")),a.prototype.listApiKeys=o(function(e){return this.as._jsonRequest({method:"GET",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/keys",hostType:"read",callback:e})},n("index.listApiKeys()","client.listApiKeys()")),a.prototype.getUserKeyACL=o(function(e,t){return this.getApiKey(e,t)},n("index.getUserKeyACL()","client.getApiKey()")),a.prototype.getApiKey=o(function(e,t){return this.as._jsonRequest({method:"GET",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/keys/"+e,hostType:"read",callback:t})},n("index.getApiKey()","client.getApiKey()")),a.prototype.deleteUserKey=o(function(e,t){return this.deleteApiKey(e,t)},n("index.deleteUserKey()","client.deleteApiKey()")),a.prototype.deleteApiKey=o(function(e,t){return this.as._jsonRequest({method:"DELETE",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/keys/"+e,hostType:"write",callback:t})},n("index.deleteApiKey()","client.deleteApiKey()")),a.prototype.addUserKey=o(function(e,t,o){return this.addApiKey(e,t,o)},n("index.addUserKey()","client.addApiKey()")),a.prototype.addApiKey=o(function(e,t,o){if(!require("isarray")(e))throw new Error("Usage: index.addApiKey(arrayOfAcls[, params, callback])");1!==arguments.length&&"function"!=typeof t||(o=t,t=null);var n={acl:e};return t&&(n.validity=t.validity,n.maxQueriesPerIPPerHour=t.maxQueriesPerIPPerHour,n.maxHitsPerQuery=t.maxHitsPerQuery,n.description=t.description,t.queryParameters&&(n.queryParameters=this.as._getSearchParams(t.queryParameters,"")),n.referers=t.referers),this.as._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/keys",body:n,hostType:"write",callback:o})},n("index.addApiKey()","client.addApiKey()")),a.prototype.addUserKeyWithValidity=o(function(e,t,o){return this.addApiKey(e,t,o)},n("index.addUserKeyWithValidity()","client.addApiKey()")),a.prototype.updateUserKey=o(function(e,t,o,n){return this.updateApiKey(e,t,o,n)},n("index.updateUserKey()","client.updateApiKey()")),a.prototype.updateApiKey=o(function(e,t,o,n){if(!require("isarray")(t))throw new Error("Usage: index.updateApiKey(key, arrayOfAcls[, params, callback])");2!==arguments.length&&"function"!=typeof o||(n=o,o=null);var r={acl:t};return o&&(r.validity=o.validity,r.maxQueriesPerIPPerHour=o.maxQueriesPerIPPerHour,r.maxHitsPerQuery=o.maxHitsPerQuery,r.description=o.description,o.queryParameters&&(r.queryParameters=this.as._getSearchParams(o.queryParameters,"")),r.referers=o.referers),this.as._jsonRequest({method:"PUT",url:"/1/indexes/"+encodeURIComponent(this.indexName)+"/keys/"+e,body:r,hostType:"write",callback:n})},n("index.updateApiKey()","client.updateApiKey()"));
-},{"inherits":"4Bm0","./IndexCore.js":"ig01","./deprecate.js":"F888","./deprecatedMessage.js":"8OXg","./exitPromise.js":"nb0e","./errors":"QKhG","isarray":"REa7","./map.js":"BDy2","./clone.js":"S7SM","./merge.js":"MuiK","./IndexBrowser":"704E"}],"6IAg":[function(require,module,exports) {
-var s=1e3,e=60*s,r=60*e,a=24*r,n=365.25*a;function c(c){if(!((c=String(c)).length>100)){var t=/^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(c);if(t){var i=parseFloat(t[1]);switch((t[2]||"ms").toLowerCase()){case"years":case"year":case"yrs":case"yr":case"y":return i*n;case"days":case"day":case"d":return i*a;case"hours":case"hour":case"hrs":case"hr":case"h":return i*r;case"minutes":case"minute":case"mins":case"min":case"m":return i*e;case"seconds":case"second":case"secs":case"sec":case"s":return i*s;case"milliseconds":case"millisecond":case"msecs":case"msec":case"ms":return i;default:return}}}}function t(n){return n>=a?Math.round(n/a)+"d":n>=r?Math.round(n/r)+"h":n>=e?Math.round(n/e)+"m":n>=s?Math.round(n/s)+"s":n+"ms"}function i(n){return o(n,a,"day")||o(n,r,"hour")||o(n,e,"minute")||o(n,s,"second")||n+" ms"}function o(s,e,r){if(!(s<e))return s<1.5*e?Math.floor(s/e)+" "+r:Math.ceil(s/e)+" "+r+"s"}module.exports=function(s,e){e=e||{};var r=typeof s;if("string"===r&&s.length>0)return c(s);if("number"===r&&!1===isNaN(s))return e.long?i(s):t(s);throw new Error("val is not a non-empty string or a valid number. val="+JSON.stringify(s))};
-},{}],"y5CM":[function(require,module,exports) {
-var e;function r(e){var r,t=0;for(r in e)t=(t<<5)-t+e.charCodeAt(r),t|=0;return exports.colors[Math.abs(t)%exports.colors.length]}function t(t){function s(){if(s.enabled){var r=s,t=+new Date,o=t-(e||t);r.diff=o,r.prev=e,r.curr=t,e=t;for(var n=new Array(arguments.length),p=0;p<n.length;p++)n[p]=arguments[p];n[0]=exports.coerce(n[0]),"string"!=typeof n[0]&&n.unshift("%O");var a=0;n[0]=n[0].replace(/%([a-zA-Z%])/g,function(e,t){if("%%"===e)return e;a++;var s=exports.formatters[t];if("function"==typeof s){var o=n[a];e=s.call(r,o),n.splice(a,1),a--}return e}),exports.formatArgs.call(r,n),(s.log||exports.log||console.log.bind(console)).apply(r,n)}}return s.namespace=t,s.enabled=exports.enabled(t),s.useColors=exports.useColors(),s.color=r(t),"function"==typeof exports.init&&exports.init(s),s}function s(e){exports.save(e),exports.names=[],exports.skips=[];for(var r=("string"==typeof e?e:"").split(/[\s,]+/),t=r.length,s=0;s<t;s++)r[s]&&("-"===(e=r[s].replace(/\*/g,".*?"))[0]?exports.skips.push(new RegExp("^"+e.substr(1)+"$")):exports.names.push(new RegExp("^"+e+"$")))}function o(){exports.enable("")}function n(e){var r,t;for(r=0,t=exports.skips.length;r<t;r++)if(exports.skips[r].test(e))return!1;for(r=0,t=exports.names.length;r<t;r++)if(exports.names[r].test(e))return!0;return!1}function p(e){return e instanceof Error?e.stack||e.message:e}exports=module.exports=t.debug=t.default=t,exports.coerce=p,exports.disable=o,exports.enable=s,exports.enabled=n,exports.humanize=require("ms"),exports.names=[],exports.skips=[],exports.formatters={};
-},{"ms":"6IAg"}],"DHOa":[function(require,module,exports) {
+// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+parcelRequire = (function (modules, cache, entry, globalName) {
+  // Save the require from previous bundle to this closure if any
+  var previousRequire = typeof parcelRequire === 'function' && parcelRequire;
+  var nodeRequire = typeof require === 'function' && require;
 
-var t,e,n=module.exports={};function r(){throw new Error("setTimeout has not been defined")}function o(){throw new Error("clearTimeout has not been defined")}function i(e){if(t===setTimeout)return setTimeout(e,0);if((t===r||!t)&&setTimeout)return t=setTimeout,setTimeout(e,0);try{return t(e,0)}catch(n){try{return t.call(null,e,0)}catch(n){return t.call(this,e,0)}}}function u(t){if(e===clearTimeout)return clearTimeout(t);if((e===o||!e)&&clearTimeout)return e=clearTimeout,clearTimeout(t);try{return e(t)}catch(n){try{return e.call(null,t)}catch(n){return e.call(this,t)}}}!function(){try{t="function"==typeof setTimeout?setTimeout:r}catch(n){t=r}try{e="function"==typeof clearTimeout?clearTimeout:o}catch(n){e=o}}();var c,s=[],l=!1,a=-1;function f(){l&&c&&(l=!1,c.length?s=c.concat(s):a=-1,s.length&&h())}function h(){if(!l){var t=i(f);l=!0;for(var e=s.length;e;){for(c=s,s=[];++a<e;)c&&c[a].run();a=-1,e=s.length}c=null,l=!1,u(t)}}function m(t,e){this.fun=t,this.array=e}function p(){}n.nextTick=function(t){var e=new Array(arguments.length-1);if(arguments.length>1)for(var n=1;n<arguments.length;n++)e[n-1]=arguments[n];s.push(new m(t,e)),1!==s.length||l||i(h)},m.prototype.run=function(){this.fun.apply(null,this.array)},n.title="browser",n.env={},n.argv=[],n.version="",n.versions={},n.on=p,n.addListener=p,n.once=p,n.off=p,n.removeListener=p,n.removeAllListeners=p,n.emit=p,n.prependListener=p,n.prependOnceListener=p,n.listeners=function(t){return[]},n.binding=function(t){throw new Error("process.binding is not supported")},n.cwd=function(){return"/"},n.chdir=function(t){throw new Error("process.chdir is not supported")},n.umask=function(){return 0};
-},{}],"jcLW":[function(require,module,exports) {
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire = typeof parcelRequire === 'function' && parcelRequire;
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error('Cannot find module \'' + name + '\'');
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = cache[name] = new newRequire.Module(name);
+
+      modules[name][0].call(module.exports, localRequire, module, module.exports, this);
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x){
+      return newRequire(localRequire.resolve(x));
+    }
+
+    function resolve(x){
+      return modules[name][1][x] || x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function (id, exports) {
+    modules[id] = [function (require, module) {
+      module.exports = exports;
+    }, {}];
+  };
+
+  var error;
+  for (var i = 0; i < entry.length; i++) {
+    try {
+      newRequire(entry[i]);
+    } catch (e) {
+      // Save first error but execute all entries
+      if (!error) {
+        error = e;
+      }
+    }
+  }
+
+  if (entry.length) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(entry[entry.length - 1]);
+
+    // CommonJS
+    if (typeof exports === "object" && typeof module !== "undefined") {
+      module.exports = mainExports;
+
+    // RequireJS
+    } else if (typeof define === "function" && define.amd) {
+     define(function () {
+       return mainExports;
+     });
+
+    // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+
+  // Override the current require with this new one
+  parcelRequire = newRequire;
+
+  if (error) {
+    // throw error from earlier, _after updating parcelRequire_
+    throw error;
+  }
+
+  return newRequire;
+})({"../node_modules/inherits/inherits_browser.js":[function(require,module,exports) {
+if (typeof Object.create === 'function') {
+  // implementation from standard node.js 'util' module
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    ctor.prototype = Object.create(superCtor.prototype, {
+      constructor: {
+        value: ctor,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+  };
+} else {
+  // old school shim for old browsers
+  module.exports = function inherits(ctor, superCtor) {
+    ctor.super_ = superCtor
+    var TempCtor = function () {}
+    TempCtor.prototype = superCtor.prototype
+    ctor.prototype = new TempCtor()
+    ctor.prototype.constructor = ctor
+  }
+}
+
+},{}],"../node_modules/foreach/index.js":[function(require,module,exports) {
+
+var hasOwn = Object.prototype.hasOwnProperty;
+var toString = Object.prototype.toString;
+
+module.exports = function forEach (obj, fn, ctx) {
+    if (toString.call(fn) !== '[object Function]') {
+        throw new TypeError('iterator must be a function');
+    }
+    var l = obj.length;
+    if (l === +l) {
+        for (var i = 0; i < l; i++) {
+            fn.call(ctx, obj[i], i, obj);
+        }
+    } else {
+        for (var k in obj) {
+            if (hasOwn.call(obj, k)) {
+                fn.call(ctx, obj[k], k, obj);
+            }
+        }
+    }
+};
+
+
+},{}],"../node_modules/algoliasearch/src/errors.js":[function(require,module,exports) {
+'use strict'; // This file hosts our error definitions
+// We use custom error "types" so that we can act on them when we need it
+// e.g.: if error instanceof errors.UnparsableJSON then..
+
+var inherits = require('inherits');
+
+function AlgoliaSearchError(message, extraProperties) {
+  var forEach = require('foreach');
+
+  var error = this; // try to get a stacktrace
+
+  if (typeof Error.captureStackTrace === 'function') {
+    Error.captureStackTrace(this, this.constructor);
+  } else {
+    error.stack = new Error().stack || 'Cannot get a stacktrace, browser is too old';
+  }
+
+  this.name = 'AlgoliaSearchError';
+  this.message = message || 'Unknown error';
+
+  if (extraProperties) {
+    forEach(extraProperties, function addToErrorObject(value, key) {
+      error[key] = value;
+    });
+  }
+}
+
+inherits(AlgoliaSearchError, Error);
+
+function createCustomError(name, message) {
+  function AlgoliaSearchCustomError() {
+    var args = Array.prototype.slice.call(arguments, 0); // custom message not set, use default
+
+    if (typeof args[0] !== 'string') {
+      args.unshift(message);
+    }
+
+    AlgoliaSearchError.apply(this, args);
+    this.name = 'AlgoliaSearch' + name + 'Error';
+  }
+
+  inherits(AlgoliaSearchCustomError, AlgoliaSearchError);
+  return AlgoliaSearchCustomError;
+} // late exports to let various fn defs and inherits take place
+
+
+module.exports = {
+  AlgoliaSearchError: AlgoliaSearchError,
+  UnparsableJSON: createCustomError('UnparsableJSON', 'Could not parse the incoming response as JSON, see err.more for details'),
+  RequestTimeout: createCustomError('RequestTimeout', 'Request timed out before getting a response'),
+  Network: createCustomError('Network', 'Network issue, see err.more for details'),
+  JSONPScriptFail: createCustomError('JSONPScriptFail', '<script> was loaded but did not call our provided callback'),
+  JSONPScriptError: createCustomError('JSONPScriptError', '<script> unable to load due to an `error` event on it'),
+  Unknown: createCustomError('Unknown', 'Unknown error occured')
+};
+},{"inherits":"../node_modules/inherits/inherits_browser.js","foreach":"../node_modules/foreach/index.js"}],"../node_modules/algoliasearch/src/buildSearchMethod.js":[function(require,module,exports) {
+module.exports = buildSearchMethod;
+
+var errors = require('./errors.js');
+/**
+ * Creates a search method to be used in clients
+ * @param {string} queryParam the name of the attribute used for the query
+ * @param {string} url the url
+ * @return {function} the search method
+ */
+
+
+function buildSearchMethod(queryParam, url) {
+  /**
+   * The search method. Prepares the data and send the query to Algolia.
+   * @param {string} query the string used for query search
+   * @param {object} args additional parameters to send with the search
+   * @param {function} [callback] the callback to be called with the client gets the answer
+   * @return {undefined|Promise} If the callback is not provided then this methods returns a Promise
+   */
+  return function search(query, args, callback) {
+    // warn V2 users on how to search
+    if (typeof query === 'function' && typeof args === 'object' || typeof callback === 'object') {
+      // .search(query, params, cb)
+      // .search(cb, params)
+      throw new errors.AlgoliaSearchError('index.search usage is index.search(query, params, cb)');
+    } // Normalizing the function signature
+
+
+    if (arguments.length === 0 || typeof query === 'function') {
+      // Usage : .search(), .search(cb)
+      callback = query;
+      query = '';
+    } else if (arguments.length === 1 || typeof args === 'function') {
+      // Usage : .search(query/args), .search(query, cb)
+      callback = args;
+      args = undefined;
+    } // At this point we have 3 arguments with values
+    // Usage : .search(args) // careful: typeof null === 'object'
+
+
+    if (typeof query === 'object' && query !== null) {
+      args = query;
+      query = undefined;
+    } else if (query === undefined || query === null) {
+      // .search(undefined/null)
+      query = '';
+    }
+
+    var params = '';
+
+    if (query !== undefined) {
+      params += queryParam + '=' + encodeURIComponent(query);
+    }
+
+    var additionalUA;
+
+    if (args !== undefined) {
+      if (args.additionalUA) {
+        additionalUA = args.additionalUA;
+        delete args.additionalUA;
+      } // `_getSearchParams` will augment params, do not be fooled by the = versus += from previous if
+
+
+      params = this.as._getSearchParams(args, params);
+    }
+
+    return this._search(params, url, callback, additionalUA);
+  };
+}
+},{"./errors.js":"../node_modules/algoliasearch/src/errors.js"}],"../node_modules/algoliasearch/src/deprecate.js":[function(require,module,exports) {
+module.exports = function deprecate(fn, message) {
+  var warned = false;
+
+  function deprecated() {
+    if (!warned) {
+      /* eslint no-console:0 */
+      console.warn(message);
+      warned = true;
+    }
+
+    return fn.apply(this, arguments);
+  }
+
+  return deprecated;
+};
+},{}],"../node_modules/algoliasearch/src/deprecatedMessage.js":[function(require,module,exports) {
+module.exports = function deprecatedMessage(previousUsage, newUsage) {
+  var githubAnchorLink = previousUsage.toLowerCase().replace(/[\.\(\)]/g, '');
+  return 'algoliasearch: `' + previousUsage + '` was replaced by `' + newUsage + '`. Please see https://github.com/algolia/algoliasearch-client-javascript/wiki/Deprecated#' + githubAnchorLink;
+};
+},{}],"../node_modules/algoliasearch/src/merge.js":[function(require,module,exports) {
+var foreach = require('foreach');
+
+module.exports = function merge(destination
+/* , sources */
+) {
+  var sources = Array.prototype.slice.call(arguments);
+  foreach(sources, function (source) {
+    for (var keyName in source) {
+      if (source.hasOwnProperty(keyName)) {
+        if (typeof destination[keyName] === 'object' && typeof source[keyName] === 'object') {
+          destination[keyName] = merge({}, destination[keyName], source[keyName]);
+        } else if (source[keyName] !== undefined) {
+          destination[keyName] = source[keyName];
+        }
+      }
+    }
+  });
+  return destination;
+};
+},{"foreach":"../node_modules/foreach/index.js"}],"../node_modules/algoliasearch/src/clone.js":[function(require,module,exports) {
+module.exports = function clone(obj) {
+  return JSON.parse(JSON.stringify(obj));
+};
+},{}],"../node_modules/object-keys/isArguments.js":[function(require,module,exports) {
+'use strict';
+
+var toStr = Object.prototype.toString;
+
+module.exports = function isArguments(value) {
+  var str = toStr.call(value);
+  var isArgs = str === '[object Arguments]';
+
+  if (!isArgs) {
+    isArgs = str !== '[object Array]' && value !== null && typeof value === 'object' && typeof value.length === 'number' && value.length >= 0 && toStr.call(value.callee) === '[object Function]';
+  }
+
+  return isArgs;
+};
+},{}],"../node_modules/object-keys/implementation.js":[function(require,module,exports) {
+'use strict';
+
+var keysShim;
+
+if (!Object.keys) {
+  // modified from https://github.com/es-shims/es5-shim
+  var has = Object.prototype.hasOwnProperty;
+  var toStr = Object.prototype.toString;
+
+  var isArgs = require('./isArguments'); // eslint-disable-line global-require
+
+
+  var isEnumerable = Object.prototype.propertyIsEnumerable;
+  var hasDontEnumBug = !isEnumerable.call({
+    toString: null
+  }, 'toString');
+  var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
+  var dontEnums = ['toString', 'toLocaleString', 'valueOf', 'hasOwnProperty', 'isPrototypeOf', 'propertyIsEnumerable', 'constructor'];
+
+  var equalsConstructorPrototype = function (o) {
+    var ctor = o.constructor;
+    return ctor && ctor.prototype === o;
+  };
+
+  var excludedKeys = {
+    $applicationCache: true,
+    $console: true,
+    $external: true,
+    $frame: true,
+    $frameElement: true,
+    $frames: true,
+    $innerHeight: true,
+    $innerWidth: true,
+    $onmozfullscreenchange: true,
+    $onmozfullscreenerror: true,
+    $outerHeight: true,
+    $outerWidth: true,
+    $pageXOffset: true,
+    $pageYOffset: true,
+    $parent: true,
+    $scrollLeft: true,
+    $scrollTop: true,
+    $scrollX: true,
+    $scrollY: true,
+    $self: true,
+    $webkitIndexedDB: true,
+    $webkitStorageInfo: true,
+    $window: true
+  };
+
+  var hasAutomationEqualityBug = function () {
+    /* global window */
+    if (typeof window === 'undefined') {
+      return false;
+    }
+
+    for (var k in window) {
+      try {
+        if (!excludedKeys['$' + k] && has.call(window, k) && window[k] !== null && typeof window[k] === 'object') {
+          try {
+            equalsConstructorPrototype(window[k]);
+          } catch (e) {
+            return true;
+          }
+        }
+      } catch (e) {
+        return true;
+      }
+    }
+
+    return false;
+  }();
+
+  var equalsConstructorPrototypeIfNotBuggy = function (o) {
+    /* global window */
+    if (typeof window === 'undefined' || !hasAutomationEqualityBug) {
+      return equalsConstructorPrototype(o);
+    }
+
+    try {
+      return equalsConstructorPrototype(o);
+    } catch (e) {
+      return false;
+    }
+  };
+
+  keysShim = function keys(object) {
+    var isObject = object !== null && typeof object === 'object';
+    var isFunction = toStr.call(object) === '[object Function]';
+    var isArguments = isArgs(object);
+    var isString = isObject && toStr.call(object) === '[object String]';
+    var theKeys = [];
+
+    if (!isObject && !isFunction && !isArguments) {
+      throw new TypeError('Object.keys called on a non-object');
+    }
+
+    var skipProto = hasProtoEnumBug && isFunction;
+
+    if (isString && object.length > 0 && !has.call(object, 0)) {
+      for (var i = 0; i < object.length; ++i) {
+        theKeys.push(String(i));
+      }
+    }
+
+    if (isArguments && object.length > 0) {
+      for (var j = 0; j < object.length; ++j) {
+        theKeys.push(String(j));
+      }
+    } else {
+      for (var name in object) {
+        if (!(skipProto && name === 'prototype') && has.call(object, name)) {
+          theKeys.push(String(name));
+        }
+      }
+    }
+
+    if (hasDontEnumBug) {
+      var skipConstructor = equalsConstructorPrototypeIfNotBuggy(object);
+
+      for (var k = 0; k < dontEnums.length; ++k) {
+        if (!(skipConstructor && dontEnums[k] === 'constructor') && has.call(object, dontEnums[k])) {
+          theKeys.push(dontEnums[k]);
+        }
+      }
+    }
+
+    return theKeys;
+  };
+}
+
+module.exports = keysShim;
+},{"./isArguments":"../node_modules/object-keys/isArguments.js"}],"../node_modules/object-keys/index.js":[function(require,module,exports) {
+'use strict';
+
+var slice = Array.prototype.slice;
+
+var isArgs = require('./isArguments');
+
+var origKeys = Object.keys;
+var keysShim = origKeys ? function keys(o) {
+  return origKeys(o);
+} : require('./implementation');
+var originalKeys = Object.keys;
+
+keysShim.shim = function shimObjectKeys() {
+  if (Object.keys) {
+    var keysWorksWithArguments = function () {
+      // Safari 5.0 bug
+      var args = Object.keys(arguments);
+      return args && args.length === arguments.length;
+    }(1, 2);
+
+    if (!keysWorksWithArguments) {
+      Object.keys = function keys(object) {
+        // eslint-disable-line func-name-matching
+        if (isArgs(object)) {
+          return originalKeys(slice.call(object));
+        }
+
+        return originalKeys(object);
+      };
+    }
+  } else {
+    Object.keys = keysShim;
+  }
+
+  return Object.keys || keysShim;
+};
+
+module.exports = keysShim;
+},{"./isArguments":"../node_modules/object-keys/isArguments.js","./implementation":"../node_modules/object-keys/implementation.js"}],"../node_modules/algoliasearch/src/omit.js":[function(require,module,exports) {
+module.exports = function omit(obj, test) {
+  var keys = require('object-keys');
+
+  var foreach = require('foreach');
+
+  var filtered = {};
+  foreach(keys(obj), function doFilter(keyName) {
+    if (test(keyName) !== true) {
+      filtered[keyName] = obj[keyName];
+    }
+  });
+  return filtered;
+};
+},{"object-keys":"../node_modules/object-keys/index.js","foreach":"../node_modules/foreach/index.js"}],"../node_modules/isarray/index.js":[function(require,module,exports) {
+var toString = {}.toString;
+
+module.exports = Array.isArray || function (arr) {
+  return toString.call(arr) == '[object Array]';
+};
+
+},{}],"../node_modules/algoliasearch/src/map.js":[function(require,module,exports) {
+var foreach = require('foreach');
+
+module.exports = function map(arr, fn) {
+  var newArr = [];
+  foreach(arr, function (item, itemIndex) {
+    newArr.push(fn(item, itemIndex, arr));
+  });
+  return newArr;
+};
+},{"foreach":"../node_modules/foreach/index.js"}],"../node_modules/algoliasearch/src/IndexCore.js":[function(require,module,exports) {
+var buildSearchMethod = require('./buildSearchMethod.js');
+
+var deprecate = require('./deprecate.js');
+
+var deprecatedMessage = require('./deprecatedMessage.js');
+
+module.exports = IndexCore;
+/*
+* Index class constructor.
+* You should not use this method directly but use initIndex() function
+*/
+
+function IndexCore(algoliasearch, indexName) {
+  this.indexName = indexName;
+  this.as = algoliasearch;
+  this.typeAheadArgs = null;
+  this.typeAheadValueOption = null; // make sure every index instance has it's own cache
+
+  this.cache = {};
+}
+/*
+* Clear all queries in cache
+*/
+
+
+IndexCore.prototype.clearCache = function () {
+  this.cache = {};
+};
+/*
+* Search inside the index using XMLHttpRequest request (Using a POST query to
+* minimize number of OPTIONS queries: Cross-Origin Resource Sharing).
+*
+* @param {string} [query] the full text query
+* @param {object} [args] (optional) if set, contains an object with query parameters:
+* - page: (integer) Pagination parameter used to select the page to retrieve.
+*                   Page is zero-based and defaults to 0. Thus,
+*                   to retrieve the 10th page you need to set page=9
+* - hitsPerPage: (integer) Pagination parameter used to select the number of hits per page. Defaults to 20.
+* - attributesToRetrieve: a string that contains the list of object attributes
+* you want to retrieve (let you minimize the answer size).
+*   Attributes are separated with a comma (for example "name,address").
+*   You can also use an array (for example ["name","address"]).
+*   By default, all attributes are retrieved. You can also use '*' to retrieve all
+*   values when an attributesToRetrieve setting is specified for your index.
+* - attributesToHighlight: a string that contains the list of attributes you
+*   want to highlight according to the query.
+*   Attributes are separated by a comma. You can also use an array (for example ["name","address"]).
+*   If an attribute has no match for the query, the raw value is returned.
+*   By default all indexed text attributes are highlighted.
+*   You can use `*` if you want to highlight all textual attributes.
+*   Numerical attributes are not highlighted.
+*   A matchLevel is returned for each highlighted attribute and can contain:
+*      - full: if all the query terms were found in the attribute,
+*      - partial: if only some of the query terms were found,
+*      - none: if none of the query terms were found.
+* - attributesToSnippet: a string that contains the list of attributes to snippet alongside
+* the number of words to return (syntax is `attributeName:nbWords`).
+*    Attributes are separated by a comma (Example: attributesToSnippet=name:10,content:10).
+*    You can also use an array (Example: attributesToSnippet: ['name:10','content:10']).
+*    By default no snippet is computed.
+* - minWordSizefor1Typo: the minimum number of characters in a query word to accept one typo in this word.
+* Defaults to 3.
+* - minWordSizefor2Typos: the minimum number of characters in a query word
+* to accept two typos in this word. Defaults to 7.
+* - getRankingInfo: if set to 1, the result hits will contain ranking
+* information in _rankingInfo attribute.
+* - aroundLatLng: search for entries around a given
+* latitude/longitude (specified as two floats separated by a comma).
+*   For example aroundLatLng=47.316669,5.016670).
+*   You can specify the maximum distance in meters with the aroundRadius parameter (in meters)
+*   and the precision for ranking with aroundPrecision
+*   (for example if you set aroundPrecision=100, two objects that are distant of
+*   less than 100m will be considered as identical for "geo" ranking parameter).
+*   At indexing, you should specify geoloc of an object with the _geoloc attribute
+*   (in the form {"_geoloc":{"lat":48.853409, "lng":2.348800}})
+* - insideBoundingBox: search entries inside a given area defined by the two extreme points
+* of a rectangle (defined by 4 floats: p1Lat,p1Lng,p2Lat,p2Lng).
+*   For example insideBoundingBox=47.3165,4.9665,47.3424,5.0201).
+*   At indexing, you should specify geoloc of an object with the _geoloc attribute
+*   (in the form {"_geoloc":{"lat":48.853409, "lng":2.348800}})
+* - numericFilters: a string that contains the list of numeric filters you want to
+* apply separated by a comma.
+*   The syntax of one filter is `attributeName` followed by `operand` followed by `value`.
+*   Supported operands are `<`, `<=`, `=`, `>` and `>=`.
+*   You can have multiple conditions on one attribute like for example numericFilters=price>100,price<1000.
+*   You can also use an array (for example numericFilters: ["price>100","price<1000"]).
+* - tagFilters: filter the query by a set of tags. You can AND tags by separating them by commas.
+*   To OR tags, you must add parentheses. For example, tags=tag1,(tag2,tag3) means tag1 AND (tag2 OR tag3).
+*   You can also use an array, for example tagFilters: ["tag1",["tag2","tag3"]]
+*   means tag1 AND (tag2 OR tag3).
+*   At indexing, tags should be added in the _tags** attribute
+*   of objects (for example {"_tags":["tag1","tag2"]}).
+* - facetFilters: filter the query by a list of facets.
+*   Facets are separated by commas and each facet is encoded as `attributeName:value`.
+*   For example: `facetFilters=category:Book,author:John%20Doe`.
+*   You can also use an array (for example `["category:Book","author:John%20Doe"]`).
+* - facets: List of object attributes that you want to use for faceting.
+*   Comma separated list: `"category,author"` or array `['category','author']`
+*   Only attributes that have been added in **attributesForFaceting** index setting
+*   can be used in this parameter.
+*   You can also use `*` to perform faceting on all attributes specified in **attributesForFaceting**.
+* - queryType: select how the query words are interpreted, it can be one of the following value:
+*    - prefixAll: all query words are interpreted as prefixes,
+*    - prefixLast: only the last word is interpreted as a prefix (default behavior),
+*    - prefixNone: no query word is interpreted as a prefix. This option is not recommended.
+* - optionalWords: a string that contains the list of words that should
+* be considered as optional when found in the query.
+*   Comma separated and array are accepted.
+* - distinct: If set to 1, enable the distinct feature (disabled by default)
+* if the attributeForDistinct index setting is set.
+*   This feature is similar to the SQL "distinct" keyword: when enabled
+*   in a query with the distinct=1 parameter,
+*   all hits containing a duplicate value for the attributeForDistinct attribute are removed from results.
+*   For example, if the chosen attribute is show_name and several hits have
+*   the same value for show_name, then only the best
+*   one is kept and others are removed.
+* - restrictSearchableAttributes: List of attributes you want to use for
+* textual search (must be a subset of the attributesToIndex index setting)
+* either comma separated or as an array
+* @param {function} [callback] the result callback called with two arguments:
+*  error: null or Error('message'). If false, the content contains the error.
+*  content: the server answer that contains the list of results.
+*/
+
+
+IndexCore.prototype.search = buildSearchMethod('query');
+/*
+* -- BETA --
+* Search a record similar to the query inside the index using XMLHttpRequest request (Using a POST query to
+* minimize number of OPTIONS queries: Cross-Origin Resource Sharing).
+*
+* @param {string} [query] the similar query
+* @param {object} [args] (optional) if set, contains an object with query parameters.
+*   All search parameters are supported (see search function), restrictSearchableAttributes and facetFilters
+*   are the two most useful to restrict the similar results and get more relevant content
+*/
+
+IndexCore.prototype.similarSearch = deprecate(buildSearchMethod('similarQuery'), deprecatedMessage('index.similarSearch(query[, callback])', 'index.search({ similarQuery: query }[, callback])'));
+/*
+* Browse index content. The response content will have a `cursor` property that you can use
+* to browse subsequent pages for this query. Use `index.browseFrom(cursor)` when you want.
+*
+* @param {string} query - The full text query
+* @param {Object} [queryParameters] - Any search query parameter
+* @param {Function} [callback] - The result callback called with two arguments
+*   error: null or Error('message')
+*   content: the server answer with the browse result
+* @return {Promise|undefined} Returns a promise if no callback given
+* @example
+* index.browse('cool songs', {
+*   tagFilters: 'public,comments',
+*   hitsPerPage: 500
+* }, callback);
+* @see {@link https://www.algolia.com/doc/rest_api#Browse|Algolia REST API Documentation}
+*/
+
+IndexCore.prototype.browse = function (query, queryParameters, callback) {
+  var merge = require('./merge.js');
+
+  var indexObj = this;
+  var page;
+  var hitsPerPage; // we check variadic calls that are not the one defined
+  // .browse()/.browse(fn)
+  // => page = 0
+
+  if (arguments.length === 0 || arguments.length === 1 && typeof arguments[0] === 'function') {
+    page = 0;
+    callback = arguments[0];
+    query = undefined;
+  } else if (typeof arguments[0] === 'number') {
+    // .browse(2)/.browse(2, 10)/.browse(2, fn)/.browse(2, 10, fn)
+    page = arguments[0];
+
+    if (typeof arguments[1] === 'number') {
+      hitsPerPage = arguments[1];
+    } else if (typeof arguments[1] === 'function') {
+      callback = arguments[1];
+      hitsPerPage = undefined;
+    }
+
+    query = undefined;
+    queryParameters = undefined;
+  } else if (typeof arguments[0] === 'object') {
+    // .browse(queryParameters)/.browse(queryParameters, cb)
+    if (typeof arguments[1] === 'function') {
+      callback = arguments[1];
+    }
+
+    queryParameters = arguments[0];
+    query = undefined;
+  } else if (typeof arguments[0] === 'string' && typeof arguments[1] === 'function') {
+    // .browse(query, cb)
+    callback = arguments[1];
+    queryParameters = undefined;
+  } // otherwise it's a .browse(query)/.browse(query, queryParameters)/.browse(query, queryParameters, cb)
+  // get search query parameters combining various possible calls
+  // to .browse();
+
+
+  queryParameters = merge({}, queryParameters || {}, {
+    page: page,
+    hitsPerPage: hitsPerPage,
+    query: query
+  });
+
+  var params = this.as._getSearchParams(queryParameters, '');
+
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(indexObj.indexName) + '/browse',
+    body: {
+      params: params
+    },
+    hostType: 'read',
+    callback: callback
+  });
+};
+/*
+* Continue browsing from a previous position (cursor), obtained via a call to `.browse()`.
+*
+* @param {string} query - The full text query
+* @param {Object} [queryParameters] - Any search query parameter
+* @param {Function} [callback] - The result callback called with two arguments
+*   error: null or Error('message')
+*   content: the server answer with the browse result
+* @return {Promise|undefined} Returns a promise if no callback given
+* @example
+* index.browseFrom('14lkfsakl32', callback);
+* @see {@link https://www.algolia.com/doc/rest_api#Browse|Algolia REST API Documentation}
+*/
+
+
+IndexCore.prototype.browseFrom = function (cursor, callback) {
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(this.indexName) + '/browse',
+    body: {
+      cursor: cursor
+    },
+    hostType: 'read',
+    callback: callback
+  });
+};
+/*
+* Search for facet values
+* https://www.algolia.com/doc/rest-api/search#search-for-facet-values
+*
+* @param {string} params.facetName Facet name, name of the attribute to search for values in.
+* Must be declared as a facet
+* @param {string} params.facetQuery Query for the facet search
+* @param {string} [params.*] Any search parameter of Algolia,
+* see https://www.algolia.com/doc/api-client/javascript/search#search-parameters
+* Pagination is not supported. The page and hitsPerPage parameters will be ignored.
+* @param callback (optional)
+*/
+
+
+IndexCore.prototype.searchForFacetValues = function (params, callback) {
+  var clone = require('./clone.js');
+
+  var omit = require('./omit.js');
+
+  var usage = 'Usage: index.searchForFacetValues({facetName, facetQuery, ...params}[, callback])';
+
+  if (params.facetName === undefined || params.facetQuery === undefined) {
+    throw new Error(usage);
+  }
+
+  var facetName = params.facetName;
+  var filteredParams = omit(clone(params), function (keyName) {
+    return keyName === 'facetName';
+  });
+
+  var searchParameters = this.as._getSearchParams(filteredParams, '');
+
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(this.indexName) + '/facets/' + encodeURIComponent(facetName) + '/query',
+    hostType: 'read',
+    body: {
+      params: searchParameters
+    },
+    callback: callback
+  });
+};
+
+IndexCore.prototype.searchFacet = deprecate(function (params, callback) {
+  return this.searchForFacetValues(params, callback);
+}, deprecatedMessage('index.searchFacet(params[, callback])', 'index.searchForFacetValues(params[, callback])'));
+
+IndexCore.prototype._search = function (params, url, callback, additionalUA) {
+  return this.as._jsonRequest({
+    cache: this.cache,
+    method: 'POST',
+    url: url || '/1/indexes/' + encodeURIComponent(this.indexName) + '/query',
+    body: {
+      params: params
+    },
+    hostType: 'read',
+    fallback: {
+      method: 'GET',
+      url: '/1/indexes/' + encodeURIComponent(this.indexName),
+      body: {
+        params: params
+      }
+    },
+    callback: callback,
+    additionalUA: additionalUA
+  });
+};
+/*
+* Get an object from this index
+*
+* @param objectID the unique identifier of the object to retrieve
+* @param attrs (optional) if set, contains the array of attribute names to retrieve
+* @param callback (optional) the result callback called with two arguments
+*  error: null or Error('message')
+*  content: the object to retrieve or the error message if a failure occurred
+*/
+
+
+IndexCore.prototype.getObject = function (objectID, attrs, callback) {
+  var indexObj = this;
+
+  if (arguments.length === 1 || typeof attrs === 'function') {
+    callback = attrs;
+    attrs = undefined;
+  }
+
+  var params = '';
+
+  if (attrs !== undefined) {
+    params = '?attributes=';
+
+    for (var i = 0; i < attrs.length; ++i) {
+      if (i !== 0) {
+        params += ',';
+      }
+
+      params += attrs[i];
+    }
+  }
+
+  return this.as._jsonRequest({
+    method: 'GET',
+    url: '/1/indexes/' + encodeURIComponent(indexObj.indexName) + '/' + encodeURIComponent(objectID) + params,
+    hostType: 'read',
+    callback: callback
+  });
+};
+/*
+* Get several objects from this index
+*
+* @param objectIDs the array of unique identifier of objects to retrieve
+*/
+
+
+IndexCore.prototype.getObjects = function (objectIDs, attributesToRetrieve, callback) {
+  var isArray = require('isarray');
+
+  var map = require('./map.js');
+
+  var usage = 'Usage: index.getObjects(arrayOfObjectIDs[, callback])';
+
+  if (!isArray(objectIDs)) {
+    throw new Error(usage);
+  }
+
+  var indexObj = this;
+
+  if (arguments.length === 1 || typeof attributesToRetrieve === 'function') {
+    callback = attributesToRetrieve;
+    attributesToRetrieve = undefined;
+  }
+
+  var body = {
+    requests: map(objectIDs, function prepareRequest(objectID) {
+      var request = {
+        indexName: indexObj.indexName,
+        objectID: objectID
+      };
+
+      if (attributesToRetrieve) {
+        request.attributesToRetrieve = attributesToRetrieve.join(',');
+      }
+
+      return request;
+    })
+  };
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/*/objects',
+    hostType: 'read',
+    body: body,
+    callback: callback
+  });
+};
+
+IndexCore.prototype.as = null;
+IndexCore.prototype.indexName = null;
+IndexCore.prototype.typeAheadArgs = null;
+IndexCore.prototype.typeAheadValueOption = null;
+},{"./buildSearchMethod.js":"../node_modules/algoliasearch/src/buildSearchMethod.js","./deprecate.js":"../node_modules/algoliasearch/src/deprecate.js","./deprecatedMessage.js":"../node_modules/algoliasearch/src/deprecatedMessage.js","./merge.js":"../node_modules/algoliasearch/src/merge.js","./clone.js":"../node_modules/algoliasearch/src/clone.js","./omit.js":"../node_modules/algoliasearch/src/omit.js","isarray":"../node_modules/isarray/index.js","./map.js":"../node_modules/algoliasearch/src/map.js"}],"../node_modules/algoliasearch/src/exitPromise.js":[function(require,module,exports) {
+// Parse cloud does not supports setTimeout
+// We do not store a setTimeout reference in the client everytime
+// We only fallback to a fake setTimeout when not available
+// setTimeout cannot be override globally sadly
+module.exports = function exitPromise(fn, _setTimeout) {
+  _setTimeout(fn, 0);
+};
+},{}],"../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/node_modules/events/events.js":[function(require,module,exports) {
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+'use strict';
+
+var R = typeof Reflect === 'object' ? Reflect : null;
+var ReflectApply = R && typeof R.apply === 'function' ? R.apply : function ReflectApply(target, receiver, args) {
+  return Function.prototype.apply.call(target, receiver, args);
+};
+var ReflectOwnKeys;
+
+if (R && typeof R.ownKeys === 'function') {
+  ReflectOwnKeys = R.ownKeys;
+} else if (Object.getOwnPropertySymbols) {
+  ReflectOwnKeys = function ReflectOwnKeys(target) {
+    return Object.getOwnPropertyNames(target).concat(Object.getOwnPropertySymbols(target));
+  };
+} else {
+  ReflectOwnKeys = function ReflectOwnKeys(target) {
+    return Object.getOwnPropertyNames(target);
+  };
+}
+
+function ProcessEmitWarning(warning) {
+  if (console && console.warn) console.warn(warning);
+}
+
+var NumberIsNaN = Number.isNaN || function NumberIsNaN(value) {
+  return value !== value;
+};
+
+function EventEmitter() {
+  EventEmitter.init.call(this);
+}
+
+module.exports = EventEmitter; // Backwards-compat with node 0.10.x
+
+EventEmitter.EventEmitter = EventEmitter;
+EventEmitter.prototype._events = undefined;
+EventEmitter.prototype._eventsCount = 0;
+EventEmitter.prototype._maxListeners = undefined; // By default EventEmitters will print a warning if more than 10 listeners are
+// added to it. This is a useful default which helps finding memory leaks.
+
+var defaultMaxListeners = 10;
+Object.defineProperty(EventEmitter, 'defaultMaxListeners', {
+  enumerable: true,
+  get: function () {
+    return defaultMaxListeners;
+  },
+  set: function (arg) {
+    if (typeof arg !== 'number' || arg < 0 || NumberIsNaN(arg)) {
+      throw new RangeError('The value of "defaultMaxListeners" is out of range. It must be a non-negative number. Received ' + arg + '.');
+    }
+
+    defaultMaxListeners = arg;
+  }
+});
+
+EventEmitter.init = function () {
+  if (this._events === undefined || this._events === Object.getPrototypeOf(this)._events) {
+    this._events = Object.create(null);
+    this._eventsCount = 0;
+  }
+
+  this._maxListeners = this._maxListeners || undefined;
+}; // Obviously not all Emitters should be limited to 10. This function allows
+// that to be increased. Set to zero for unlimited.
+
+
+EventEmitter.prototype.setMaxListeners = function setMaxListeners(n) {
+  if (typeof n !== 'number' || n < 0 || NumberIsNaN(n)) {
+    throw new RangeError('The value of "n" is out of range. It must be a non-negative number. Received ' + n + '.');
+  }
+
+  this._maxListeners = n;
+  return this;
+};
+
+function $getMaxListeners(that) {
+  if (that._maxListeners === undefined) return EventEmitter.defaultMaxListeners;
+  return that._maxListeners;
+}
+
+EventEmitter.prototype.getMaxListeners = function getMaxListeners() {
+  return $getMaxListeners(this);
+};
+
+EventEmitter.prototype.emit = function emit(type) {
+  var args = [];
+
+  for (var i = 1; i < arguments.length; i++) args.push(arguments[i]);
+
+  var doError = type === 'error';
+  var events = this._events;
+  if (events !== undefined) doError = doError && events.error === undefined;else if (!doError) return false; // If there is no 'error' event listener then throw.
+
+  if (doError) {
+    var er;
+    if (args.length > 0) er = args[0];
+
+    if (er instanceof Error) {
+      // Note: The comments on the `throw` lines are intentional, they show
+      // up in Node's output if this results in an unhandled exception.
+      throw er; // Unhandled 'error' event
+    } // At least give some kind of context to the user
+
+
+    var err = new Error('Unhandled error.' + (er ? ' (' + er.message + ')' : ''));
+    err.context = er;
+    throw err; // Unhandled 'error' event
+  }
+
+  var handler = events[type];
+  if (handler === undefined) return false;
+
+  if (typeof handler === 'function') {
+    ReflectApply(handler, this, args);
+  } else {
+    var len = handler.length;
+    var listeners = arrayClone(handler, len);
+
+    for (var i = 0; i < len; ++i) ReflectApply(listeners[i], this, args);
+  }
+
+  return true;
+};
+
+function _addListener(target, type, listener, prepend) {
+  var m;
+  var events;
+  var existing;
+
+  if (typeof listener !== 'function') {
+    throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof listener);
+  }
+
+  events = target._events;
+
+  if (events === undefined) {
+    events = target._events = Object.create(null);
+    target._eventsCount = 0;
+  } else {
+    // To avoid recursion in the case that type === "newListener"! Before
+    // adding it to the listeners, first emit "newListener".
+    if (events.newListener !== undefined) {
+      target.emit('newListener', type, listener.listener ? listener.listener : listener); // Re-assign `events` because a newListener handler could have caused the
+      // this._events to be assigned to a new object
+
+      events = target._events;
+    }
+
+    existing = events[type];
+  }
+
+  if (existing === undefined) {
+    // Optimize the case of one listener. Don't need the extra array object.
+    existing = events[type] = listener;
+    ++target._eventsCount;
+  } else {
+    if (typeof existing === 'function') {
+      // Adding the second element, need to change to array.
+      existing = events[type] = prepend ? [listener, existing] : [existing, listener]; // If we've already got an array, just append.
+    } else if (prepend) {
+      existing.unshift(listener);
+    } else {
+      existing.push(listener);
+    } // Check for listener leak
+
+
+    m = $getMaxListeners(target);
+
+    if (m > 0 && existing.length > m && !existing.warned) {
+      existing.warned = true; // No error code for this since it is a Warning
+      // eslint-disable-next-line no-restricted-syntax
+
+      var w = new Error('Possible EventEmitter memory leak detected. ' + existing.length + ' ' + String(type) + ' listeners ' + 'added. Use emitter.setMaxListeners() to ' + 'increase limit');
+      w.name = 'MaxListenersExceededWarning';
+      w.emitter = target;
+      w.type = type;
+      w.count = existing.length;
+      ProcessEmitWarning(w);
+    }
+  }
+
+  return target;
+}
+
+EventEmitter.prototype.addListener = function addListener(type, listener) {
+  return _addListener(this, type, listener, false);
+};
+
+EventEmitter.prototype.on = EventEmitter.prototype.addListener;
+
+EventEmitter.prototype.prependListener = function prependListener(type, listener) {
+  return _addListener(this, type, listener, true);
+};
+
+function onceWrapper() {
+  var args = [];
+
+  for (var i = 0; i < arguments.length; i++) args.push(arguments[i]);
+
+  if (!this.fired) {
+    this.target.removeListener(this.type, this.wrapFn);
+    this.fired = true;
+    ReflectApply(this.listener, this.target, args);
+  }
+}
+
+function _onceWrap(target, type, listener) {
+  var state = {
+    fired: false,
+    wrapFn: undefined,
+    target: target,
+    type: type,
+    listener: listener
+  };
+  var wrapped = onceWrapper.bind(state);
+  wrapped.listener = listener;
+  state.wrapFn = wrapped;
+  return wrapped;
+}
+
+EventEmitter.prototype.once = function once(type, listener) {
+  if (typeof listener !== 'function') {
+    throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof listener);
+  }
+
+  this.on(type, _onceWrap(this, type, listener));
+  return this;
+};
+
+EventEmitter.prototype.prependOnceListener = function prependOnceListener(type, listener) {
+  if (typeof listener !== 'function') {
+    throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof listener);
+  }
+
+  this.prependListener(type, _onceWrap(this, type, listener));
+  return this;
+}; // Emits a 'removeListener' event if and only if the listener was removed.
+
+
+EventEmitter.prototype.removeListener = function removeListener(type, listener) {
+  var list, events, position, i, originalListener;
+
+  if (typeof listener !== 'function') {
+    throw new TypeError('The "listener" argument must be of type Function. Received type ' + typeof listener);
+  }
+
+  events = this._events;
+  if (events === undefined) return this;
+  list = events[type];
+  if (list === undefined) return this;
+
+  if (list === listener || list.listener === listener) {
+    if (--this._eventsCount === 0) this._events = Object.create(null);else {
+      delete events[type];
+      if (events.removeListener) this.emit('removeListener', type, list.listener || listener);
+    }
+  } else if (typeof list !== 'function') {
+    position = -1;
+
+    for (i = list.length - 1; i >= 0; i--) {
+      if (list[i] === listener || list[i].listener === listener) {
+        originalListener = list[i].listener;
+        position = i;
+        break;
+      }
+    }
+
+    if (position < 0) return this;
+    if (position === 0) list.shift();else {
+      spliceOne(list, position);
+    }
+    if (list.length === 1) events[type] = list[0];
+    if (events.removeListener !== undefined) this.emit('removeListener', type, originalListener || listener);
+  }
+
+  return this;
+};
+
+EventEmitter.prototype.off = EventEmitter.prototype.removeListener;
+
+EventEmitter.prototype.removeAllListeners = function removeAllListeners(type) {
+  var listeners, events, i;
+  events = this._events;
+  if (events === undefined) return this; // not listening for removeListener, no need to emit
+
+  if (events.removeListener === undefined) {
+    if (arguments.length === 0) {
+      this._events = Object.create(null);
+      this._eventsCount = 0;
+    } else if (events[type] !== undefined) {
+      if (--this._eventsCount === 0) this._events = Object.create(null);else delete events[type];
+    }
+
+    return this;
+  } // emit removeListener for all listeners on all events
+
+
+  if (arguments.length === 0) {
+    var keys = Object.keys(events);
+    var key;
+
+    for (i = 0; i < keys.length; ++i) {
+      key = keys[i];
+      if (key === 'removeListener') continue;
+      this.removeAllListeners(key);
+    }
+
+    this.removeAllListeners('removeListener');
+    this._events = Object.create(null);
+    this._eventsCount = 0;
+    return this;
+  }
+
+  listeners = events[type];
+
+  if (typeof listeners === 'function') {
+    this.removeListener(type, listeners);
+  } else if (listeners !== undefined) {
+    // LIFO order
+    for (i = listeners.length - 1; i >= 0; i--) {
+      this.removeListener(type, listeners[i]);
+    }
+  }
+
+  return this;
+};
+
+function _listeners(target, type, unwrap) {
+  var events = target._events;
+  if (events === undefined) return [];
+  var evlistener = events[type];
+  if (evlistener === undefined) return [];
+  if (typeof evlistener === 'function') return unwrap ? [evlistener.listener || evlistener] : [evlistener];
+  return unwrap ? unwrapListeners(evlistener) : arrayClone(evlistener, evlistener.length);
+}
+
+EventEmitter.prototype.listeners = function listeners(type) {
+  return _listeners(this, type, true);
+};
+
+EventEmitter.prototype.rawListeners = function rawListeners(type) {
+  return _listeners(this, type, false);
+};
+
+EventEmitter.listenerCount = function (emitter, type) {
+  if (typeof emitter.listenerCount === 'function') {
+    return emitter.listenerCount(type);
+  } else {
+    return listenerCount.call(emitter, type);
+  }
+};
+
+EventEmitter.prototype.listenerCount = listenerCount;
+
+function listenerCount(type) {
+  var events = this._events;
+
+  if (events !== undefined) {
+    var evlistener = events[type];
+
+    if (typeof evlistener === 'function') {
+      return 1;
+    } else if (evlistener !== undefined) {
+      return evlistener.length;
+    }
+  }
+
+  return 0;
+}
+
+EventEmitter.prototype.eventNames = function eventNames() {
+  return this._eventsCount > 0 ? ReflectOwnKeys(this._events) : [];
+};
+
+function arrayClone(arr, n) {
+  var copy = new Array(n);
+
+  for (var i = 0; i < n; ++i) copy[i] = arr[i];
+
+  return copy;
+}
+
+function spliceOne(list, index) {
+  for (; index + 1 < list.length; index++) list[index] = list[index + 1];
+
+  list.pop();
+}
+
+function unwrapListeners(arr) {
+  var ret = new Array(arr.length);
+
+  for (var i = 0; i < ret.length; ++i) {
+    ret[i] = arr[i].listener || arr[i];
+  }
+
+  return ret;
+}
+},{}],"../node_modules/algoliasearch/src/IndexBrowser.js":[function(require,module,exports) {
+'use strict'; // This is the object returned by the `index.browseAll()` method
+
+module.exports = IndexBrowser;
+
+var inherits = require('inherits');
+
+var EventEmitter = require('events').EventEmitter;
+
+function IndexBrowser() {}
+
+inherits(IndexBrowser, EventEmitter);
+
+IndexBrowser.prototype.stop = function () {
+  this._stopped = true;
+
+  this._clean();
+};
+
+IndexBrowser.prototype._end = function () {
+  this.emit('end');
+
+  this._clean();
+};
+
+IndexBrowser.prototype._error = function (err) {
+  this.emit('error', err);
+
+  this._clean();
+};
+
+IndexBrowser.prototype._result = function (content) {
+  this.emit('result', content);
+};
+
+IndexBrowser.prototype._clean = function () {
+  this.removeAllListeners('stop');
+  this.removeAllListeners('end');
+  this.removeAllListeners('error');
+  this.removeAllListeners('result');
+};
+},{"inherits":"../node_modules/inherits/inherits_browser.js","events":"../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/node_modules/events/events.js"}],"../node_modules/algoliasearch/src/Index.js":[function(require,module,exports) {
+var inherits = require('inherits');
+
+var IndexCore = require('./IndexCore.js');
+
+var deprecate = require('./deprecate.js');
+
+var deprecatedMessage = require('./deprecatedMessage.js');
+
+var exitPromise = require('./exitPromise.js');
+
+var errors = require('./errors');
+
+var deprecateForwardToSlaves = deprecate(function () {}, deprecatedMessage('forwardToSlaves', 'forwardToReplicas'));
+module.exports = Index;
+
+function Index() {
+  IndexCore.apply(this, arguments);
+}
+
+inherits(Index, IndexCore);
+/*
+* Add an object in this index
+*
+* @param content contains the javascript object to add inside the index
+* @param objectID (optional) an objectID you want to attribute to this object
+* (if the attribute already exist the old object will be overwrite)
+* @param callback (optional) the result callback called with two arguments:
+*  error: null or Error('message')
+*  content: the server answer that contains 3 elements: createAt, taskId and objectID
+*/
+
+Index.prototype.addObject = function (content, objectID, callback) {
+  var indexObj = this;
+
+  if (arguments.length === 1 || typeof objectID === 'function') {
+    callback = objectID;
+    objectID = undefined;
+  }
+
+  return this.as._jsonRequest({
+    method: objectID !== undefined ? 'PUT' : // update or create
+    'POST',
+    // create (API generates an objectID)
+    url: '/1/indexes/' + encodeURIComponent(indexObj.indexName) + ( // create
+    objectID !== undefined ? '/' + encodeURIComponent(objectID) : ''),
+    // update or create
+    body: content,
+    hostType: 'write',
+    callback: callback
+  });
+};
+/*
+* Add several objects
+*
+* @param objects contains an array of objects to add
+* @param callback (optional) the result callback called with two arguments:
+*  error: null or Error('message')
+*  content: the server answer that updateAt and taskID
+*/
+
+
+Index.prototype.addObjects = function (objects, callback) {
+  var isArray = require('isarray');
+
+  var usage = 'Usage: index.addObjects(arrayOfObjects[, callback])';
+
+  if (!isArray(objects)) {
+    throw new Error(usage);
+  }
+
+  var indexObj = this;
+  var postObj = {
+    requests: []
+  };
+
+  for (var i = 0; i < objects.length; ++i) {
+    var request = {
+      action: 'addObject',
+      body: objects[i]
+    };
+    postObj.requests.push(request);
+  }
+
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(indexObj.indexName) + '/batch',
+    body: postObj,
+    hostType: 'write',
+    callback: callback
+  });
+};
+/*
+* Update partially an object (only update attributes passed in argument)
+*
+* @param partialObject contains the javascript attributes to override, the
+*  object must contains an objectID attribute
+* @param createIfNotExists (optional) if false, avoid an automatic creation of the object
+* @param callback (optional) the result callback called with two arguments:
+*  error: null or Error('message')
+*  content: the server answer that contains 3 elements: createAt, taskId and objectID
+*/
+
+
+Index.prototype.partialUpdateObject = function (partialObject, createIfNotExists, callback) {
+  if (arguments.length === 1 || typeof createIfNotExists === 'function') {
+    callback = createIfNotExists;
+    createIfNotExists = undefined;
+  }
+
+  var indexObj = this;
+  var url = '/1/indexes/' + encodeURIComponent(indexObj.indexName) + '/' + encodeURIComponent(partialObject.objectID) + '/partial';
+
+  if (createIfNotExists === false) {
+    url += '?createIfNotExists=false';
+  }
+
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: url,
+    body: partialObject,
+    hostType: 'write',
+    callback: callback
+  });
+};
+/*
+* Partially Override the content of several objects
+*
+* @param objects contains an array of objects to update (each object must contains a objectID attribute)
+* @param callback (optional) the result callback called with two arguments:
+*  error: null or Error('message')
+*  content: the server answer that updateAt and taskID
+*/
+
+
+Index.prototype.partialUpdateObjects = function (objects, createIfNotExists, callback) {
+  if (arguments.length === 1 || typeof createIfNotExists === 'function') {
+    callback = createIfNotExists;
+    createIfNotExists = true;
+  }
+
+  var isArray = require('isarray');
+
+  var usage = 'Usage: index.partialUpdateObjects(arrayOfObjects[, callback])';
+
+  if (!isArray(objects)) {
+    throw new Error(usage);
+  }
+
+  var indexObj = this;
+  var postObj = {
+    requests: []
+  };
+
+  for (var i = 0; i < objects.length; ++i) {
+    var request = {
+      action: createIfNotExists === true ? 'partialUpdateObject' : 'partialUpdateObjectNoCreate',
+      objectID: objects[i].objectID,
+      body: objects[i]
+    };
+    postObj.requests.push(request);
+  }
+
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(indexObj.indexName) + '/batch',
+    body: postObj,
+    hostType: 'write',
+    callback: callback
+  });
+};
+/*
+* Override the content of object
+*
+* @param object contains the javascript object to save, the object must contains an objectID attribute
+* @param callback (optional) the result callback called with two arguments:
+*  error: null or Error('message')
+*  content: the server answer that updateAt and taskID
+*/
+
+
+Index.prototype.saveObject = function (object, callback) {
+  var indexObj = this;
+  return this.as._jsonRequest({
+    method: 'PUT',
+    url: '/1/indexes/' + encodeURIComponent(indexObj.indexName) + '/' + encodeURIComponent(object.objectID),
+    body: object,
+    hostType: 'write',
+    callback: callback
+  });
+};
+/*
+* Override the content of several objects
+*
+* @param objects contains an array of objects to update (each object must contains a objectID attribute)
+* @param callback (optional) the result callback called with two arguments:
+*  error: null or Error('message')
+*  content: the server answer that updateAt and taskID
+*/
+
+
+Index.prototype.saveObjects = function (objects, callback) {
+  var isArray = require('isarray');
+
+  var usage = 'Usage: index.saveObjects(arrayOfObjects[, callback])';
+
+  if (!isArray(objects)) {
+    throw new Error(usage);
+  }
+
+  var indexObj = this;
+  var postObj = {
+    requests: []
+  };
+
+  for (var i = 0; i < objects.length; ++i) {
+    var request = {
+      action: 'updateObject',
+      objectID: objects[i].objectID,
+      body: objects[i]
+    };
+    postObj.requests.push(request);
+  }
+
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(indexObj.indexName) + '/batch',
+    body: postObj,
+    hostType: 'write',
+    callback: callback
+  });
+};
+/*
+* Delete an object from the index
+*
+* @param objectID the unique identifier of object to delete
+* @param callback (optional) the result callback called with two arguments:
+*  error: null or Error('message')
+*  content: the server answer that contains 3 elements: createAt, taskId and objectID
+*/
+
+
+Index.prototype.deleteObject = function (objectID, callback) {
+  if (typeof objectID === 'function' || typeof objectID !== 'string' && typeof objectID !== 'number') {
+    var err = new errors.AlgoliaSearchError(objectID && typeof objectID !== 'function' ? 'ObjectID must be a string' : 'Cannot delete an object without an objectID');
+    callback = objectID;
+
+    if (typeof callback === 'function') {
+      return callback(err);
+    }
+
+    return this.as._promise.reject(err);
+  }
+
+  var indexObj = this;
+  return this.as._jsonRequest({
+    method: 'DELETE',
+    url: '/1/indexes/' + encodeURIComponent(indexObj.indexName) + '/' + encodeURIComponent(objectID),
+    hostType: 'write',
+    callback: callback
+  });
+};
+/*
+* Delete several objects from an index
+*
+* @param objectIDs contains an array of objectID to delete
+* @param callback (optional) the result callback called with two arguments:
+*  error: null or Error('message')
+*  content: the server answer that contains 3 elements: createAt, taskId and objectID
+*/
+
+
+Index.prototype.deleteObjects = function (objectIDs, callback) {
+  var isArray = require('isarray');
+
+  var map = require('./map.js');
+
+  var usage = 'Usage: index.deleteObjects(arrayOfObjectIDs[, callback])';
+
+  if (!isArray(objectIDs)) {
+    throw new Error(usage);
+  }
+
+  var indexObj = this;
+  var postObj = {
+    requests: map(objectIDs, function prepareRequest(objectID) {
+      return {
+        action: 'deleteObject',
+        objectID: objectID,
+        body: {
+          objectID: objectID
+        }
+      };
+    })
+  };
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(indexObj.indexName) + '/batch',
+    body: postObj,
+    hostType: 'write',
+    callback: callback
+  });
+};
+/*
+* Delete all objects matching a query
+*
+* @param query the query string
+* @param params the optional query parameters
+* @param callback (optional) the result callback called with one argument
+*  error: null or Error('message')
+* @deprecated see index.deleteBy
+*/
+
+
+Index.prototype.deleteByQuery = deprecate(function (query, params, callback) {
+  var clone = require('./clone.js');
+
+  var map = require('./map.js');
+
+  var indexObj = this;
+  var client = indexObj.as;
+
+  if (arguments.length === 1 || typeof params === 'function') {
+    callback = params;
+    params = {};
+  } else {
+    params = clone(params);
+  }
+
+  params.attributesToRetrieve = 'objectID';
+  params.hitsPerPage = 1000;
+  params.distinct = false; // when deleting, we should never use cache to get the
+  // search results
+
+  this.clearCache(); // there's a problem in how we use the promise chain,
+  // see how waitTask is done
+
+  var promise = this.search(query, params).then(stopOrDelete);
+
+  function stopOrDelete(searchContent) {
+    // stop here
+    if (searchContent.nbHits === 0) {
+      // return indexObj.as._request.resolve();
+      return searchContent;
+    } // continue and do a recursive call
+
+
+    var objectIDs = map(searchContent.hits, function getObjectID(object) {
+      return object.objectID;
+    });
+    return indexObj.deleteObjects(objectIDs).then(waitTask).then(doDeleteByQuery);
+  }
+
+  function waitTask(deleteObjectsContent) {
+    return indexObj.waitTask(deleteObjectsContent.taskID);
+  }
+
+  function doDeleteByQuery() {
+    return indexObj.deleteByQuery(query, params);
+  }
+
+  if (!callback) {
+    return promise;
+  }
+
+  promise.then(success, failure);
+
+  function success() {
+    exitPromise(function exit() {
+      callback(null);
+    }, client._setTimeout || setTimeout);
+  }
+
+  function failure(err) {
+    exitPromise(function exit() {
+      callback(err);
+    }, client._setTimeout || setTimeout);
+  }
+}, deprecatedMessage('index.deleteByQuery()', 'index.deleteBy()'));
+/**
+* Delete all objects matching a query
+*
+* the query parameters that can be used are:
+* - filters (numeric, facet, tag)
+* - geo
+*
+* you can not send an empty query or filters
+*
+* @param params the optional query parameters
+* @param callback (optional) the result callback called with one argument
+*  error: null or Error('message')
+*/
+
+Index.prototype.deleteBy = function (params, callback) {
+  var indexObj = this;
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(indexObj.indexName) + '/deleteByQuery',
+    body: {
+      params: indexObj.as._getSearchParams(params, '')
+    },
+    hostType: 'write',
+    callback: callback
+  });
+};
+/*
+* Browse all content from an index using events. Basically this will do
+* .browse() -> .browseFrom -> .browseFrom -> .. until all the results are returned
+*
+* @param {string} query - The full text query
+* @param {Object} [queryParameters] - Any search query parameter
+* @return {EventEmitter}
+* @example
+* var browser = index.browseAll('cool songs', {
+*   tagFilters: 'public,comments',
+*   hitsPerPage: 500
+* });
+*
+* browser.on('result', function resultCallback(content) {
+*   console.log(content.hits);
+* });
+*
+* // if any error occurs, you get it
+* browser.on('error', function(err) {
+*   throw err;
+* });
+*
+* // when you have browsed the whole index, you get this event
+* browser.on('end', function() {
+*   console.log('finished');
+* });
+*
+* // at any point if you want to stop the browsing process, you can stop it manually
+* // otherwise it will go on and on
+* browser.stop();
+*
+* @see {@link https://www.algolia.com/doc/rest_api#Browse|Algolia REST API Documentation}
+*/
+
+
+Index.prototype.browseAll = function (query, queryParameters) {
+  if (typeof query === 'object') {
+    queryParameters = query;
+    query = undefined;
+  }
+
+  var merge = require('./merge.js');
+
+  var IndexBrowser = require('./IndexBrowser');
+
+  var browser = new IndexBrowser();
+  var client = this.as;
+  var index = this;
+
+  var params = client._getSearchParams(merge({}, queryParameters || {}, {
+    query: query
+  }), ''); // start browsing
+
+
+  browseLoop();
+
+  function browseLoop(cursor) {
+    if (browser._stopped) {
+      return;
+    }
+
+    var body;
+
+    if (cursor !== undefined) {
+      body = {
+        cursor: cursor
+      };
+    } else {
+      body = {
+        params: params
+      };
+    }
+
+    client._jsonRequest({
+      method: 'POST',
+      url: '/1/indexes/' + encodeURIComponent(index.indexName) + '/browse',
+      hostType: 'read',
+      body: body,
+      callback: browseCallback
+    });
+  }
+
+  function browseCallback(err, content) {
+    if (browser._stopped) {
+      return;
+    }
+
+    if (err) {
+      browser._error(err);
+
+      return;
+    }
+
+    browser._result(content); // no cursor means we are finished browsing
+
+
+    if (content.cursor === undefined) {
+      browser._end();
+
+      return;
+    }
+
+    browseLoop(content.cursor);
+  }
+
+  return browser;
+};
+/*
+* Get a Typeahead.js adapter
+* @param searchParams contains an object with query parameters (see search for details)
+*/
+
+
+Index.prototype.ttAdapter = deprecate(function (params) {
+  var self = this;
+  return function ttAdapter(query, syncCb, asyncCb) {
+    var cb;
+
+    if (typeof asyncCb === 'function') {
+      // typeahead 0.11
+      cb = asyncCb;
+    } else {
+      // pre typeahead 0.11
+      cb = syncCb;
+    }
+
+    self.search(query, params, function searchDone(err, content) {
+      if (err) {
+        cb(err);
+        return;
+      }
+
+      cb(content.hits);
+    });
+  };
+}, 'ttAdapter is not necessary anymore and will be removed in the next version,\n' + 'have a look at autocomplete.js (https://github.com/algolia/autocomplete.js)');
+/*
+* Wait the publication of a task on the server.
+* All server task are asynchronous and you can check with this method that the task is published.
+*
+* @param taskID the id of the task returned by server
+* @param callback the result callback with with two arguments:
+*  error: null or Error('message')
+*  content: the server answer that contains the list of results
+*/
+
+Index.prototype.waitTask = function (taskID, callback) {
+  // wait minimum 100ms before retrying
+  var baseDelay = 100; // wait maximum 5s before retrying
+
+  var maxDelay = 5000;
+  var loop = 0; // waitTask() must be handled differently from other methods,
+  // it's a recursive method using a timeout
+
+  var indexObj = this;
+  var client = indexObj.as;
+  var promise = retryLoop();
+
+  function retryLoop() {
+    return client._jsonRequest({
+      method: 'GET',
+      hostType: 'read',
+      url: '/1/indexes/' + encodeURIComponent(indexObj.indexName) + '/task/' + taskID
+    }).then(function success(content) {
+      loop++;
+      var delay = baseDelay * loop * loop;
+
+      if (delay > maxDelay) {
+        delay = maxDelay;
+      }
+
+      if (content.status !== 'published') {
+        return client._promise.delay(delay).then(retryLoop);
+      }
+
+      return content;
+    });
+  }
+
+  if (!callback) {
+    return promise;
+  }
+
+  promise.then(successCb, failureCb);
+
+  function successCb(content) {
+    exitPromise(function exit() {
+      callback(null, content);
+    }, client._setTimeout || setTimeout);
+  }
+
+  function failureCb(err) {
+    exitPromise(function exit() {
+      callback(err);
+    }, client._setTimeout || setTimeout);
+  }
+};
+/*
+* This function deletes the index content. Settings and index specific API keys are kept untouched.
+*
+* @param callback (optional) the result callback called with two arguments
+*  error: null or Error('message')
+*  content: the settings object or the error message if a failure occurred
+*/
+
+
+Index.prototype.clearIndex = function (callback) {
+  var indexObj = this;
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(indexObj.indexName) + '/clear',
+    hostType: 'write',
+    callback: callback
+  });
+};
+/*
+* Get settings of this index
+*
+* @param opts an object of options to add
+* @param opts.advanced get more settings like nbShards (useful for Enterprise)
+* @param callback (optional) the result callback called with two arguments
+*  error: null or Error('message')
+*  content: the settings object or the error message if a failure occurred
+*/
+
+
+Index.prototype.getSettings = function (opts, callback) {
+  if (arguments.length === 1 && typeof opts === 'function') {
+    callback = opts;
+    opts = {};
+  }
+
+  opts = opts || {};
+  var indexName = encodeURIComponent(this.indexName);
+  return this.as._jsonRequest({
+    method: 'GET',
+    url: '/1/indexes/' + indexName + '/settings?getVersion=2' + (opts.advanced ? '&advanced=' + opts.advanced : ''),
+    hostType: 'read',
+    callback: callback
+  });
+};
+
+Index.prototype.searchSynonyms = function (params, callback) {
+  if (typeof params === 'function') {
+    callback = params;
+    params = {};
+  } else if (params === undefined) {
+    params = {};
+  }
+
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(this.indexName) + '/synonyms/search',
+    body: params,
+    hostType: 'read',
+    callback: callback
+  });
+};
+
+function exportData(method, _hitsPerPage, callback) {
+  function search(page, _previous) {
+    var options = {
+      page: page || 0,
+      hitsPerPage: _hitsPerPage || 100
+    };
+    var previous = _previous || [];
+    return method(options).then(function (result) {
+      var hits = result.hits;
+      var nbHits = result.nbHits;
+      var current = hits.map(function (s) {
+        delete s._highlightResult;
+        return s;
+      });
+      var synonyms = previous.concat(current);
+
+      if (synonyms.length < nbHits) {
+        return search(options.page + 1, synonyms);
+      }
+
+      return synonyms;
+    });
+  }
+
+  return search().then(function (data) {
+    if (typeof callback === 'function') {
+      callback(data);
+      return undefined;
+    }
+
+    return data;
+  });
+}
+/**
+ * Retrieve all the synonyms in an index
+ * @param [number=100] hitsPerPage The amount of synonyms to retrieve per batch
+ * @param [function] callback will be called after all synonyms are retrieved
+ */
+
+
+Index.prototype.exportSynonyms = function (hitsPerPage, callback) {
+  return exportData(this.searchSynonyms.bind(this), hitsPerPage, callback);
+};
+
+Index.prototype.saveSynonym = function (synonym, opts, callback) {
+  if (typeof opts === 'function') {
+    callback = opts;
+    opts = {};
+  } else if (opts === undefined) {
+    opts = {};
+  }
+
+  if (opts.forwardToSlaves !== undefined) deprecateForwardToSlaves();
+  var forwardToReplicas = opts.forwardToSlaves || opts.forwardToReplicas ? 'true' : 'false';
+  return this.as._jsonRequest({
+    method: 'PUT',
+    url: '/1/indexes/' + encodeURIComponent(this.indexName) + '/synonyms/' + encodeURIComponent(synonym.objectID) + '?forwardToReplicas=' + forwardToReplicas,
+    body: synonym,
+    hostType: 'write',
+    callback: callback
+  });
+};
+
+Index.prototype.getSynonym = function (objectID, callback) {
+  return this.as._jsonRequest({
+    method: 'GET',
+    url: '/1/indexes/' + encodeURIComponent(this.indexName) + '/synonyms/' + encodeURIComponent(objectID),
+    hostType: 'read',
+    callback: callback
+  });
+};
+
+Index.prototype.deleteSynonym = function (objectID, opts, callback) {
+  if (typeof opts === 'function') {
+    callback = opts;
+    opts = {};
+  } else if (opts === undefined) {
+    opts = {};
+  }
+
+  if (opts.forwardToSlaves !== undefined) deprecateForwardToSlaves();
+  var forwardToReplicas = opts.forwardToSlaves || opts.forwardToReplicas ? 'true' : 'false';
+  return this.as._jsonRequest({
+    method: 'DELETE',
+    url: '/1/indexes/' + encodeURIComponent(this.indexName) + '/synonyms/' + encodeURIComponent(objectID) + '?forwardToReplicas=' + forwardToReplicas,
+    hostType: 'write',
+    callback: callback
+  });
+};
+
+Index.prototype.clearSynonyms = function (opts, callback) {
+  if (typeof opts === 'function') {
+    callback = opts;
+    opts = {};
+  } else if (opts === undefined) {
+    opts = {};
+  }
+
+  if (opts.forwardToSlaves !== undefined) deprecateForwardToSlaves();
+  var forwardToReplicas = opts.forwardToSlaves || opts.forwardToReplicas ? 'true' : 'false';
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(this.indexName) + '/synonyms/clear' + '?forwardToReplicas=' + forwardToReplicas,
+    hostType: 'write',
+    callback: callback
+  });
+};
+
+Index.prototype.batchSynonyms = function (synonyms, opts, callback) {
+  if (typeof opts === 'function') {
+    callback = opts;
+    opts = {};
+  } else if (opts === undefined) {
+    opts = {};
+  }
+
+  if (opts.forwardToSlaves !== undefined) deprecateForwardToSlaves();
+  var forwardToReplicas = opts.forwardToSlaves || opts.forwardToReplicas ? 'true' : 'false';
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(this.indexName) + '/synonyms/batch' + '?forwardToReplicas=' + forwardToReplicas + '&replaceExistingSynonyms=' + (opts.replaceExistingSynonyms ? 'true' : 'false'),
+    hostType: 'write',
+    body: synonyms,
+    callback: callback
+  });
+};
+
+Index.prototype.searchRules = function (params, callback) {
+  if (typeof params === 'function') {
+    callback = params;
+    params = {};
+  } else if (params === undefined) {
+    params = {};
+  }
+
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(this.indexName) + '/rules/search',
+    body: params,
+    hostType: 'read',
+    callback: callback
+  });
+};
+/**
+ * Retrieve all the query rules in an index
+ * @param [number=100] hitsPerPage The amount of query rules to retrieve per batch
+ * @param [function] callback will be called after all query rules are retrieved
+ *  error: null or Error('message')
+ */
+
+
+Index.prototype.exportRules = function (hitsPerPage, callback) {
+  return exportData(this.searchRules.bind(this), hitsPerPage, callback);
+};
+
+Index.prototype.saveRule = function (rule, opts, callback) {
+  if (typeof opts === 'function') {
+    callback = opts;
+    opts = {};
+  } else if (opts === undefined) {
+    opts = {};
+  }
+
+  if (!rule.objectID) {
+    throw new errors.AlgoliaSearchError('Missing or empty objectID field for rule');
+  }
+
+  var forwardToReplicas = opts.forwardToReplicas === true ? 'true' : 'false';
+  return this.as._jsonRequest({
+    method: 'PUT',
+    url: '/1/indexes/' + encodeURIComponent(this.indexName) + '/rules/' + encodeURIComponent(rule.objectID) + '?forwardToReplicas=' + forwardToReplicas,
+    body: rule,
+    hostType: 'write',
+    callback: callback
+  });
+};
+
+Index.prototype.getRule = function (objectID, callback) {
+  return this.as._jsonRequest({
+    method: 'GET',
+    url: '/1/indexes/' + encodeURIComponent(this.indexName) + '/rules/' + encodeURIComponent(objectID),
+    hostType: 'read',
+    callback: callback
+  });
+};
+
+Index.prototype.deleteRule = function (objectID, opts, callback) {
+  if (typeof opts === 'function') {
+    callback = opts;
+    opts = {};
+  } else if (opts === undefined) {
+    opts = {};
+  }
+
+  var forwardToReplicas = opts.forwardToReplicas === true ? 'true' : 'false';
+  return this.as._jsonRequest({
+    method: 'DELETE',
+    url: '/1/indexes/' + encodeURIComponent(this.indexName) + '/rules/' + encodeURIComponent(objectID) + '?forwardToReplicas=' + forwardToReplicas,
+    hostType: 'write',
+    callback: callback
+  });
+};
+
+Index.prototype.clearRules = function (opts, callback) {
+  if (typeof opts === 'function') {
+    callback = opts;
+    opts = {};
+  } else if (opts === undefined) {
+    opts = {};
+  }
+
+  var forwardToReplicas = opts.forwardToReplicas === true ? 'true' : 'false';
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(this.indexName) + '/rules/clear' + '?forwardToReplicas=' + forwardToReplicas,
+    hostType: 'write',
+    callback: callback
+  });
+};
+
+Index.prototype.batchRules = function (rules, opts, callback) {
+  if (typeof opts === 'function') {
+    callback = opts;
+    opts = {};
+  } else if (opts === undefined) {
+    opts = {};
+  }
+
+  var forwardToReplicas = opts.forwardToReplicas === true ? 'true' : 'false';
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(this.indexName) + '/rules/batch' + '?forwardToReplicas=' + forwardToReplicas + '&clearExistingRules=' + (opts.clearExistingRules === true ? 'true' : 'false'),
+    hostType: 'write',
+    body: rules,
+    callback: callback
+  });
+};
+/*
+* Set settings for this index
+*
+* @param settings the settings object that can contains :
+* - minWordSizefor1Typo: (integer) the minimum number of characters to accept one typo (default = 3).
+* - minWordSizefor2Typos: (integer) the minimum number of characters to accept two typos (default = 7).
+* - hitsPerPage: (integer) the number of hits per page (default = 10).
+* - attributesToRetrieve: (array of strings) default list of attributes to retrieve in objects.
+*   If set to null, all attributes are retrieved.
+* - attributesToHighlight: (array of strings) default list of attributes to highlight.
+*   If set to null, all indexed attributes are highlighted.
+* - attributesToSnippet**: (array of strings) default list of attributes to snippet alongside the number
+* of words to return (syntax is attributeName:nbWords).
+*   By default no snippet is computed. If set to null, no snippet is computed.
+* - attributesToIndex: (array of strings) the list of fields you want to index.
+*   If set to null, all textual and numerical attributes of your objects are indexed,
+*   but you should update it to get optimal results.
+*   This parameter has two important uses:
+*     - Limit the attributes to index: For example if you store a binary image in base64,
+*     you want to store it and be able to
+*       retrieve it but you don't want to search in the base64 string.
+*     - Control part of the ranking*: (see the ranking parameter for full explanation)
+*     Matches in attributes at the beginning of
+*       the list will be considered more important than matches in attributes further down the list.
+*       In one attribute, matching text at the beginning of the attribute will be
+*       considered more important than text after, you can disable
+*       this behavior if you add your attribute inside `unordered(AttributeName)`,
+*       for example attributesToIndex: ["title", "unordered(text)"].
+* - attributesForFaceting: (array of strings) The list of fields you want to use for faceting.
+*   All strings in the attribute selected for faceting are extracted and added as a facet.
+*   If set to null, no attribute is used for faceting.
+* - attributeForDistinct: (string) The attribute name used for the Distinct feature.
+* This feature is similar to the SQL "distinct" keyword: when enabled
+*   in query with the distinct=1 parameter, all hits containing a duplicate
+*   value for this attribute are removed from results.
+*   For example, if the chosen attribute is show_name and several hits have
+*   the same value for show_name, then only the best one is kept and others are removed.
+* - ranking: (array of strings) controls the way results are sorted.
+*   We have six available criteria:
+*    - typo: sort according to number of typos,
+*    - geo: sort according to decreassing distance when performing a geo-location based search,
+*    - proximity: sort according to the proximity of query words in hits,
+*    - attribute: sort according to the order of attributes defined by attributesToIndex,
+*    - exact:
+*        - if the user query contains one word: sort objects having an attribute
+*        that is exactly the query word before others.
+*          For example if you search for the "V" TV show, you want to find it
+*          with the "V" query and avoid to have all popular TV
+*          show starting by the v letter before it.
+*        - if the user query contains multiple words: sort according to the
+*        number of words that matched exactly (and not as a prefix).
+*    - custom: sort according to a user defined formula set in **customRanking** attribute.
+*   The standard order is ["typo", "geo", "proximity", "attribute", "exact", "custom"]
+* - customRanking: (array of strings) lets you specify part of the ranking.
+*   The syntax of this condition is an array of strings containing attributes
+*   prefixed by asc (ascending order) or desc (descending order) operator.
+*   For example `"customRanking" => ["desc(population)", "asc(name)"]`
+* - queryType: Select how the query words are interpreted, it can be one of the following value:
+*   - prefixAll: all query words are interpreted as prefixes,
+*   - prefixLast: only the last word is interpreted as a prefix (default behavior),
+*   - prefixNone: no query word is interpreted as a prefix. This option is not recommended.
+* - highlightPreTag: (string) Specify the string that is inserted before
+* the highlighted parts in the query result (default to "<em>").
+* - highlightPostTag: (string) Specify the string that is inserted after
+* the highlighted parts in the query result (default to "</em>").
+* - optionalWords: (array of strings) Specify a list of words that should
+* be considered as optional when found in the query.
+* @param callback (optional) the result callback called with two arguments
+*  error: null or Error('message')
+*  content: the server answer or the error message if a failure occurred
+*/
+
+
+Index.prototype.setSettings = function (settings, opts, callback) {
+  if (arguments.length === 1 || typeof opts === 'function') {
+    callback = opts;
+    opts = {};
+  }
+
+  if (opts.forwardToSlaves !== undefined) deprecateForwardToSlaves();
+  var forwardToReplicas = opts.forwardToSlaves || opts.forwardToReplicas ? 'true' : 'false';
+  var indexObj = this;
+  return this.as._jsonRequest({
+    method: 'PUT',
+    url: '/1/indexes/' + encodeURIComponent(indexObj.indexName) + '/settings?forwardToReplicas=' + forwardToReplicas,
+    hostType: 'write',
+    body: settings,
+    callback: callback
+  });
+};
+/*
+* @deprecated see client.listApiKeys()
+*/
+
+
+Index.prototype.listUserKeys = deprecate(function (callback) {
+  return this.listApiKeys(callback);
+}, deprecatedMessage('index.listUserKeys()', 'client.listApiKeys()'));
+/*
+* List all existing API keys to this index
+*
+* @param callback the result callback called with two arguments
+*  error: null or Error('message')
+*  content: the server answer with API keys belonging to the index
+*
+* @deprecated see client.listApiKeys()
+*/
+
+Index.prototype.listApiKeys = deprecate(function (callback) {
+  var indexObj = this;
+  return this.as._jsonRequest({
+    method: 'GET',
+    url: '/1/indexes/' + encodeURIComponent(indexObj.indexName) + '/keys',
+    hostType: 'read',
+    callback: callback
+  });
+}, deprecatedMessage('index.listApiKeys()', 'client.listApiKeys()'));
+/*
+* @deprecated see client.getApiKey()
+*/
+
+Index.prototype.getUserKeyACL = deprecate(function (key, callback) {
+  return this.getApiKey(key, callback);
+}, deprecatedMessage('index.getUserKeyACL()', 'client.getApiKey()'));
+/*
+* Get an API key from this index
+*
+* @param key
+* @param callback the result callback called with two arguments
+*  error: null or Error('message')
+*  content: the server answer with the right API key
+*
+* @deprecated see client.getApiKey()
+*/
+
+Index.prototype.getApiKey = deprecate(function (key, callback) {
+  var indexObj = this;
+  return this.as._jsonRequest({
+    method: 'GET',
+    url: '/1/indexes/' + encodeURIComponent(indexObj.indexName) + '/keys/' + key,
+    hostType: 'read',
+    callback: callback
+  });
+}, deprecatedMessage('index.getApiKey()', 'client.getApiKey()'));
+/*
+* @deprecated see client.deleteApiKey()
+*/
+
+Index.prototype.deleteUserKey = deprecate(function (key, callback) {
+  return this.deleteApiKey(key, callback);
+}, deprecatedMessage('index.deleteUserKey()', 'client.deleteApiKey()'));
+/*
+* Delete an existing API key associated to this index
+*
+* @param key
+* @param callback the result callback called with two arguments
+*  error: null or Error('message')
+*  content: the server answer with the deletion date
+*
+* @deprecated see client.deleteApiKey()
+*/
+
+Index.prototype.deleteApiKey = deprecate(function (key, callback) {
+  var indexObj = this;
+  return this.as._jsonRequest({
+    method: 'DELETE',
+    url: '/1/indexes/' + encodeURIComponent(indexObj.indexName) + '/keys/' + key,
+    hostType: 'write',
+    callback: callback
+  });
+}, deprecatedMessage('index.deleteApiKey()', 'client.deleteApiKey()'));
+/*
+* @deprecated see client.addApiKey()
+*/
+
+Index.prototype.addUserKey = deprecate(function (acls, params, callback) {
+  return this.addApiKey(acls, params, callback);
+}, deprecatedMessage('index.addUserKey()', 'client.addApiKey()'));
+/*
+* Add a new API key to this index
+*
+* @param {string[]} acls - The list of ACL for this key. Defined by an array of strings that
+*   can contains the following values:
+*     - search: allow to search (https and http)
+*     - addObject: allows to add/update an object in the index (https only)
+*     - deleteObject : allows to delete an existing object (https only)
+*     - deleteIndex : allows to delete index content (https only)
+*     - settings : allows to get index settings (https only)
+*     - editSettings : allows to change index settings (https only)
+* @param {Object} [params] - Optionnal parameters to set for the key
+* @param {number} params.validity - Number of seconds after which the key will
+* be automatically removed (0 means no time limit for this key)
+* @param {number} params.maxQueriesPerIPPerHour - Number of API calls allowed from an IP address per hour
+* @param {number} params.maxHitsPerQuery - Number of hits this API key can retrieve in one call
+* @param {string} params.description - A description for your key
+* @param {string[]} params.referers - A list of authorized referers
+* @param {Object} params.queryParameters - Force the key to use specific query parameters
+* @param {Function} callback - The result callback called with two arguments
+*   error: null or Error('message')
+*   content: the server answer with the added API key
+* @return {Promise|undefined} Returns a promise if no callback given
+* @example
+* index.addUserKey(['search'], {
+*   validity: 300,
+*   maxQueriesPerIPPerHour: 2000,
+*   maxHitsPerQuery: 3,
+*   description: 'Eat three fruits',
+*   referers: ['*.algolia.com'],
+*   queryParameters: {
+*     tagFilters: ['public'],
+*   }
+* })
+* @see {@link https://www.algolia.com/doc/rest_api#AddIndexKey|Algolia REST API Documentation}
+*
+* @deprecated see client.addApiKey()
+*/
+
+Index.prototype.addApiKey = deprecate(function (acls, params, callback) {
+  var isArray = require('isarray');
+
+  var usage = 'Usage: index.addApiKey(arrayOfAcls[, params, callback])';
+
+  if (!isArray(acls)) {
+    throw new Error(usage);
+  }
+
+  if (arguments.length === 1 || typeof params === 'function') {
+    callback = params;
+    params = null;
+  }
+
+  var postObj = {
+    acl: acls
+  };
+
+  if (params) {
+    postObj.validity = params.validity;
+    postObj.maxQueriesPerIPPerHour = params.maxQueriesPerIPPerHour;
+    postObj.maxHitsPerQuery = params.maxHitsPerQuery;
+    postObj.description = params.description;
+
+    if (params.queryParameters) {
+      postObj.queryParameters = this.as._getSearchParams(params.queryParameters, '');
+    }
+
+    postObj.referers = params.referers;
+  }
+
+  return this.as._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(this.indexName) + '/keys',
+    body: postObj,
+    hostType: 'write',
+    callback: callback
+  });
+}, deprecatedMessage('index.addApiKey()', 'client.addApiKey()'));
+/**
+* @deprecated use client.addApiKey()
+*/
+
+Index.prototype.addUserKeyWithValidity = deprecate(function deprecatedAddUserKeyWithValidity(acls, params, callback) {
+  return this.addApiKey(acls, params, callback);
+}, deprecatedMessage('index.addUserKeyWithValidity()', 'client.addApiKey()'));
+/*
+* @deprecated see client.updateApiKey()
+*/
+
+Index.prototype.updateUserKey = deprecate(function (key, acls, params, callback) {
+  return this.updateApiKey(key, acls, params, callback);
+}, deprecatedMessage('index.updateUserKey()', 'client.updateApiKey()'));
+/**
+* Update an existing API key of this index
+* @param {string} key - The key to update
+* @param {string[]} acls - The list of ACL for this key. Defined by an array of strings that
+*   can contains the following values:
+*     - search: allow to search (https and http)
+*     - addObject: allows to add/update an object in the index (https only)
+*     - deleteObject : allows to delete an existing object (https only)
+*     - deleteIndex : allows to delete index content (https only)
+*     - settings : allows to get index settings (https only)
+*     - editSettings : allows to change index settings (https only)
+* @param {Object} [params] - Optionnal parameters to set for the key
+* @param {number} params.validity - Number of seconds after which the key will
+* be automatically removed (0 means no time limit for this key)
+* @param {number} params.maxQueriesPerIPPerHour - Number of API calls allowed from an IP address per hour
+* @param {number} params.maxHitsPerQuery - Number of hits this API key can retrieve in one call
+* @param {string} params.description - A description for your key
+* @param {string[]} params.referers - A list of authorized referers
+* @param {Object} params.queryParameters - Force the key to use specific query parameters
+* @param {Function} callback - The result callback called with two arguments
+*   error: null or Error('message')
+*   content: the server answer with user keys list
+* @return {Promise|undefined} Returns a promise if no callback given
+* @example
+* index.updateApiKey('APIKEY', ['search'], {
+*   validity: 300,
+*   maxQueriesPerIPPerHour: 2000,
+*   maxHitsPerQuery: 3,
+*   description: 'Eat three fruits',
+*   referers: ['*.algolia.com'],
+*   queryParameters: {
+*     tagFilters: ['public'],
+*   }
+* })
+* @see {@link https://www.algolia.com/doc/rest_api#UpdateIndexKey|Algolia REST API Documentation}
+*
+* @deprecated see client.updateApiKey()
+*/
+
+Index.prototype.updateApiKey = deprecate(function (key, acls, params, callback) {
+  var isArray = require('isarray');
+
+  var usage = 'Usage: index.updateApiKey(key, arrayOfAcls[, params, callback])';
+
+  if (!isArray(acls)) {
+    throw new Error(usage);
+  }
+
+  if (arguments.length === 2 || typeof params === 'function') {
+    callback = params;
+    params = null;
+  }
+
+  var putObj = {
+    acl: acls
+  };
+
+  if (params) {
+    putObj.validity = params.validity;
+    putObj.maxQueriesPerIPPerHour = params.maxQueriesPerIPPerHour;
+    putObj.maxHitsPerQuery = params.maxHitsPerQuery;
+    putObj.description = params.description;
+
+    if (params.queryParameters) {
+      putObj.queryParameters = this.as._getSearchParams(params.queryParameters, '');
+    }
+
+    putObj.referers = params.referers;
+  }
+
+  return this.as._jsonRequest({
+    method: 'PUT',
+    url: '/1/indexes/' + encodeURIComponent(this.indexName) + '/keys/' + key,
+    body: putObj,
+    hostType: 'write',
+    callback: callback
+  });
+}, deprecatedMessage('index.updateApiKey()', 'client.updateApiKey()'));
+},{"inherits":"../node_modules/inherits/inherits_browser.js","./IndexCore.js":"../node_modules/algoliasearch/src/IndexCore.js","./deprecate.js":"../node_modules/algoliasearch/src/deprecate.js","./deprecatedMessage.js":"../node_modules/algoliasearch/src/deprecatedMessage.js","./exitPromise.js":"../node_modules/algoliasearch/src/exitPromise.js","./errors":"../node_modules/algoliasearch/src/errors.js","isarray":"../node_modules/isarray/index.js","./map.js":"../node_modules/algoliasearch/src/map.js","./clone.js":"../node_modules/algoliasearch/src/clone.js","./merge.js":"../node_modules/algoliasearch/src/merge.js","./IndexBrowser":"../node_modules/algoliasearch/src/IndexBrowser.js"}],"../node_modules/ms/index.js":[function(require,module,exports) {
+/**
+ * Helpers.
+ */
+
+var s = 1000;
+var m = s * 60;
+var h = m * 60;
+var d = h * 24;
+var y = d * 365.25;
+
+/**
+ * Parse or format the given `val`.
+ *
+ * Options:
+ *
+ *  - `long` verbose formatting [false]
+ *
+ * @param {String|Number} val
+ * @param {Object} [options]
+ * @throws {Error} throw an error if val is not a non-empty string or a number
+ * @return {String|Number}
+ * @api public
+ */
+
+module.exports = function(val, options) {
+  options = options || {};
+  var type = typeof val;
+  if (type === 'string' && val.length > 0) {
+    return parse(val);
+  } else if (type === 'number' && isNaN(val) === false) {
+    return options.long ? fmtLong(val) : fmtShort(val);
+  }
+  throw new Error(
+    'val is not a non-empty string or a valid number. val=' +
+      JSON.stringify(val)
+  );
+};
+
+/**
+ * Parse the given `str` and return milliseconds.
+ *
+ * @param {String} str
+ * @return {Number}
+ * @api private
+ */
+
+function parse(str) {
+  str = String(str);
+  if (str.length > 100) {
+    return;
+  }
+  var match = /^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$/i.exec(
+    str
+  );
+  if (!match) {
+    return;
+  }
+  var n = parseFloat(match[1]);
+  var type = (match[2] || 'ms').toLowerCase();
+  switch (type) {
+    case 'years':
+    case 'year':
+    case 'yrs':
+    case 'yr':
+    case 'y':
+      return n * y;
+    case 'days':
+    case 'day':
+    case 'd':
+      return n * d;
+    case 'hours':
+    case 'hour':
+    case 'hrs':
+    case 'hr':
+    case 'h':
+      return n * h;
+    case 'minutes':
+    case 'minute':
+    case 'mins':
+    case 'min':
+    case 'm':
+      return n * m;
+    case 'seconds':
+    case 'second':
+    case 'secs':
+    case 'sec':
+    case 's':
+      return n * s;
+    case 'milliseconds':
+    case 'millisecond':
+    case 'msecs':
+    case 'msec':
+    case 'ms':
+      return n;
+    default:
+      return undefined;
+  }
+}
+
+/**
+ * Short format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtShort(ms) {
+  if (ms >= d) {
+    return Math.round(ms / d) + 'd';
+  }
+  if (ms >= h) {
+    return Math.round(ms / h) + 'h';
+  }
+  if (ms >= m) {
+    return Math.round(ms / m) + 'm';
+  }
+  if (ms >= s) {
+    return Math.round(ms / s) + 's';
+  }
+  return ms + 'ms';
+}
+
+/**
+ * Long format for `ms`.
+ *
+ * @param {Number} ms
+ * @return {String}
+ * @api private
+ */
+
+function fmtLong(ms) {
+  return plural(ms, d, 'day') ||
+    plural(ms, h, 'hour') ||
+    plural(ms, m, 'minute') ||
+    plural(ms, s, 'second') ||
+    ms + ' ms';
+}
+
+/**
+ * Pluralization helper.
+ */
+
+function plural(ms, n, name) {
+  if (ms < n) {
+    return;
+  }
+  if (ms < n * 1.5) {
+    return Math.floor(ms / n) + ' ' + name;
+  }
+  return Math.ceil(ms / n) + ' ' + name + 's';
+}
+
+},{}],"../node_modules/debug/src/debug.js":[function(require,module,exports) {
+
+/**
+ * This is the common logic for both the Node.js and web browser
+ * implementations of `debug()`.
+ *
+ * Expose `debug()` as the module.
+ */
+
+exports = module.exports = createDebug.debug = createDebug['default'] = createDebug;
+exports.coerce = coerce;
+exports.disable = disable;
+exports.enable = enable;
+exports.enabled = enabled;
+exports.humanize = require('ms');
+
+/**
+ * The currently active debug mode names, and names to skip.
+ */
+
+exports.names = [];
+exports.skips = [];
+
+/**
+ * Map of special "%n" handling functions, for the debug "format" argument.
+ *
+ * Valid key names are a single, lower or upper-case letter, i.e. "n" and "N".
+ */
+
+exports.formatters = {};
+
+/**
+ * Previous log timestamp.
+ */
+
+var prevTime;
+
+/**
+ * Select a color.
+ * @param {String} namespace
+ * @return {Number}
+ * @api private
+ */
+
+function selectColor(namespace) {
+  var hash = 0, i;
+
+  for (i in namespace) {
+    hash  = ((hash << 5) - hash) + namespace.charCodeAt(i);
+    hash |= 0; // Convert to 32bit integer
+  }
+
+  return exports.colors[Math.abs(hash) % exports.colors.length];
+}
+
+/**
+ * Create a debugger with the given `namespace`.
+ *
+ * @param {String} namespace
+ * @return {Function}
+ * @api public
+ */
+
+function createDebug(namespace) {
+
+  function debug() {
+    // disabled?
+    if (!debug.enabled) return;
+
+    var self = debug;
+
+    // set `diff` timestamp
+    var curr = +new Date();
+    var ms = curr - (prevTime || curr);
+    self.diff = ms;
+    self.prev = prevTime;
+    self.curr = curr;
+    prevTime = curr;
+
+    // turn the `arguments` into a proper Array
+    var args = new Array(arguments.length);
+    for (var i = 0; i < args.length; i++) {
+      args[i] = arguments[i];
+    }
+
+    args[0] = exports.coerce(args[0]);
+
+    if ('string' !== typeof args[0]) {
+      // anything else let's inspect with %O
+      args.unshift('%O');
+    }
+
+    // apply any `formatters` transformations
+    var index = 0;
+    args[0] = args[0].replace(/%([a-zA-Z%])/g, function(match, format) {
+      // if we encounter an escaped % then don't increase the array index
+      if (match === '%%') return match;
+      index++;
+      var formatter = exports.formatters[format];
+      if ('function' === typeof formatter) {
+        var val = args[index];
+        match = formatter.call(self, val);
+
+        // now we need to remove `args[index]` since it's inlined in the `format`
+        args.splice(index, 1);
+        index--;
+      }
+      return match;
+    });
+
+    // apply env-specific formatting (colors, etc.)
+    exports.formatArgs.call(self, args);
+
+    var logFn = debug.log || exports.log || console.log.bind(console);
+    logFn.apply(self, args);
+  }
+
+  debug.namespace = namespace;
+  debug.enabled = exports.enabled(namespace);
+  debug.useColors = exports.useColors();
+  debug.color = selectColor(namespace);
+
+  // env-specific initialization logic for debug instances
+  if ('function' === typeof exports.init) {
+    exports.init(debug);
+  }
+
+  return debug;
+}
+
+/**
+ * Enables a debug mode by namespaces. This can include modes
+ * separated by a colon and wildcards.
+ *
+ * @param {String} namespaces
+ * @api public
+ */
+
+function enable(namespaces) {
+  exports.save(namespaces);
+
+  exports.names = [];
+  exports.skips = [];
+
+  var split = (typeof namespaces === 'string' ? namespaces : '').split(/[\s,]+/);
+  var len = split.length;
+
+  for (var i = 0; i < len; i++) {
+    if (!split[i]) continue; // ignore empty strings
+    namespaces = split[i].replace(/\*/g, '.*?');
+    if (namespaces[0] === '-') {
+      exports.skips.push(new RegExp('^' + namespaces.substr(1) + '$'));
+    } else {
+      exports.names.push(new RegExp('^' + namespaces + '$'));
+    }
+  }
+}
+
+/**
+ * Disable debug output.
+ *
+ * @api public
+ */
+
+function disable() {
+  exports.enable('');
+}
+
+/**
+ * Returns true if the given mode name is enabled, false otherwise.
+ *
+ * @param {String} name
+ * @return {Boolean}
+ * @api public
+ */
+
+function enabled(name) {
+  var i, len;
+  for (i = 0, len = exports.skips.length; i < len; i++) {
+    if (exports.skips[i].test(name)) {
+      return false;
+    }
+  }
+  for (i = 0, len = exports.names.length; i < len; i++) {
+    if (exports.names[i].test(name)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * Coerce `val`.
+ *
+ * @param {Mixed} val
+ * @return {Mixed}
+ * @api private
+ */
+
+function coerce(val) {
+  if (val instanceof Error) return val.stack || val.message;
+  return val;
+}
+
+},{"ms":"../node_modules/ms/index.js"}],"../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/node_modules/process/browser.js":[function(require,module,exports) {
+
+// shim for using process in browser
+var process = module.exports = {}; // cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+  throw new Error('setTimeout has not been defined');
+}
+
+function defaultClearTimeout() {
+  throw new Error('clearTimeout has not been defined');
+}
+
+(function () {
+  try {
+    if (typeof setTimeout === 'function') {
+      cachedSetTimeout = setTimeout;
+    } else {
+      cachedSetTimeout = defaultSetTimout;
+    }
+  } catch (e) {
+    cachedSetTimeout = defaultSetTimout;
+  }
+
+  try {
+    if (typeof clearTimeout === 'function') {
+      cachedClearTimeout = clearTimeout;
+    } else {
+      cachedClearTimeout = defaultClearTimeout;
+    }
+  } catch (e) {
+    cachedClearTimeout = defaultClearTimeout;
+  }
+})();
+
+function runTimeout(fun) {
+  if (cachedSetTimeout === setTimeout) {
+    //normal enviroments in sane situations
+    return setTimeout(fun, 0);
+  } // if setTimeout wasn't available but was latter defined
+
+
+  if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+    cachedSetTimeout = setTimeout;
+    return setTimeout(fun, 0);
+  }
+
+  try {
+    // when when somebody has screwed with setTimeout but no I.E. maddness
+    return cachedSetTimeout(fun, 0);
+  } catch (e) {
+    try {
+      // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+      return cachedSetTimeout.call(null, fun, 0);
+    } catch (e) {
+      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+      return cachedSetTimeout.call(this, fun, 0);
+    }
+  }
+}
+
+function runClearTimeout(marker) {
+  if (cachedClearTimeout === clearTimeout) {
+    //normal enviroments in sane situations
+    return clearTimeout(marker);
+  } // if clearTimeout wasn't available but was latter defined
+
+
+  if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+    cachedClearTimeout = clearTimeout;
+    return clearTimeout(marker);
+  }
+
+  try {
+    // when when somebody has screwed with setTimeout but no I.E. maddness
+    return cachedClearTimeout(marker);
+  } catch (e) {
+    try {
+      // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+      return cachedClearTimeout.call(null, marker);
+    } catch (e) {
+      // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+      // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+      return cachedClearTimeout.call(this, marker);
+    }
+  }
+}
+
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+  if (!draining || !currentQueue) {
+    return;
+  }
+
+  draining = false;
+
+  if (currentQueue.length) {
+    queue = currentQueue.concat(queue);
+  } else {
+    queueIndex = -1;
+  }
+
+  if (queue.length) {
+    drainQueue();
+  }
+}
+
+function drainQueue() {
+  if (draining) {
+    return;
+  }
+
+  var timeout = runTimeout(cleanUpNextTick);
+  draining = true;
+  var len = queue.length;
+
+  while (len) {
+    currentQueue = queue;
+    queue = [];
+
+    while (++queueIndex < len) {
+      if (currentQueue) {
+        currentQueue[queueIndex].run();
+      }
+    }
+
+    queueIndex = -1;
+    len = queue.length;
+  }
+
+  currentQueue = null;
+  draining = false;
+  runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+  var args = new Array(arguments.length - 1);
+
+  if (arguments.length > 1) {
+    for (var i = 1; i < arguments.length; i++) {
+      args[i - 1] = arguments[i];
+    }
+  }
+
+  queue.push(new Item(fun, args));
+
+  if (queue.length === 1 && !draining) {
+    runTimeout(drainQueue);
+  }
+}; // v8 likes predictible objects
+
+
+function Item(fun, array) {
+  this.fun = fun;
+  this.array = array;
+}
+
+Item.prototype.run = function () {
+  this.fun.apply(null, this.array);
+};
+
+process.title = 'browser';
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) {
+  return [];
+};
+
+process.binding = function (name) {
+  throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () {
+  return '/';
+};
+
+process.chdir = function (dir) {
+  throw new Error('process.chdir is not supported');
+};
+
+process.umask = function () {
+  return 0;
+};
+},{}],"../node_modules/debug/src/browser.js":[function(require,module,exports) {
 var process = require("process");
-var e=require("process");function o(){return!("undefined"==typeof window||!window.process||"renderer"!==window.process.type)||("undefined"!=typeof document&&document.documentElement&&document.documentElement.style&&document.documentElement.style.WebkitAppearance||"undefined"!=typeof window&&window.console&&(window.console.firebug||window.console.exception&&window.console.table)||"undefined"!=typeof navigator&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/)&&parseInt(RegExp.$1,10)>=31||"undefined"!=typeof navigator&&navigator.userAgent&&navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/))}function t(e){var o=this.useColors;if(e[0]=(o?"%c":"")+this.namespace+(o?" %c":" ")+e[0]+(o?"%c ":" ")+"+"+exports.humanize(this.diff),o){var t="color: "+this.color;e.splice(1,0,t,"color: inherit");var r=0,n=0;e[0].replace(/%[a-zA-Z%]/g,function(e){"%%"!==e&&(r++,"%c"===e&&(n=r))}),e.splice(n,0,t)}}function r(){return"object"==typeof console&&console.log&&Function.prototype.apply.call(console.log,console,arguments)}function n(e){try{null==e?exports.storage.removeItem("debug"):exports.storage.debug=e}catch(o){}}function s(){var o;try{o=exports.storage.debug}catch(t){}return!o&&void 0!==e&&"env"in e&&(o=void 0),o}function c(){try{return window.localStorage}catch(e){}}exports=module.exports=require("./debug"),exports.log=r,exports.formatArgs=t,exports.save=n,exports.load=s,exports.useColors=o,exports.storage="undefined"!=typeof chrome&&void 0!==chrome.storage?chrome.storage.local:c(),exports.colors=["lightseagreen","forestgreen","goldenrod","dodgerblue","darkorchid","crimson"],exports.formatters.j=function(e){try{return JSON.stringify(e)}catch(o){return"[UnexpectedJSONParseError]: "+o.message}},exports.enable(s());
-},{"./debug":"y5CM","process":"DHOa"}],"qK61":[function(require,module,exports) {
+/**
+ * This is the web browser implementation of `debug()`.
+ *
+ * Expose `debug()` as the module.
+ */
+exports = module.exports = require('./debug');
+exports.log = log;
+exports.formatArgs = formatArgs;
+exports.save = save;
+exports.load = load;
+exports.useColors = useColors;
+exports.storage = 'undefined' != typeof chrome && 'undefined' != typeof chrome.storage ? chrome.storage.local : localstorage();
+/**
+ * Colors.
+ */
+
+exports.colors = ['lightseagreen', 'forestgreen', 'goldenrod', 'dodgerblue', 'darkorchid', 'crimson'];
+/**
+ * Currently only WebKit-based Web Inspectors, Firefox >= v31,
+ * and the Firebug extension (any Firefox version) are known
+ * to support "%c" CSS customizations.
+ *
+ * TODO: add a `localStorage` variable to explicitly enable/disable colors
+ */
+
+function useColors() {
+  // NB: In an Electron preload script, document will be defined but not fully
+  // initialized. Since we know we're in Chrome, we'll just detect this case
+  // explicitly
+  if (typeof window !== 'undefined' && window.process && window.process.type === 'renderer') {
+    return true;
+  } // is webkit? http://stackoverflow.com/a/16459606/376773
+  // document is undefined in react-native: https://github.com/facebook/react-native/pull/1632
+
+
+  return typeof document !== 'undefined' && document.documentElement && document.documentElement.style && document.documentElement.style.WebkitAppearance || // is firebug? http://stackoverflow.com/a/398120/376773
+  typeof window !== 'undefined' && window.console && (window.console.firebug || window.console.exception && window.console.table) || // is firefox >= v31?
+  // https://developer.mozilla.org/en-US/docs/Tools/Web_Console#Styling_messages
+  typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/firefox\/(\d+)/) && parseInt(RegExp.$1, 10) >= 31 || // double check webkit in userAgent just in case we are in a worker
+  typeof navigator !== 'undefined' && navigator.userAgent && navigator.userAgent.toLowerCase().match(/applewebkit\/(\d+)/);
+}
+/**
+ * Map %j to `JSON.stringify()`, since no Web Inspectors do that by default.
+ */
+
+
+exports.formatters.j = function (v) {
+  try {
+    return JSON.stringify(v);
+  } catch (err) {
+    return '[UnexpectedJSONParseError]: ' + err.message;
+  }
+};
+/**
+ * Colorize log arguments if enabled.
+ *
+ * @api public
+ */
+
+
+function formatArgs(args) {
+  var useColors = this.useColors;
+  args[0] = (useColors ? '%c' : '') + this.namespace + (useColors ? ' %c' : ' ') + args[0] + (useColors ? '%c ' : ' ') + '+' + exports.humanize(this.diff);
+  if (!useColors) return;
+  var c = 'color: ' + this.color;
+  args.splice(1, 0, c, 'color: inherit'); // the final "%c" is somewhat tricky, because there could be other
+  // arguments passed either before or after the %c, so we need to
+  // figure out the correct index to insert the CSS into
+
+  var index = 0;
+  var lastC = 0;
+  args[0].replace(/%[a-zA-Z%]/g, function (match) {
+    if ('%%' === match) return;
+    index++;
+
+    if ('%c' === match) {
+      // we only are interested in the *last* %c
+      // (the user may have provided their own)
+      lastC = index;
+    }
+  });
+  args.splice(lastC, 0, c);
+}
+/**
+ * Invokes `console.log()` when available.
+ * No-op when `console.log` is not a "function".
+ *
+ * @api public
+ */
+
+
+function log() {
+  // this hackery is required for IE8/9, where
+  // the `console.log` function doesn't have 'apply'
+  return 'object' === typeof console && console.log && Function.prototype.apply.call(console.log, console, arguments);
+}
+/**
+ * Save `namespaces`.
+ *
+ * @param {String} namespaces
+ * @api private
+ */
+
+
+function save(namespaces) {
+  try {
+    if (null == namespaces) {
+      exports.storage.removeItem('debug');
+    } else {
+      exports.storage.debug = namespaces;
+    }
+  } catch (e) {}
+}
+/**
+ * Load `namespaces`.
+ *
+ * @return {String} returns the previously persisted debug modes
+ * @api private
+ */
+
+
+function load() {
+  var r;
+
+  try {
+    r = exports.storage.debug;
+  } catch (e) {} // If debug isn't set in LS, and we're in Electron, try to load $DEBUG
+
+
+  if (!r && typeof process !== 'undefined' && 'env' in process) {
+    r = undefined;
+  }
+
+  return r;
+}
+/**
+ * Enable namespaces listed in `localStorage.debug` initially.
+ */
+
+
+exports.enable(load());
+/**
+ * Localstorage attempts to return the localstorage.
+ *
+ * This is necessary because safari throws
+ * when a user disables cookies/localstorage
+ * and you attempt to access it.
+ *
+ * @return {LocalStorage}
+ * @api private
+ */
+
+function localstorage() {
+  try {
+    return window.localStorage;
+  } catch (e) {}
+}
+},{"./debug":"../node_modules/debug/src/debug.js","process":"../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/node_modules/process/browser.js"}],"../node_modules/algoliasearch/src/store.js":[function(require,module,exports) {
 var global = arguments[3];
-var t,e=arguments[3],r=require("debug")("algoliasearch:src/hostIndexState.js"),a="algoliasearch-client-js",n={state:{},set:function(t,e){return this.state[t]=e,this.state[t]},get:function(t){return this.state[t]||null}},o={set:function(t,r){n.set(t,r);try{var o=JSON.parse(e.localStorage[a]);return o[t]=r,e.localStorage[a]=JSON.stringify(o),o[t]}catch(c){return l(t,c)}},get:function(t){try{return JSON.parse(e.localStorage[a])[t]||null}catch(r){return l(t,r)}}};function l(e,a){return r("localStorage failed with",a),u(),(t=n).get(e)}function c(e,r){return 1===arguments.length?t.get(e):t.set(e,r)}function s(){try{return"localStorage"in e&&null!==e.localStorage&&(e.localStorage[a]||e.localStorage.setItem(a,JSON.stringify({})),!0)}catch(t){return!1}}function u(){try{e.localStorage.removeItem(a)}catch(t){}}t=s()?o:n,module.exports={get:c,set:c,supportsLocalStorage:s};
-},{"debug":"jcLW"}],"daUR":[function(require,module,exports) {
-module.exports=i;var e=require("./errors"),t=require("./exitPromise.js"),o=require("./IndexCore.js"),r=require("./store.js"),s=500,a=12e4;function i(t,o,r){var s=require("debug")("algoliasearch"),a=require("./clone.js"),i=require("isarray"),u=require("./map.js"),h="Usage: algoliasearch(applicationID, apiKey, opts)";if(!0!==r._allowEmptyCredentials&&!t)throw new e.AlgoliaSearchError("Please provide an application ID. "+h);if(!0!==r._allowEmptyCredentials&&!o)throw new e.AlgoliaSearchError("Please provide an API key. "+h);this.applicationID=t,this.apiKey=o,this.hosts={read:[],write:[]},r=r||{},this._timeouts=r.timeouts||{connect:1e3,read:2e3,write:3e4},r.timeout&&(this._timeouts.connect=this._timeouts.read=this._timeouts.write=r.timeout);var c=r.protocol||"https:";if(/:$/.test(c)||(c+=":"),"http:"!==c&&"https:"!==c)throw new e.AlgoliaSearchError("protocol must be `http:` or `https:` (was `"+r.protocol+"`)");if(this._checkAppIdData(),r.hosts)i(r.hosts)?(this.hosts.read=a(r.hosts),this.hosts.write=a(r.hosts)):(this.hosts.read=a(r.hosts.read),this.hosts.write=a(r.hosts.write));else{var p=u(this._shuffleResult,function(e){return t+"-"+e+".algolianet.com"}),l=(!1===r.dsn?"":"-dsn")+".algolia.net";this.hosts.read=[this.applicationID+l].concat(p),this.hosts.write=[this.applicationID+".algolia.net"].concat(p)}this.hosts.read=u(this.hosts.read,n(c)),this.hosts.write=u(this.hosts.write,n(c)),this.extraHeaders={},this.cache=r._cache||{},this._ua=r._ua,this._useCache=!(void 0!==r._useCache&&!r._cache)||r._useCache,this._useRequestCache=this._useCache&&r._useRequestCache,this._useFallback=void 0===r.useFallback||r.useFallback,this._setTimeout=r._setTimeout,s("init done, %j",this)}function n(e){return function(t){return e+"//"+t.toLowerCase()}}function u(e){if(void 0===Array.prototype.toJSON)return JSON.stringify(e);var t=Array.prototype.toJSON;delete Array.prototype.toJSON;var o=JSON.stringify(e);return Array.prototype.toJSON=t,o}function h(e){for(var t,o,r=e.length;0!==r;)o=Math.floor(Math.random()*r),t=e[r-=1],e[r]=e[o],e[o]=t;return e}function c(e){var t={};for(var o in e){var r;if(Object.prototype.hasOwnProperty.call(e,o))r="x-algolia-api-key"===o||"x-algolia-application-id"===o?"**hidden for security purposes**":e[o],t[o]=r}return t}i.prototype.initIndex=function(e){return new o(this,e)},i.prototype.setExtraHeader=function(e,t){this.extraHeaders[e.toLowerCase()]=t},i.prototype.getExtraHeader=function(e){return this.extraHeaders[e.toLowerCase()]},i.prototype.unsetExtraHeader=function(e){delete this.extraHeaders[e.toLowerCase()]},i.prototype.addAlgoliaAgent=function(e){var t="; "+e;-1===this._ua.indexOf(t)&&(this._ua+=t)},i.prototype._jsonRequest=function(o){this._checkAppIdData();var r,a,i,n=require("debug")("algoliasearch:"+o.url),h=o.additionalUA||"",p=o.cache,l=this,d=0,y=!1,m=l._useFallback&&l._request.fallback&&o.fallback;this.apiKey.length>s&&void 0!==o.body&&(void 0!==o.body.params||void 0!==o.body.requests)?(o.body.apiKey=this.apiKey,i=this._computeRequestHeaders({additionalUA:h,withApiKey:!1,headers:o.headers})):i=this._computeRequestHeaders({additionalUA:h,headers:o.headers}),void 0!==o.body&&(r=u(o.body)),n("request start");var f=[];function _(e,t,o){return l._useCache&&e&&t&&void 0!==t[o]}function g(e,r){if(_(l._useRequestCache,p,a)&&e.catch(function(){delete p[a]}),"function"!=typeof o.callback)return e.then(r);e.then(function(e){t(function(){o.callback(null,r(e))},l._setTimeout||setTimeout)},function(e){t(function(){o.callback(e)},l._setTimeout||setTimeout)})}if(l._useCache&&l._useRequestCache&&(a=o.url),l._useCache&&l._useRequestCache&&r&&(a+="_body_"+r),_(l._useRequestCache,p,a)){n("serving request from cache");var v=p[a];return g("function"!=typeof v.then?l._promise.resolve({responseText:v}):v,function(e){return JSON.parse(e.responseText)})}var b=function t(s,g){l._checkAppIdData();var v=new Date;if(l._useCache&&!l._useRequestCache&&(a=o.url),l._useCache&&!l._useRequestCache&&r&&(a+="_body_"+g.body),_(!l._useRequestCache,p,a)){n("serving response from cache");var b=p[a];return l._promise.resolve({body:JSON.parse(b),responseText:b})}if(d>=l.hosts[o.hostType].length)return!m||y?(n("could not get any response"),l._promise.reject(new e.AlgoliaSearchError("Cannot connect to the AlgoliaSearch API. Send an email to support@algolia.com to report and resolve the issue. Application id was: "+l.applicationID,{debugData:f}))):(n("switching to fallback"),d=0,g.method=o.fallback.method,g.url=o.fallback.url,g.jsonBody=o.fallback.body,g.jsonBody&&(g.body=u(g.jsonBody)),i=l._computeRequestHeaders({additionalUA:h,headers:o.headers}),g.timeouts=l._getTimeoutsForRequest(o.hostType),l._setHostIndexByType(0,o.hostType),y=!0,t(l._request.fallback,g));var q=l._getHostByType(o.hostType),T=q+g.url,I={body:g.body,jsonBody:g.jsonBody,method:g.method,headers:i,timeouts:g.timeouts,debug:n,forceAuthHeaders:g.forceAuthHeaders};return n("method: %s, url: %s, headers: %j, timeouts: %d",I.method,T,I.headers,I.timeouts),s===l._request.fallback&&n("using fallback"),s.call(l,T,I).then(function(t){var o=t&&t.body&&t.body.message&&t.body.status||t.statusCode||t&&t.body&&200;n("received response: statusCode: %s, computed statusCode: %d, headers: %j",t.statusCode,o,t.headers);var s=2===Math.floor(o/100),u=new Date;if(f.push({currentHost:q,headers:c(i),content:r||null,contentLength:void 0!==r?r.length:null,method:g.method,timeouts:g.timeouts,url:g.url,startTime:v,endTime:u,duration:u-v,statusCode:o}),s)return l._useCache&&!l._useRequestCache&&p&&(p[a]=t.responseText),{responseText:t.responseText,body:t.body};if(4!==Math.floor(o/100))return d+=1,x();n("unrecoverable error");var h=new e.AlgoliaSearchError(t.body&&t.body.message,{debugData:f,statusCode:o});return l._promise.reject(h)},function(a){n("error: %s, stack: %s",a.message,a.stack);var u=new Date;return f.push({currentHost:q,headers:c(i),content:r||null,contentLength:void 0!==r?r.length:null,method:g.method,timeouts:g.timeouts,url:g.url,startTime:v,endTime:u,duration:u-v}),a instanceof e.AlgoliaSearchError||(a=new e.Unknown(a&&a.message,a)),d+=1,a instanceof e.Unknown||a instanceof e.UnparsableJSON||d>=l.hosts[o.hostType].length&&(y||!m)?(a.debugData=f,l._promise.reject(a)):a instanceof e.RequestTimeout?(n("retrying request with higher timeout"),l._incrementHostIndex(o.hostType),l._incrementTimeoutMultipler(),g.timeouts=l._getTimeoutsForRequest(o.hostType),t(s,g)):x()});function x(){return n("retrying request"),l._incrementHostIndex(o.hostType),t(s,g)}}(l._request,{url:o.url,method:o.method,body:r,jsonBody:o.body,timeouts:l._getTimeoutsForRequest(o.hostType),forceAuthHeaders:o.forceAuthHeaders});return l._useCache&&l._useRequestCache&&p&&(p[a]=b),g(b,function(e){return e.body})},i.prototype._getSearchParams=function(e,t){if(null==e)return t;for(var o in e)null!==o&&void 0!==e[o]&&e.hasOwnProperty(o)&&(t+=""===t?"":"&",t+=o+"="+encodeURIComponent("[object Array]"===Object.prototype.toString.call(e[o])?u(e[o]):e[o]));return t},i.prototype._computeRequestHeaders=function(e){var t=require("foreach"),o={"x-algolia-agent":e.additionalUA?this._ua+"; "+e.additionalUA:this._ua,"x-algolia-application-id":this.applicationID};return!1!==e.withApiKey&&(o["x-algolia-api-key"]=this.apiKey),this.userToken&&(o["x-algolia-usertoken"]=this.userToken),this.securityTags&&(o["x-algolia-tagfilters"]=this.securityTags),t(this.extraHeaders,function(e,t){o[t]=e}),e.headers&&t(e.headers,function(e,t){o[t]=e}),o},i.prototype.search=function(e,t,o){var r=require("isarray"),s=require("./map.js");if(!r(e))throw new Error("Usage: client.search(arrayOfQueries[, callback])");"function"==typeof t?(o=t,t={}):void 0===t&&(t={});var a=this,i={requests:s(e,function(e){var t="";return void 0!==e.query&&(t+="query="+encodeURIComponent(e.query)),{indexName:e.indexName,params:a._getSearchParams(e.params,t)}})},n=s(i.requests,function(e,t){return t+"="+encodeURIComponent("/1/indexes/"+encodeURIComponent(e.indexName)+"?"+e.params)}).join("&");return void 0!==t.strategy&&(i.strategy=t.strategy),this._jsonRequest({cache:this.cache,method:"POST",url:"/1/indexes/*/queries",body:i,hostType:"read",fallback:{method:"GET",url:"/1/indexes/*",body:{params:n}},callback:o})},i.prototype.searchForFacetValues=function(e){var t=require("isarray"),o=require("./map.js"),r="Usage: client.searchForFacetValues([{indexName, params: {facetName, facetQuery, ...params}}, ...queries])";if(!t(e))throw new Error(r);var s=this;return s._promise.all(o(e,function(e){if(!e||void 0===e.indexName||void 0===e.params.facetName||void 0===e.params.facetQuery)throw new Error(r);var t=require("./clone.js"),o=require("./omit.js"),a=e.indexName,i=e.params,n=i.facetName,u=o(t(i),function(e){return"facetName"===e}),h=s._getSearchParams(u,"");return s._jsonRequest({cache:s.cache,method:"POST",url:"/1/indexes/"+encodeURIComponent(a)+"/facets/"+encodeURIComponent(n)+"/query",hostType:"read",body:{params:h}})}))},i.prototype.setSecurityTags=function(e){if("[object Array]"===Object.prototype.toString.call(e)){for(var t=[],o=0;o<e.length;++o)if("[object Array]"===Object.prototype.toString.call(e[o])){for(var r=[],s=0;s<e[o].length;++s)r.push(e[o][s]);t.push("("+r.join(",")+")")}else t.push(e[o]);e=t.join(",")}this.securityTags=e},i.prototype.setUserToken=function(e){this.userToken=e},i.prototype.clearCache=function(){this.cache={}},i.prototype.setRequestTimeout=function(e){e&&(this._timeouts.connect=this._timeouts.read=this._timeouts.write=e)},i.prototype.setTimeouts=function(e){this._timeouts=e},i.prototype.getTimeouts=function(){return this._timeouts},i.prototype._getAppIdData=function(){var e=r.get(this.applicationID);return null!==e&&this._cacheAppIdData(e),e},i.prototype._setAppIdData=function(e){return e.lastChange=(new Date).getTime(),this._cacheAppIdData(e),r.set(this.applicationID,e)},i.prototype._checkAppIdData=function(){var e=this._getAppIdData(),t=(new Date).getTime();return null===e||t-e.lastChange>a?this._resetInitialAppIdData(e):e},i.prototype._resetInitialAppIdData=function(e){var t=e||{};return t.hostIndexes={read:0,write:0},t.timeoutMultiplier=1,t.shuffleResult=t.shuffleResult||h([1,2,3]),this._setAppIdData(t)},i.prototype._cacheAppIdData=function(e){this._hostIndexes=e.hostIndexes,this._timeoutMultiplier=e.timeoutMultiplier,this._shuffleResult=e.shuffleResult},i.prototype._partialAppIdDataUpdate=function(e){var t=require("foreach"),o=this._getAppIdData();return t(e,function(e,t){o[t]=e}),this._setAppIdData(o)},i.prototype._getHostByType=function(e){return this.hosts[e][this._getHostIndexByType(e)]},i.prototype._getTimeoutMultiplier=function(){return this._timeoutMultiplier},i.prototype._getHostIndexByType=function(e){return this._hostIndexes[e]},i.prototype._setHostIndexByType=function(e,t){var o=require("./clone")(this._hostIndexes);return o[t]=e,this._partialAppIdDataUpdate({hostIndexes:o}),e},i.prototype._incrementHostIndex=function(e){return this._setHostIndexByType((this._getHostIndexByType(e)+1)%this.hosts[e].length,e)},i.prototype._incrementTimeoutMultipler=function(){var e=Math.max(this._timeoutMultiplier+1,4);return this._partialAppIdDataUpdate({timeoutMultiplier:e})},i.prototype._getTimeoutsForRequest=function(e){return{connect:this._timeouts.connect*this._timeoutMultiplier,complete:this._timeouts[e]*this._timeoutMultiplier}};
-},{"./errors":"QKhG","./exitPromise.js":"nb0e","./IndexCore.js":"ig01","./store.js":"qK61","debug":"jcLW","./clone.js":"S7SM","isarray":"REa7","./map.js":"BDy2","foreach":"Sh+V","./omit.js":"8q90","./clone":"S7SM"}],"/lvS":[function(require,module,exports) {
-module.exports=t;var e=require("../index.js");function t(t,s,o){var a={};return(o=o||{}).hosts=o.hosts||["analytics.algolia.com","analytics.algolia.com","analytics.algolia.com","analytics.algolia.com"],o.protocol=o.protocol||"https:",a.as=e(t,s,o),a.getABTests=function(e,t){var s=s||{},o=s.offset||0,a=s.limit||10;return this.as._jsonRequest({method:"GET",url:"/2/abtests?offset="+encodeURIComponent(o)+"&limit="+encodeURIComponent(a),hostType:"read",forceAuthHeaders:!0,callback:t})},a.getABTest=function(e,t){return this.as._jsonRequest({method:"GET",url:"/2/abtests/"+encodeURIComponent(e),hostType:"read",forceAuthHeaders:!0,callback:t})},a.addABTest=function(e,t){return this.as._jsonRequest({method:"POST",url:"/2/abtests",body:e,hostType:"read",forceAuthHeaders:!0,callback:t})},a.stopABTest=function(e,t){return this.as._jsonRequest({method:"POST",url:"/2/abtests/"+encodeURIComponent(e)+"/stop",hostType:"read",forceAuthHeaders:!0,callback:t})},a.deleteABTest=function(e,t){return this.as._jsonRequest({method:"DELETE",url:"/2/abtests/"+encodeURIComponent(e),hostType:"write",forceAuthHeaders:!0,callback:t})},a.waitTask=function(e,t,s){return this.as.initIndex(e).waitTask(t,s)},a}
-},{"../index.js":"rauQ"}],"4izX":[function(require,module,exports) {
-module.exports=n;var e=require("./Index.js"),t=require("./deprecate.js"),r=require("./deprecatedMessage.js"),o=require("./AlgoliaSearchCore.js"),s=require("inherits"),i=require("./errors");function n(){o.apply(this,arguments)}function a(){throw new i.AlgoliaSearchError("Not implemented in this environment.\nIf you feel this is a mistake, write to support@algolia.com")}s(n,o),n.prototype.deleteIndex=function(e,t){return this._jsonRequest({method:"DELETE",url:"/1/indexes/"+encodeURIComponent(e),hostType:"write",callback:t})},n.prototype.moveIndex=function(e,t,r){var o={operation:"move",destination:t};return this._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(e)+"/operation",body:o,hostType:"write",callback:r})},n.prototype.copyIndex=function(e,t,r,o){var s={operation:"copy",destination:t},i=o;if("function"==typeof r)i=r;else if(Array.isArray(r)&&r.length>0)s.scope=r;else if(void 0!==r)throw new Error("the scope given to `copyIndex` was not an array with settings, synonyms or rules");return this._jsonRequest({method:"POST",url:"/1/indexes/"+encodeURIComponent(e)+"/operation",body:s,hostType:"write",callback:i})},n.prototype.getLogs=function(e,t,r){var o=require("./clone.js"),s={};return"object"==typeof e?(s=o(e),r=t):0===arguments.length||"function"==typeof e?r=e:1===arguments.length||"function"==typeof t?(r=t,s.offset=e):(s.offset=e,s.length=t),void 0===s.offset&&(s.offset=0),void 0===s.length&&(s.length=10),this._jsonRequest({method:"GET",url:"/1/logs?"+this._getSearchParams(s,""),hostType:"read",callback:r})},n.prototype.listIndexes=function(e,t){var r="";return void 0===e||"function"==typeof e?t=e:r="?page="+e,this._jsonRequest({method:"GET",url:"/1/indexes"+r,hostType:"read",callback:t})},n.prototype.initIndex=function(t){return new e(this,t)},n.prototype.initAnalytics=function(e){return require("./createAnalyticsClient.js")(this.applicationID,this.apiKey,e)},n.prototype.listUserKeys=t(function(e){return this.listApiKeys(e)},r("client.listUserKeys()","client.listApiKeys()")),n.prototype.listApiKeys=function(e){return this._jsonRequest({method:"GET",url:"/1/keys",hostType:"read",callback:e})},n.prototype.getUserKeyACL=t(function(e,t){return this.getApiKey(e,t)},r("client.getUserKeyACL()","client.getApiKey()")),n.prototype.getApiKey=function(e,t){return this._jsonRequest({method:"GET",url:"/1/keys/"+e,hostType:"read",callback:t})},n.prototype.deleteUserKey=t(function(e,t){return this.deleteApiKey(e,t)},r("client.deleteUserKey()","client.deleteApiKey()")),n.prototype.deleteApiKey=function(e,t){return this._jsonRequest({method:"DELETE",url:"/1/keys/"+e,hostType:"write",callback:t})},n.prototype.restoreApiKey=function(e,t){return this._jsonRequest({method:"POST",url:"/1/keys/"+e+"/restore",hostType:"write",callback:t})},n.prototype.addUserKey=t(function(e,t,r){return this.addApiKey(e,t,r)},r("client.addUserKey()","client.addApiKey()")),n.prototype.addApiKey=function(e,t,r){if(!require("isarray")(e))throw new Error("Usage: client.addApiKey(arrayOfAcls[, params, callback])");1!==arguments.length&&"function"!=typeof t||(r=t,t=null);var o={acl:e};return t&&(o.validity=t.validity,o.maxQueriesPerIPPerHour=t.maxQueriesPerIPPerHour,o.maxHitsPerQuery=t.maxHitsPerQuery,o.indexes=t.indexes,o.description=t.description,t.queryParameters&&(o.queryParameters=this._getSearchParams(t.queryParameters,"")),o.referers=t.referers),this._jsonRequest({method:"POST",url:"/1/keys",body:o,hostType:"write",callback:r})},n.prototype.addUserKeyWithValidity=t(function(e,t,r){return this.addApiKey(e,t,r)},r("client.addUserKeyWithValidity()","client.addApiKey()")),n.prototype.updateUserKey=t(function(e,t,r,o){return this.updateApiKey(e,t,r,o)},r("client.updateUserKey()","client.updateApiKey()")),n.prototype.updateApiKey=function(e,t,r,o){if(!require("isarray")(t))throw new Error("Usage: client.updateApiKey(key, arrayOfAcls[, params, callback])");2!==arguments.length&&"function"!=typeof r||(o=r,r=null);var s={acl:t};return r&&(s.validity=r.validity,s.maxQueriesPerIPPerHour=r.maxQueriesPerIPPerHour,s.maxHitsPerQuery=r.maxHitsPerQuery,s.indexes=r.indexes,s.description=r.description,r.queryParameters&&(s.queryParameters=this._getSearchParams(r.queryParameters,"")),s.referers=r.referers),this._jsonRequest({method:"PUT",url:"/1/keys/"+e,body:s,hostType:"write",callback:o})},n.prototype.startQueriesBatch=t(function(){this._batch=[]},r("client.startQueriesBatch()","client.search()")),n.prototype.addQueryInBatch=t(function(e,t,r){this._batch.push({indexName:e,query:t,params:r})},r("client.addQueryInBatch()","client.search()")),n.prototype.sendQueriesBatch=t(function(e){return this.search(this._batch,e)},r("client.sendQueriesBatch()","client.search()")),n.prototype.batch=function(e,t){if(!require("isarray")(e))throw new Error("Usage: client.batch(operations[, callback])");return this._jsonRequest({method:"POST",url:"/1/indexes/*/batch",body:{requests:e},hostType:"write",callback:t})},n.prototype.assignUserID=function(e,t){if(!e.userID||!e.cluster)throw new i.AlgoliaSearchError("You have to provide both a userID and cluster",e);return this._jsonRequest({method:"POST",url:"/1/clusters/mapping",hostType:"write",body:{cluster:e.cluster},callback:t,headers:{"x-algolia-user-id":e.userID}})},n.prototype.getTopUserID=function(e){return this._jsonRequest({method:"GET",url:"/1/clusters/mapping/top",hostType:"read",callback:e})},n.prototype.getUserID=function(e,t){if(!e.userID)throw new i.AlgoliaSearchError("You have to provide a userID",{debugData:e});return this._jsonRequest({method:"GET",url:"/1/clusters/mapping/"+e.userID,hostType:"read",callback:t})},n.prototype.listClusters=function(e){return this._jsonRequest({method:"GET",url:"/1/clusters",hostType:"read",callback:e})},n.prototype.listUserIDs=function(e,t){return this._jsonRequest({method:"GET",url:"/1/clusters/mapping",body:e,hostType:"read",callback:t})},n.prototype.removeUserID=function(e,t){if(!e.userID)throw new i.AlgoliaSearchError("You have to provide a userID",{debugData:e});return this._jsonRequest({method:"DELETE",url:"/1/clusters/mapping",hostType:"write",callback:t,headers:{"x-algolia-user-id":e.userID}})},n.prototype.searchUserIDs=function(e,t){return this._jsonRequest({method:"POST",url:"/1/clusters/mapping/search",body:e,hostType:"read",callback:t})},n.prototype.setPersonalizationStrategy=function(e,t){return this._jsonRequest({method:"POST",url:"/1/recommendation/personalization/strategy",body:e,hostType:"write",callback:t})},n.prototype.getPersonalizationStrategy=function(e){return this._jsonRequest({method:"GET",url:"/1/recommendation/personalization/strategy",hostType:"read",callback:e})},n.prototype.destroy=a,n.prototype.enableRateLimitForward=a,n.prototype.disableRateLimitForward=a,n.prototype.useSecuredAPIKey=a,n.prototype.disableSecuredAPIKey=a,n.prototype.generateSecuredApiKey=a;
-},{"./Index.js":"4hKF","./deprecate.js":"F888","./deprecatedMessage.js":"8OXg","./AlgoliaSearchCore.js":"daUR","inherits":"4Bm0","./errors":"QKhG","./clone.js":"S7SM","./createAnalyticsClient.js":"/lvS","isarray":"REa7"}],"tALL":[function(require,module,exports) {
+var debug = require('debug')('algoliasearch:src/hostIndexState.js');
+
+var localStorageNamespace = 'algoliasearch-client-js';
+var store;
+var moduleStore = {
+  state: {},
+  set: function (key, data) {
+    this.state[key] = data;
+    return this.state[key];
+  },
+  get: function (key) {
+    return this.state[key] || null;
+  }
+};
+var localStorageStore = {
+  set: function (key, data) {
+    moduleStore.set(key, data); // always replicate localStorageStore to moduleStore in case of failure
+
+    try {
+      var namespace = JSON.parse(global.localStorage[localStorageNamespace]);
+      namespace[key] = data;
+      global.localStorage[localStorageNamespace] = JSON.stringify(namespace);
+      return namespace[key];
+    } catch (e) {
+      return localStorageFailure(key, e);
+    }
+  },
+  get: function (key) {
+    try {
+      return JSON.parse(global.localStorage[localStorageNamespace])[key] || null;
+    } catch (e) {
+      return localStorageFailure(key, e);
+    }
+  }
+};
+
+function localStorageFailure(key, e) {
+  debug('localStorage failed with', e);
+  cleanup();
+  store = moduleStore;
+  return store.get(key);
+}
+
+store = supportsLocalStorage() ? localStorageStore : moduleStore;
+module.exports = {
+  get: getOrSet,
+  set: getOrSet,
+  supportsLocalStorage: supportsLocalStorage
+};
+
+function getOrSet(key, data) {
+  if (arguments.length === 1) {
+    return store.get(key);
+  }
+
+  return store.set(key, data);
+}
+
+function supportsLocalStorage() {
+  try {
+    if ('localStorage' in global && global.localStorage !== null) {
+      if (!global.localStorage[localStorageNamespace]) {
+        // actual creation of the namespace
+        global.localStorage.setItem(localStorageNamespace, JSON.stringify({}));
+      }
+
+      return true;
+    }
+
+    return false;
+  } catch (_) {
+    return false;
+  }
+} // In case of any error on localStorage, we clean our own namespace, this should handle
+// quota errors when a lot of keys + data are used
+
+
+function cleanup() {
+  try {
+    global.localStorage.removeItem(localStorageNamespace);
+  } catch (_) {// nothing to do
+  }
+}
+},{"debug":"../node_modules/debug/src/browser.js"}],"../node_modules/algoliasearch/src/AlgoliaSearchCore.js":[function(require,module,exports) {
+module.exports = AlgoliaSearchCore;
+
+var errors = require('./errors');
+
+var exitPromise = require('./exitPromise.js');
+
+var IndexCore = require('./IndexCore.js');
+
+var store = require('./store.js'); // We will always put the API KEY in the JSON body in case of too long API KEY,
+// to avoid query string being too long and failing in various conditions (our server limit, browser limit,
+// proxies limit)
+
+
+var MAX_API_KEY_LENGTH = 500;
+var RESET_APP_DATA_TIMER = undefined && parseInt(undefined, 10) || 60 * 2 * 1000; // after 2 minutes reset to first host
+
+/*
+ * Algolia Search library initialization
+ * https://www.algolia.com/
+ *
+ * @param {string} applicationID - Your applicationID, found in your dashboard
+ * @param {string} apiKey - Your API key, found in your dashboard
+ * @param {Object} [opts]
+ * @param {number} [opts.timeout=2000] - The request timeout set in milliseconds,
+ * another request will be issued after this timeout
+ * @param {string} [opts.protocol='https:'] - The protocol used to query Algolia Search API.
+ *                                        Set to 'http:' to force using http.
+ * @param {Object|Array} [opts.hosts={
+ *           read: [this.applicationID + '-dsn.algolia.net'].concat([
+ *             this.applicationID + '-1.algolianet.com',
+ *             this.applicationID + '-2.algolianet.com',
+ *             this.applicationID + '-3.algolianet.com']
+ *           ]),
+ *           write: [this.applicationID + '.algolia.net'].concat([
+ *             this.applicationID + '-1.algolianet.com',
+ *             this.applicationID + '-2.algolianet.com',
+ *             this.applicationID + '-3.algolianet.com']
+ *           ]) - The hosts to use for Algolia Search API.
+ *           If you provide them, you will less benefit from our HA implementation
+ */
+
+function AlgoliaSearchCore(applicationID, apiKey, opts) {
+  var debug = require('debug')('algoliasearch');
+
+  var clone = require('./clone.js');
+
+  var isArray = require('isarray');
+
+  var map = require('./map.js');
+
+  var usage = 'Usage: algoliasearch(applicationID, apiKey, opts)';
+
+  if (opts._allowEmptyCredentials !== true && !applicationID) {
+    throw new errors.AlgoliaSearchError('Please provide an application ID. ' + usage);
+  }
+
+  if (opts._allowEmptyCredentials !== true && !apiKey) {
+    throw new errors.AlgoliaSearchError('Please provide an API key. ' + usage);
+  }
+
+  this.applicationID = applicationID;
+  this.apiKey = apiKey;
+  this.hosts = {
+    read: [],
+    write: []
+  };
+  opts = opts || {};
+  this._timeouts = opts.timeouts || {
+    connect: 1 * 1000,
+    // 500ms connect is GPRS latency
+    read: 2 * 1000,
+    write: 30 * 1000
+  }; // backward compat, if opts.timeout is passed, we use it to configure all timeouts like before
+
+  if (opts.timeout) {
+    this._timeouts.connect = this._timeouts.read = this._timeouts.write = opts.timeout;
+  }
+
+  var protocol = opts.protocol || 'https:'; // while we advocate for colon-at-the-end values: 'http:' for `opts.protocol`
+  // we also accept `http` and `https`. It's a common error.
+
+  if (!/:$/.test(protocol)) {
+    protocol = protocol + ':';
+  }
+
+  if (protocol !== 'http:' && protocol !== 'https:') {
+    throw new errors.AlgoliaSearchError('protocol must be `http:` or `https:` (was `' + opts.protocol + '`)');
+  }
+
+  this._checkAppIdData();
+
+  if (!opts.hosts) {
+    var defaultHosts = map(this._shuffleResult, function (hostNumber) {
+      return applicationID + '-' + hostNumber + '.algolianet.com';
+    }); // no hosts given, compute defaults
+
+    var mainSuffix = (opts.dsn === false ? '' : '-dsn') + '.algolia.net';
+    this.hosts.read = [this.applicationID + mainSuffix].concat(defaultHosts);
+    this.hosts.write = [this.applicationID + '.algolia.net'].concat(defaultHosts);
+  } else if (isArray(opts.hosts)) {
+    // when passing custom hosts, we need to have a different host index if the number
+    // of write/read hosts are different.
+    this.hosts.read = clone(opts.hosts);
+    this.hosts.write = clone(opts.hosts);
+  } else {
+    this.hosts.read = clone(opts.hosts.read);
+    this.hosts.write = clone(opts.hosts.write);
+  } // add protocol and lowercase hosts
+
+
+  this.hosts.read = map(this.hosts.read, prepareHost(protocol));
+  this.hosts.write = map(this.hosts.write, prepareHost(protocol));
+  this.extraHeaders = {}; // In some situations you might want to warm the cache
+
+  this.cache = opts._cache || {};
+  this._ua = opts._ua;
+  this._useCache = opts._useCache === undefined || opts._cache ? true : opts._useCache;
+  this._useRequestCache = this._useCache && opts._useRequestCache;
+  this._useFallback = opts.useFallback === undefined ? true : opts.useFallback;
+  this._setTimeout = opts._setTimeout;
+  debug('init done, %j', this);
+}
+/*
+ * Get the index object initialized
+ *
+ * @param indexName the name of index
+ * @param callback the result callback with one argument (the Index instance)
+ */
+
+
+AlgoliaSearchCore.prototype.initIndex = function (indexName) {
+  return new IndexCore(this, indexName);
+};
+/**
+* Add an extra field to the HTTP request
+*
+* @param name the header field name
+* @param value the header field value
+*/
+
+
+AlgoliaSearchCore.prototype.setExtraHeader = function (name, value) {
+  this.extraHeaders[name.toLowerCase()] = value;
+};
+/**
+* Get the value of an extra HTTP header
+*
+* @param name the header field name
+*/
+
+
+AlgoliaSearchCore.prototype.getExtraHeader = function (name) {
+  return this.extraHeaders[name.toLowerCase()];
+};
+/**
+* Remove an extra field from the HTTP request
+*
+* @param name the header field name
+*/
+
+
+AlgoliaSearchCore.prototype.unsetExtraHeader = function (name) {
+  delete this.extraHeaders[name.toLowerCase()];
+};
+/**
+* Augment sent x-algolia-agent with more data, each agent part
+* is automatically separated from the others by a semicolon;
+*
+* @param algoliaAgent the agent to add
+*/
+
+
+AlgoliaSearchCore.prototype.addAlgoliaAgent = function (algoliaAgent) {
+  var algoliaAgentWithDelimiter = '; ' + algoliaAgent;
+
+  if (this._ua.indexOf(algoliaAgentWithDelimiter) === -1) {
+    this._ua += algoliaAgentWithDelimiter;
+  }
+};
+/*
+ * Wrapper that try all hosts to maximize the quality of service
+ */
+
+
+AlgoliaSearchCore.prototype._jsonRequest = function (initialOpts) {
+  this._checkAppIdData();
+
+  var requestDebug = require('debug')('algoliasearch:' + initialOpts.url);
+
+  var body;
+  var cacheID;
+  var additionalUA = initialOpts.additionalUA || '';
+  var cache = initialOpts.cache;
+  var client = this;
+  var tries = 0;
+  var usingFallback = false;
+  var hasFallback = client._useFallback && client._request.fallback && initialOpts.fallback;
+  var headers;
+
+  if (this.apiKey.length > MAX_API_KEY_LENGTH && initialOpts.body !== undefined && (initialOpts.body.params !== undefined || // index.search()
+  initialOpts.body.requests !== undefined) // client.search()
+  ) {
+      initialOpts.body.apiKey = this.apiKey;
+      headers = this._computeRequestHeaders({
+        additionalUA: additionalUA,
+        withApiKey: false,
+        headers: initialOpts.headers
+      });
+    } else {
+    headers = this._computeRequestHeaders({
+      additionalUA: additionalUA,
+      headers: initialOpts.headers
+    });
+  }
+
+  if (initialOpts.body !== undefined) {
+    body = safeJSONStringify(initialOpts.body);
+  }
+
+  requestDebug('request start');
+  var debugData = [];
+
+  function doRequest(requester, reqOpts) {
+    client._checkAppIdData();
+
+    var startTime = new Date();
+
+    if (client._useCache && !client._useRequestCache) {
+      cacheID = initialOpts.url;
+    } // as we sometime use POST requests to pass parameters (like query='aa'),
+    // the cacheID must also include the body to be different between calls
+
+
+    if (client._useCache && !client._useRequestCache && body) {
+      cacheID += '_body_' + reqOpts.body;
+    } // handle cache existence
+
+
+    if (isCacheValidWithCurrentID(!client._useRequestCache, cache, cacheID)) {
+      requestDebug('serving response from cache');
+      var responseText = cache[cacheID]; // Cache response must match the type of the original one
+
+      return client._promise.resolve({
+        body: JSON.parse(responseText),
+        responseText: responseText
+      });
+    } // if we reached max tries
+
+
+    if (tries >= client.hosts[initialOpts.hostType].length) {
+      if (!hasFallback || usingFallback) {
+        requestDebug('could not get any response'); // then stop
+
+        return client._promise.reject(new errors.AlgoliaSearchError('Cannot connect to the AlgoliaSearch API.' + ' Send an email to support@algolia.com to report and resolve the issue.' + ' Application id was: ' + client.applicationID, {
+          debugData: debugData
+        }));
+      }
+
+      requestDebug('switching to fallback'); // let's try the fallback starting from here
+
+      tries = 0; // method, url and body are fallback dependent
+
+      reqOpts.method = initialOpts.fallback.method;
+      reqOpts.url = initialOpts.fallback.url;
+      reqOpts.jsonBody = initialOpts.fallback.body;
+
+      if (reqOpts.jsonBody) {
+        reqOpts.body = safeJSONStringify(reqOpts.jsonBody);
+      } // re-compute headers, they could be omitting the API KEY
+
+
+      headers = client._computeRequestHeaders({
+        additionalUA: additionalUA,
+        headers: initialOpts.headers
+      });
+      reqOpts.timeouts = client._getTimeoutsForRequest(initialOpts.hostType);
+
+      client._setHostIndexByType(0, initialOpts.hostType);
+
+      usingFallback = true; // the current request is now using fallback
+
+      return doRequest(client._request.fallback, reqOpts);
+    }
+
+    var currentHost = client._getHostByType(initialOpts.hostType);
+
+    var url = currentHost + reqOpts.url;
+    var options = {
+      body: reqOpts.body,
+      jsonBody: reqOpts.jsonBody,
+      method: reqOpts.method,
+      headers: headers,
+      timeouts: reqOpts.timeouts,
+      debug: requestDebug,
+      forceAuthHeaders: reqOpts.forceAuthHeaders
+    };
+    requestDebug('method: %s, url: %s, headers: %j, timeouts: %d', options.method, url, options.headers, options.timeouts);
+
+    if (requester === client._request.fallback) {
+      requestDebug('using fallback');
+    } // `requester` is any of this._request or this._request.fallback
+    // thus it needs to be called using the client as context
+
+
+    return requester.call(client, url, options).then(success, tryFallback);
+
+    function success(httpResponse) {
+      // compute the status of the response,
+      //
+      // When in browser mode, using XDR or JSONP, we have no statusCode available
+      // So we rely on our API response `status` property.
+      // But `waitTask` can set a `status` property which is not the statusCode (it's the task status)
+      // So we check if there's a `message` along `status` and it means it's an error
+      //
+      // That's the only case where we have a response.status that's not the http statusCode
+      var status = httpResponse && httpResponse.body && httpResponse.body.message && httpResponse.body.status || // this is important to check the request statusCode AFTER the body eventual
+      // statusCode because some implementations (jQuery XDomainRequest transport) may
+      // send statusCode 200 while we had an error
+      httpResponse.statusCode || // When in browser mode, using XDR or JSONP
+      // we default to success when no error (no response.status && response.message)
+      // If there was a JSON.parse() error then body is null and it fails
+      httpResponse && httpResponse.body && 200;
+      requestDebug('received response: statusCode: %s, computed statusCode: %d, headers: %j', httpResponse.statusCode, status, httpResponse.headers);
+      var httpResponseOk = Math.floor(status / 100) === 2;
+      var endTime = new Date();
+      debugData.push({
+        currentHost: currentHost,
+        headers: removeCredentials(headers),
+        content: body || null,
+        contentLength: body !== undefined ? body.length : null,
+        method: reqOpts.method,
+        timeouts: reqOpts.timeouts,
+        url: reqOpts.url,
+        startTime: startTime,
+        endTime: endTime,
+        duration: endTime - startTime,
+        statusCode: status
+      });
+
+      if (httpResponseOk) {
+        if (client._useCache && !client._useRequestCache && cache) {
+          cache[cacheID] = httpResponse.responseText;
+        }
+
+        return {
+          responseText: httpResponse.responseText,
+          body: httpResponse.body
+        };
+      }
+
+      var shouldRetry = Math.floor(status / 100) !== 4;
+
+      if (shouldRetry) {
+        tries += 1;
+        return retryRequest();
+      }
+
+      requestDebug('unrecoverable error'); // no success and no retry => fail
+
+      var unrecoverableError = new errors.AlgoliaSearchError(httpResponse.body && httpResponse.body.message, {
+        debugData: debugData,
+        statusCode: status
+      });
+      return client._promise.reject(unrecoverableError);
+    }
+
+    function tryFallback(err) {
+      // error cases:
+      //  While not in fallback mode:
+      //    - CORS not supported
+      //    - network error
+      //  While in fallback mode:
+      //    - timeout
+      //    - network error
+      //    - badly formatted JSONP (script loaded, did not call our callback)
+      //  In both cases:
+      //    - uncaught exception occurs (TypeError)
+      requestDebug('error: %s, stack: %s', err.message, err.stack);
+      var endTime = new Date();
+      debugData.push({
+        currentHost: currentHost,
+        headers: removeCredentials(headers),
+        content: body || null,
+        contentLength: body !== undefined ? body.length : null,
+        method: reqOpts.method,
+        timeouts: reqOpts.timeouts,
+        url: reqOpts.url,
+        startTime: startTime,
+        endTime: endTime,
+        duration: endTime - startTime
+      });
+
+      if (!(err instanceof errors.AlgoliaSearchError)) {
+        err = new errors.Unknown(err && err.message, err);
+      }
+
+      tries += 1; // stop the request implementation when:
+
+      if ( // we did not generate this error,
+      // it comes from a throw in some other piece of code
+      err instanceof errors.Unknown || // server sent unparsable JSON
+      err instanceof errors.UnparsableJSON || // max tries and already using fallback or no fallback
+      tries >= client.hosts[initialOpts.hostType].length && (usingFallback || !hasFallback)) {
+        // stop request implementation for this command
+        err.debugData = debugData;
+        return client._promise.reject(err);
+      } // When a timeout occurred, retry by raising timeout
+
+
+      if (err instanceof errors.RequestTimeout) {
+        return retryRequestWithHigherTimeout();
+      }
+
+      return retryRequest();
+    }
+
+    function retryRequest() {
+      requestDebug('retrying request');
+
+      client._incrementHostIndex(initialOpts.hostType);
+
+      return doRequest(requester, reqOpts);
+    }
+
+    function retryRequestWithHigherTimeout() {
+      requestDebug('retrying request with higher timeout');
+
+      client._incrementHostIndex(initialOpts.hostType);
+
+      client._incrementTimeoutMultipler();
+
+      reqOpts.timeouts = client._getTimeoutsForRequest(initialOpts.hostType);
+      return doRequest(requester, reqOpts);
+    }
+  }
+
+  function isCacheValidWithCurrentID(useRequestCache, currentCache, currentCacheID) {
+    return client._useCache && useRequestCache && currentCache && currentCache[currentCacheID] !== undefined;
+  }
+
+  function interopCallbackReturn(request, callback) {
+    if (isCacheValidWithCurrentID(client._useRequestCache, cache, cacheID)) {
+      request.catch(function () {
+        // Release the cache on error
+        delete cache[cacheID];
+      });
+    }
+
+    if (typeof initialOpts.callback === 'function') {
+      // either we have a callback
+      request.then(function okCb(content) {
+        exitPromise(function () {
+          initialOpts.callback(null, callback(content));
+        }, client._setTimeout || setTimeout);
+      }, function nookCb(err) {
+        exitPromise(function () {
+          initialOpts.callback(err);
+        }, client._setTimeout || setTimeout);
+      });
+    } else {
+      // either we are using promises
+      return request.then(callback);
+    }
+  }
+
+  if (client._useCache && client._useRequestCache) {
+    cacheID = initialOpts.url;
+  } // as we sometime use POST requests to pass parameters (like query='aa'),
+  // the cacheID must also include the body to be different between calls
+
+
+  if (client._useCache && client._useRequestCache && body) {
+    cacheID += '_body_' + body;
+  }
+
+  if (isCacheValidWithCurrentID(client._useRequestCache, cache, cacheID)) {
+    requestDebug('serving request from cache');
+    var maybePromiseForCache = cache[cacheID]; // In case the cache is warmup with value that is not a promise
+
+    var promiseForCache = typeof maybePromiseForCache.then !== 'function' ? client._promise.resolve({
+      responseText: maybePromiseForCache
+    }) : maybePromiseForCache;
+    return interopCallbackReturn(promiseForCache, function (content) {
+      // In case of the cache request, return the original value
+      return JSON.parse(content.responseText);
+    });
+  }
+
+  var request = doRequest(client._request, {
+    url: initialOpts.url,
+    method: initialOpts.method,
+    body: body,
+    jsonBody: initialOpts.body,
+    timeouts: client._getTimeoutsForRequest(initialOpts.hostType),
+    forceAuthHeaders: initialOpts.forceAuthHeaders
+  });
+
+  if (client._useCache && client._useRequestCache && cache) {
+    cache[cacheID] = request;
+  }
+
+  return interopCallbackReturn(request, function (content) {
+    // In case of the first request, return the JSON value
+    return content.body;
+  });
+};
+/*
+* Transform search param object in query string
+* @param {object} args arguments to add to the current query string
+* @param {string} params current query string
+* @return {string} the final query string
+*/
+
+
+AlgoliaSearchCore.prototype._getSearchParams = function (args, params) {
+  if (args === undefined || args === null) {
+    return params;
+  }
+
+  for (var key in args) {
+    if (key !== null && args[key] !== undefined && args.hasOwnProperty(key)) {
+      params += params === '' ? '' : '&';
+      params += key + '=' + encodeURIComponent(Object.prototype.toString.call(args[key]) === '[object Array]' ? safeJSONStringify(args[key]) : args[key]);
+    }
+  }
+
+  return params;
+};
+/**
+ * Compute the headers for a request
+ *
+ * @param [string] options.additionalUA semi-colon separated string with other user agents to add
+ * @param [boolean=true] options.withApiKey Send the api key as a header
+ * @param [Object] options.headers Extra headers to send
+ */
+
+
+AlgoliaSearchCore.prototype._computeRequestHeaders = function (options) {
+  var forEach = require('foreach');
+
+  var ua = options.additionalUA ? this._ua + '; ' + options.additionalUA : this._ua;
+  var requestHeaders = {
+    'x-algolia-agent': ua,
+    'x-algolia-application-id': this.applicationID
+  }; // browser will inline headers in the url, node.js will use http headers
+  // but in some situations, the API KEY will be too long (big secured API keys)
+  // so if the request is a POST and the KEY is very long, we will be asked to not put
+  // it into headers but in the JSON body
+
+  if (options.withApiKey !== false) {
+    requestHeaders['x-algolia-api-key'] = this.apiKey;
+  }
+
+  if (this.userToken) {
+    requestHeaders['x-algolia-usertoken'] = this.userToken;
+  }
+
+  if (this.securityTags) {
+    requestHeaders['x-algolia-tagfilters'] = this.securityTags;
+  }
+
+  forEach(this.extraHeaders, function addToRequestHeaders(value, key) {
+    requestHeaders[key] = value;
+  });
+
+  if (options.headers) {
+    forEach(options.headers, function addToRequestHeaders(value, key) {
+      requestHeaders[key] = value;
+    });
+  }
+
+  return requestHeaders;
+};
+/**
+ * Search through multiple indices at the same time
+ * @param  {Object[]}   queries  An array of queries you want to run.
+ * @param {string} queries[].indexName The index name you want to target
+ * @param {string} [queries[].query] The query to issue on this index. Can also be passed into `params`
+ * @param {Object} queries[].params Any search param like hitsPerPage, ..
+ * @param  {Function} callback Callback to be called
+ * @return {Promise|undefined} Returns a promise if no callback given
+ */
+
+
+AlgoliaSearchCore.prototype.search = function (queries, opts, callback) {
+  var isArray = require('isarray');
+
+  var map = require('./map.js');
+
+  var usage = 'Usage: client.search(arrayOfQueries[, callback])';
+
+  if (!isArray(queries)) {
+    throw new Error(usage);
+  }
+
+  if (typeof opts === 'function') {
+    callback = opts;
+    opts = {};
+  } else if (opts === undefined) {
+    opts = {};
+  }
+
+  var client = this;
+  var postObj = {
+    requests: map(queries, function prepareRequest(query) {
+      var params = ''; // allow query.query
+      // so we are mimicing the index.search(query, params) method
+      // {indexName:, query:, params:}
+
+      if (query.query !== undefined) {
+        params += 'query=' + encodeURIComponent(query.query);
+      }
+
+      return {
+        indexName: query.indexName,
+        params: client._getSearchParams(query.params, params)
+      };
+    })
+  };
+  var JSONPParams = map(postObj.requests, function prepareJSONPParams(request, requestId) {
+    return requestId + '=' + encodeURIComponent('/1/indexes/' + encodeURIComponent(request.indexName) + '?' + request.params);
+  }).join('&');
+  var url = '/1/indexes/*/queries';
+
+  if (opts.strategy !== undefined) {
+    postObj.strategy = opts.strategy;
+  }
+
+  return this._jsonRequest({
+    cache: this.cache,
+    method: 'POST',
+    url: url,
+    body: postObj,
+    hostType: 'read',
+    fallback: {
+      method: 'GET',
+      url: '/1/indexes/*',
+      body: {
+        params: JSONPParams
+      }
+    },
+    callback: callback
+  });
+};
+/**
+* Search for facet values
+* https://www.algolia.com/doc/rest-api/search#search-for-facet-values
+* This is the top-level API for SFFV.
+*
+* @param {object[]} queries An array of queries to run.
+* @param {string} queries[].indexName Index name, name of the index to search.
+* @param {object} queries[].params Query parameters.
+* @param {string} queries[].params.facetName Facet name, name of the attribute to search for values in.
+* Must be declared as a facet
+* @param {string} queries[].params.facetQuery Query for the facet search
+* @param {string} [queries[].params.*] Any search parameter of Algolia,
+* see https://www.algolia.com/doc/api-client/javascript/search#search-parameters
+* Pagination is not supported. The page and hitsPerPage parameters will be ignored.
+*/
+
+
+AlgoliaSearchCore.prototype.searchForFacetValues = function (queries) {
+  var isArray = require('isarray');
+
+  var map = require('./map.js');
+
+  var usage = 'Usage: client.searchForFacetValues([{indexName, params: {facetName, facetQuery, ...params}}, ...queries])'; // eslint-disable-line max-len
+
+  if (!isArray(queries)) {
+    throw new Error(usage);
+  }
+
+  var client = this;
+  return client._promise.all(map(queries, function performQuery(query) {
+    if (!query || query.indexName === undefined || query.params.facetName === undefined || query.params.facetQuery === undefined) {
+      throw new Error(usage);
+    }
+
+    var clone = require('./clone.js');
+
+    var omit = require('./omit.js');
+
+    var indexName = query.indexName;
+    var params = query.params;
+    var facetName = params.facetName;
+    var filteredParams = omit(clone(params), function (keyName) {
+      return keyName === 'facetName';
+    });
+
+    var searchParameters = client._getSearchParams(filteredParams, '');
+
+    return client._jsonRequest({
+      cache: client.cache,
+      method: 'POST',
+      url: '/1/indexes/' + encodeURIComponent(indexName) + '/facets/' + encodeURIComponent(facetName) + '/query',
+      hostType: 'read',
+      body: {
+        params: searchParameters
+      }
+    });
+  }));
+};
+/**
+ * Set the extra security tagFilters header
+ * @param {string|array} tags The list of tags defining the current security filters
+ */
+
+
+AlgoliaSearchCore.prototype.setSecurityTags = function (tags) {
+  if (Object.prototype.toString.call(tags) === '[object Array]') {
+    var strTags = [];
+
+    for (var i = 0; i < tags.length; ++i) {
+      if (Object.prototype.toString.call(tags[i]) === '[object Array]') {
+        var oredTags = [];
+
+        for (var j = 0; j < tags[i].length; ++j) {
+          oredTags.push(tags[i][j]);
+        }
+
+        strTags.push('(' + oredTags.join(',') + ')');
+      } else {
+        strTags.push(tags[i]);
+      }
+    }
+
+    tags = strTags.join(',');
+  }
+
+  this.securityTags = tags;
+};
+/**
+ * Set the extra user token header
+ * @param {string} userToken The token identifying a uniq user (used to apply rate limits)
+ */
+
+
+AlgoliaSearchCore.prototype.setUserToken = function (userToken) {
+  this.userToken = userToken;
+};
+/**
+ * Clear all queries in client's cache
+ * @return undefined
+ */
+
+
+AlgoliaSearchCore.prototype.clearCache = function () {
+  this.cache = {};
+};
+/**
+* Set the number of milliseconds a request can take before automatically being terminated.
+* @deprecated
+* @param {Number} milliseconds
+*/
+
+
+AlgoliaSearchCore.prototype.setRequestTimeout = function (milliseconds) {
+  if (milliseconds) {
+    this._timeouts.connect = this._timeouts.read = this._timeouts.write = milliseconds;
+  }
+};
+/**
+* Set the three different (connect, read, write) timeouts to be used when requesting
+* @param {Object} timeouts
+*/
+
+
+AlgoliaSearchCore.prototype.setTimeouts = function (timeouts) {
+  this._timeouts = timeouts;
+};
+/**
+* Get the three different (connect, read, write) timeouts to be used when requesting
+* @param {Object} timeouts
+*/
+
+
+AlgoliaSearchCore.prototype.getTimeouts = function () {
+  return this._timeouts;
+};
+
+AlgoliaSearchCore.prototype._getAppIdData = function () {
+  var data = store.get(this.applicationID);
+  if (data !== null) this._cacheAppIdData(data);
+  return data;
+};
+
+AlgoliaSearchCore.prototype._setAppIdData = function (data) {
+  data.lastChange = new Date().getTime();
+
+  this._cacheAppIdData(data);
+
+  return store.set(this.applicationID, data);
+};
+
+AlgoliaSearchCore.prototype._checkAppIdData = function () {
+  var data = this._getAppIdData();
+
+  var now = new Date().getTime();
+
+  if (data === null || now - data.lastChange > RESET_APP_DATA_TIMER) {
+    return this._resetInitialAppIdData(data);
+  }
+
+  return data;
+};
+
+AlgoliaSearchCore.prototype._resetInitialAppIdData = function (data) {
+  var newData = data || {};
+  newData.hostIndexes = {
+    read: 0,
+    write: 0
+  };
+  newData.timeoutMultiplier = 1;
+  newData.shuffleResult = newData.shuffleResult || shuffle([1, 2, 3]);
+  return this._setAppIdData(newData);
+};
+
+AlgoliaSearchCore.prototype._cacheAppIdData = function (data) {
+  this._hostIndexes = data.hostIndexes;
+  this._timeoutMultiplier = data.timeoutMultiplier;
+  this._shuffleResult = data.shuffleResult;
+};
+
+AlgoliaSearchCore.prototype._partialAppIdDataUpdate = function (newData) {
+  var foreach = require('foreach');
+
+  var currentData = this._getAppIdData();
+
+  foreach(newData, function (value, key) {
+    currentData[key] = value;
+  });
+  return this._setAppIdData(currentData);
+};
+
+AlgoliaSearchCore.prototype._getHostByType = function (hostType) {
+  return this.hosts[hostType][this._getHostIndexByType(hostType)];
+};
+
+AlgoliaSearchCore.prototype._getTimeoutMultiplier = function () {
+  return this._timeoutMultiplier;
+};
+
+AlgoliaSearchCore.prototype._getHostIndexByType = function (hostType) {
+  return this._hostIndexes[hostType];
+};
+
+AlgoliaSearchCore.prototype._setHostIndexByType = function (hostIndex, hostType) {
+  var clone = require('./clone');
+
+  var newHostIndexes = clone(this._hostIndexes);
+  newHostIndexes[hostType] = hostIndex;
+
+  this._partialAppIdDataUpdate({
+    hostIndexes: newHostIndexes
+  });
+
+  return hostIndex;
+};
+
+AlgoliaSearchCore.prototype._incrementHostIndex = function (hostType) {
+  return this._setHostIndexByType((this._getHostIndexByType(hostType) + 1) % this.hosts[hostType].length, hostType);
+};
+
+AlgoliaSearchCore.prototype._incrementTimeoutMultipler = function () {
+  var timeoutMultiplier = Math.max(this._timeoutMultiplier + 1, 4);
+  return this._partialAppIdDataUpdate({
+    timeoutMultiplier: timeoutMultiplier
+  });
+};
+
+AlgoliaSearchCore.prototype._getTimeoutsForRequest = function (hostType) {
+  return {
+    connect: this._timeouts.connect * this._timeoutMultiplier,
+    complete: this._timeouts[hostType] * this._timeoutMultiplier
+  };
+};
+
+function prepareHost(protocol) {
+  return function prepare(host) {
+    return protocol + '//' + host.toLowerCase();
+  };
+} // Prototype.js < 1.7, a widely used library, defines a weird
+// Array.prototype.toJSON function that will fail to stringify our content
+// appropriately
+// refs:
+//   - https://groups.google.com/forum/#!topic/prototype-core/E-SAVvV_V9Q
+//   - https://github.com/sstephenson/prototype/commit/038a2985a70593c1a86c230fadbdfe2e4898a48c
+//   - http://stackoverflow.com/a/3148441/147079
+
+
+function safeJSONStringify(obj) {
+  /* eslint no-extend-native:0 */
+  if (Array.prototype.toJSON === undefined) {
+    return JSON.stringify(obj);
+  }
+
+  var toJSON = Array.prototype.toJSON;
+  delete Array.prototype.toJSON;
+  var out = JSON.stringify(obj);
+  Array.prototype.toJSON = toJSON;
+  return out;
+}
+
+function shuffle(array) {
+  var currentIndex = array.length;
+  var temporaryValue;
+  var randomIndex; // While there remain elements to shuffle...
+
+  while (currentIndex !== 0) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1; // And swap it with the current element.
+
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
+function removeCredentials(headers) {
+  var newHeaders = {};
+
+  for (var headerName in headers) {
+    if (Object.prototype.hasOwnProperty.call(headers, headerName)) {
+      var value;
+
+      if (headerName === 'x-algolia-api-key' || headerName === 'x-algolia-application-id') {
+        value = '**hidden for security purposes**';
+      } else {
+        value = headers[headerName];
+      }
+
+      newHeaders[headerName] = value;
+    }
+  }
+
+  return newHeaders;
+}
+},{"./errors":"../node_modules/algoliasearch/src/errors.js","./exitPromise.js":"../node_modules/algoliasearch/src/exitPromise.js","./IndexCore.js":"../node_modules/algoliasearch/src/IndexCore.js","./store.js":"../node_modules/algoliasearch/src/store.js","debug":"../node_modules/debug/src/browser.js","./clone.js":"../node_modules/algoliasearch/src/clone.js","isarray":"../node_modules/isarray/index.js","./map.js":"../node_modules/algoliasearch/src/map.js","foreach":"../node_modules/foreach/index.js","./omit.js":"../node_modules/algoliasearch/src/omit.js","./clone":"../node_modules/algoliasearch/src/clone.js"}],"../node_modules/algoliasearch/src/createAnalyticsClient.js":[function(require,module,exports) {
+module.exports = createAnalyticsClient;
+
+var algoliasearch = require('../index.js');
+
+function createAnalyticsClient(appId, apiKey, opts) {
+  var analytics = {};
+  opts = opts || {}; // there need to be 4 hosts, like on the client, since if requests fail,
+  // the counter goes up by 1, so we need to have the same amount of hosts
+  // 4 because: -dsn, -1, -2, -3
+  // This is done because the APPID used for search will be the same for the analytics client created,
+  // and since the state of available hosts is shared by APPID globally for the module, we had issues
+  // where the hostIndex would be 1 while the array was only one entry (you got an empty host)
+
+  opts.hosts = opts.hosts || ['analytics.algolia.com', 'analytics.algolia.com', 'analytics.algolia.com', 'analytics.algolia.com'];
+  opts.protocol = opts.protocol || 'https:';
+  analytics.as = algoliasearch(appId, apiKey, opts);
+
+  analytics.getABTests = function (_params, callback) {
+    var params = params || {};
+    var offset = params.offset || 0;
+    var limit = params.limit || 10;
+    return this.as._jsonRequest({
+      method: 'GET',
+      url: '/2/abtests?offset=' + encodeURIComponent(offset) + '&limit=' + encodeURIComponent(limit),
+      hostType: 'read',
+      forceAuthHeaders: true,
+      callback: callback
+    });
+  };
+
+  analytics.getABTest = function (abTestID, callback) {
+    return this.as._jsonRequest({
+      method: 'GET',
+      url: '/2/abtests/' + encodeURIComponent(abTestID),
+      hostType: 'read',
+      forceAuthHeaders: true,
+      callback: callback
+    });
+  };
+
+  analytics.addABTest = function (abTest, callback) {
+    return this.as._jsonRequest({
+      method: 'POST',
+      url: '/2/abtests',
+      body: abTest,
+      hostType: 'read',
+      forceAuthHeaders: true,
+      callback: callback
+    });
+  };
+
+  analytics.stopABTest = function (abTestID, callback) {
+    return this.as._jsonRequest({
+      method: 'POST',
+      url: '/2/abtests/' + encodeURIComponent(abTestID) + '/stop',
+      hostType: 'read',
+      forceAuthHeaders: true,
+      callback: callback
+    });
+  };
+
+  analytics.deleteABTest = function (abTestID, callback) {
+    return this.as._jsonRequest({
+      method: 'DELETE',
+      url: '/2/abtests/' + encodeURIComponent(abTestID),
+      hostType: 'write',
+      forceAuthHeaders: true,
+      callback: callback
+    });
+  };
+
+  analytics.waitTask = function (indexName, taskID, callback) {
+    return this.as.initIndex(indexName).waitTask(taskID, callback);
+  };
+
+  return analytics;
+}
+},{"../index.js":"../node_modules/algoliasearch/src/browser/builds/algoliasearch.js"}],"../node_modules/algoliasearch/src/AlgoliaSearch.js":[function(require,module,exports) {
+module.exports = AlgoliaSearch;
+
+var Index = require('./Index.js');
+
+var deprecate = require('./deprecate.js');
+
+var deprecatedMessage = require('./deprecatedMessage.js');
+
+var AlgoliaSearchCore = require('./AlgoliaSearchCore.js');
+
+var inherits = require('inherits');
+
+var errors = require('./errors');
+
+function AlgoliaSearch() {
+  AlgoliaSearchCore.apply(this, arguments);
+}
+
+inherits(AlgoliaSearch, AlgoliaSearchCore);
+/*
+ * Delete an index
+ *
+ * @param indexName the name of index to delete
+ * @param callback the result callback called with two arguments
+ *  error: null or Error('message')
+ *  content: the server answer that contains the task ID
+ */
+
+AlgoliaSearch.prototype.deleteIndex = function (indexName, callback) {
+  return this._jsonRequest({
+    method: 'DELETE',
+    url: '/1/indexes/' + encodeURIComponent(indexName),
+    hostType: 'write',
+    callback: callback
+  });
+};
+/**
+ * Move an existing index.
+ * @param srcIndexName the name of index to copy.
+ * @param dstIndexName the new index name that will contains a copy of
+ * srcIndexName (destination will be overriten if it already exist).
+ * @param callback the result callback called with two arguments
+ *  error: null or Error('message')
+ *  content: the server answer that contains the task ID
+ */
+
+
+AlgoliaSearch.prototype.moveIndex = function (srcIndexName, dstIndexName, callback) {
+  var postObj = {
+    operation: 'move',
+    destination: dstIndexName
+  };
+  return this._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(srcIndexName) + '/operation',
+    body: postObj,
+    hostType: 'write',
+    callback: callback
+  });
+};
+/**
+ * Copy an existing index.
+ * @param srcIndexName the name of index to copy.
+ * @param dstIndexName the new index name that will contains a copy
+ * of srcIndexName (destination will be overriten if it already exist).
+ * @param scope an array of scopes to copy: ['settings', 'synonyms', 'rules']
+ * @param callback the result callback called with two arguments
+ *  error: null or Error('message')
+ *  content: the server answer that contains the task ID
+ */
+
+
+AlgoliaSearch.prototype.copyIndex = function (srcIndexName, dstIndexName, scopeOrCallback, _callback) {
+  var postObj = {
+    operation: 'copy',
+    destination: dstIndexName
+  };
+  var callback = _callback;
+
+  if (typeof scopeOrCallback === 'function') {
+    // oops, old behaviour of third argument being a function
+    callback = scopeOrCallback;
+  } else if (Array.isArray(scopeOrCallback) && scopeOrCallback.length > 0) {
+    postObj.scope = scopeOrCallback;
+  } else if (typeof scopeOrCallback !== 'undefined') {
+    throw new Error('the scope given to `copyIndex` was not an array with settings, synonyms or rules');
+  }
+
+  return this._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/' + encodeURIComponent(srcIndexName) + '/operation',
+    body: postObj,
+    hostType: 'write',
+    callback: callback
+  });
+};
+/**
+ * Return last log entries.
+ * @param offset Specify the first entry to retrieve (0-based, 0 is the most recent log entry).
+ * @param length Specify the maximum number of entries to retrieve starting
+ * at offset. Maximum allowed value: 1000.
+ * @param type Specify the maximum number of entries to retrieve starting
+ * at offset. Maximum allowed value: 1000.
+ * @param callback the result callback called with two arguments
+ *  error: null or Error('message')
+ *  content: the server answer that contains the task ID
+ */
+
+
+AlgoliaSearch.prototype.getLogs = function (offset, length, callback) {
+  var clone = require('./clone.js');
+
+  var params = {};
+
+  if (typeof offset === 'object') {
+    // getLogs(params)
+    params = clone(offset);
+    callback = length;
+  } else if (arguments.length === 0 || typeof offset === 'function') {
+    // getLogs([cb])
+    callback = offset;
+  } else if (arguments.length === 1 || typeof length === 'function') {
+    // getLogs(1, [cb)]
+    callback = length;
+    params.offset = offset;
+  } else {
+    // getLogs(1, 2, [cb])
+    params.offset = offset;
+    params.length = length;
+  }
+
+  if (params.offset === undefined) params.offset = 0;
+  if (params.length === undefined) params.length = 10;
+  return this._jsonRequest({
+    method: 'GET',
+    url: '/1/logs?' + this._getSearchParams(params, ''),
+    hostType: 'read',
+    callback: callback
+  });
+};
+/*
+ * List all existing indexes (paginated)
+ *
+ * @param page The page to retrieve, starting at 0.
+ * @param callback the result callback called with two arguments
+ *  error: null or Error('message')
+ *  content: the server answer with index list
+ */
+
+
+AlgoliaSearch.prototype.listIndexes = function (page, callback) {
+  var params = '';
+
+  if (page === undefined || typeof page === 'function') {
+    callback = page;
+  } else {
+    params = '?page=' + page;
+  }
+
+  return this._jsonRequest({
+    method: 'GET',
+    url: '/1/indexes' + params,
+    hostType: 'read',
+    callback: callback
+  });
+};
+/*
+ * Get the index object initialized
+ *
+ * @param indexName the name of index
+ * @param callback the result callback with one argument (the Index instance)
+ */
+
+
+AlgoliaSearch.prototype.initIndex = function (indexName) {
+  return new Index(this, indexName);
+};
+
+AlgoliaSearch.prototype.initAnalytics = function (opts) {
+  // the actual require must be inside the function, when put outside then you have a cyclic dependency
+  // not well resolved that ends up making the main "./index.js" (main module, the agloliasearch function)
+  // export an object instead of a function
+  // Other workarounds:
+  // - rewrite the lib in ES6, cyclic dependencies may be better supported
+  // - move initAnalytics to a property on the main module (algoliasearch.initAnalytics),
+  // same as places.
+  // The current API was made mostly to mimic the one made in PHP
+  var createAnalyticsClient = require('./createAnalyticsClient.js');
+
+  return createAnalyticsClient(this.applicationID, this.apiKey, opts);
+};
+/*
+ * @deprecated use client.listApiKeys
+ */
+
+
+AlgoliaSearch.prototype.listUserKeys = deprecate(function (callback) {
+  return this.listApiKeys(callback);
+}, deprecatedMessage('client.listUserKeys()', 'client.listApiKeys()'));
+/*
+ * List all existing api keys with their associated ACLs
+ *
+ * @param callback the result callback called with two arguments
+ *  error: null or Error('message')
+ *  content: the server answer with api keys list
+ */
+
+AlgoliaSearch.prototype.listApiKeys = function (callback) {
+  return this._jsonRequest({
+    method: 'GET',
+    url: '/1/keys',
+    hostType: 'read',
+    callback: callback
+  });
+};
+/*
+ * @deprecated see client.getApiKey
+ */
+
+
+AlgoliaSearch.prototype.getUserKeyACL = deprecate(function (key, callback) {
+  return this.getApiKey(key, callback);
+}, deprecatedMessage('client.getUserKeyACL()', 'client.getApiKey()'));
+/*
+ * Get an API key
+ *
+ * @param key
+ * @param callback the result callback called with two arguments
+ *  error: null or Error('message')
+ *  content: the server answer with the right API key
+ */
+
+AlgoliaSearch.prototype.getApiKey = function (key, callback) {
+  return this._jsonRequest({
+    method: 'GET',
+    url: '/1/keys/' + key,
+    hostType: 'read',
+    callback: callback
+  });
+};
+/*
+ * @deprecated see client.deleteApiKey
+ */
+
+
+AlgoliaSearch.prototype.deleteUserKey = deprecate(function (key, callback) {
+  return this.deleteApiKey(key, callback);
+}, deprecatedMessage('client.deleteUserKey()', 'client.deleteApiKey()'));
+/*
+ * Delete an existing API key
+ * @param key
+ * @param callback the result callback called with two arguments
+ *  error: null or Error('message')
+ *  content: the server answer with the date of deletion
+ */
+
+AlgoliaSearch.prototype.deleteApiKey = function (key, callback) {
+  return this._jsonRequest({
+    method: 'DELETE',
+    url: '/1/keys/' + key,
+    hostType: 'write',
+    callback: callback
+  });
+};
+/**
+ * Restore a deleted API key
+ *
+ * @param {String} key - The key to restore
+ * @param {Function} callback - The result callback called with two arguments
+ *   error: null or Error('message')
+ *   content: the server answer with the restored API key
+ * @return {Promise|undefined} Returns a promise if no callback given
+ * @example
+ * client.restoreApiKey('APIKEY')
+ * @see {@link https://www.algolia.com/doc/rest-api/search/#restore-api-key|Algolia REST API Documentation}
+ */
+
+
+AlgoliaSearch.prototype.restoreApiKey = function (key, callback) {
+  return this._jsonRequest({
+    method: 'POST',
+    url: '/1/keys/' + key + '/restore',
+    hostType: 'write',
+    callback: callback
+  });
+};
+/*
+ @deprecated see client.addApiKey
+ */
+
+
+AlgoliaSearch.prototype.addUserKey = deprecate(function (acls, params, callback) {
+  return this.addApiKey(acls, params, callback);
+}, deprecatedMessage('client.addUserKey()', 'client.addApiKey()'));
+/*
+ * Add a new global API key
+ *
+ * @param {string[]} acls - The list of ACL for this key. Defined by an array of strings that
+ *   can contains the following values:
+ *     - search: allow to search (https and http)
+ *     - addObject: allows to add/update an object in the index (https only)
+ *     - deleteObject : allows to delete an existing object (https only)
+ *     - deleteIndex : allows to delete index content (https only)
+ *     - settings : allows to get index settings (https only)
+ *     - editSettings : allows to change index settings (https only)
+ * @param {Object} [params] - Optionnal parameters to set for the key
+ * @param {number} params.validity - Number of seconds after which the key will be automatically removed (0 means no time limit for this key)
+ * @param {number} params.maxQueriesPerIPPerHour - Number of API calls allowed from an IP address per hour
+ * @param {number} params.maxHitsPerQuery - Number of hits this API key can retrieve in one call
+ * @param {string[]} params.indexes - Allowed targeted indexes for this key
+ * @param {string} params.description - A description for your key
+ * @param {string[]} params.referers - A list of authorized referers
+ * @param {Object} params.queryParameters - Force the key to use specific query parameters
+ * @param {Function} callback - The result callback called with two arguments
+ *   error: null or Error('message')
+ *   content: the server answer with the added API key
+ * @return {Promise|undefined} Returns a promise if no callback given
+ * @example
+ * client.addApiKey(['search'], {
+ *   validity: 300,
+ *   maxQueriesPerIPPerHour: 2000,
+ *   maxHitsPerQuery: 3,
+ *   indexes: ['fruits'],
+ *   description: 'Eat three fruits',
+ *   referers: ['*.algolia.com'],
+ *   queryParameters: {
+ *     tagFilters: ['public'],
+ *   }
+ * })
+ * @see {@link https://www.algolia.com/doc/rest_api#AddKey|Algolia REST API Documentation}
+ */
+
+AlgoliaSearch.prototype.addApiKey = function (acls, params, callback) {
+  var isArray = require('isarray');
+
+  var usage = 'Usage: client.addApiKey(arrayOfAcls[, params, callback])';
+
+  if (!isArray(acls)) {
+    throw new Error(usage);
+  }
+
+  if (arguments.length === 1 || typeof params === 'function') {
+    callback = params;
+    params = null;
+  }
+
+  var postObj = {
+    acl: acls
+  };
+
+  if (params) {
+    postObj.validity = params.validity;
+    postObj.maxQueriesPerIPPerHour = params.maxQueriesPerIPPerHour;
+    postObj.maxHitsPerQuery = params.maxHitsPerQuery;
+    postObj.indexes = params.indexes;
+    postObj.description = params.description;
+
+    if (params.queryParameters) {
+      postObj.queryParameters = this._getSearchParams(params.queryParameters, '');
+    }
+
+    postObj.referers = params.referers;
+  }
+
+  return this._jsonRequest({
+    method: 'POST',
+    url: '/1/keys',
+    body: postObj,
+    hostType: 'write',
+    callback: callback
+  });
+};
+/**
+ * @deprecated Please use client.addApiKey()
+ */
+
+
+AlgoliaSearch.prototype.addUserKeyWithValidity = deprecate(function (acls, params, callback) {
+  return this.addApiKey(acls, params, callback);
+}, deprecatedMessage('client.addUserKeyWithValidity()', 'client.addApiKey()'));
+/**
+ * @deprecated Please use client.updateApiKey()
+ */
+
+AlgoliaSearch.prototype.updateUserKey = deprecate(function (key, acls, params, callback) {
+  return this.updateApiKey(key, acls, params, callback);
+}, deprecatedMessage('client.updateUserKey()', 'client.updateApiKey()'));
+/**
+ * Update an existing API key
+ * @param {string} key - The key to update
+ * @param {string[]} acls - The list of ACL for this key. Defined by an array of strings that
+ *   can contains the following values:
+ *     - search: allow to search (https and http)
+ *     - addObject: allows to add/update an object in the index (https only)
+ *     - deleteObject : allows to delete an existing object (https only)
+ *     - deleteIndex : allows to delete index content (https only)
+ *     - settings : allows to get index settings (https only)
+ *     - editSettings : allows to change index settings (https only)
+ * @param {Object} [params] - Optionnal parameters to set for the key
+ * @param {number} params.validity - Number of seconds after which the key will be automatically removed (0 means no time limit for this key)
+ * @param {number} params.maxQueriesPerIPPerHour - Number of API calls allowed from an IP address per hour
+ * @param {number} params.maxHitsPerQuery - Number of hits this API key can retrieve in one call
+ * @param {string[]} params.indexes - Allowed targeted indexes for this key
+ * @param {string} params.description - A description for your key
+ * @param {string[]} params.referers - A list of authorized referers
+ * @param {Object} params.queryParameters - Force the key to use specific query parameters
+ * @param {Function} callback - The result callback called with two arguments
+ *   error: null or Error('message')
+ *   content: the server answer with the modified API key
+ * @return {Promise|undefined} Returns a promise if no callback given
+ * @example
+ * client.updateApiKey('APIKEY', ['search'], {
+ *   validity: 300,
+ *   maxQueriesPerIPPerHour: 2000,
+ *   maxHitsPerQuery: 3,
+ *   indexes: ['fruits'],
+ *   description: 'Eat three fruits',
+ *   referers: ['*.algolia.com'],
+ *   queryParameters: {
+ *     tagFilters: ['public'],
+ *   }
+ * })
+ * @see {@link https://www.algolia.com/doc/rest_api#UpdateIndexKey|Algolia REST API Documentation}
+ */
+
+AlgoliaSearch.prototype.updateApiKey = function (key, acls, params, callback) {
+  var isArray = require('isarray');
+
+  var usage = 'Usage: client.updateApiKey(key, arrayOfAcls[, params, callback])';
+
+  if (!isArray(acls)) {
+    throw new Error(usage);
+  }
+
+  if (arguments.length === 2 || typeof params === 'function') {
+    callback = params;
+    params = null;
+  }
+
+  var putObj = {
+    acl: acls
+  };
+
+  if (params) {
+    putObj.validity = params.validity;
+    putObj.maxQueriesPerIPPerHour = params.maxQueriesPerIPPerHour;
+    putObj.maxHitsPerQuery = params.maxHitsPerQuery;
+    putObj.indexes = params.indexes;
+    putObj.description = params.description;
+
+    if (params.queryParameters) {
+      putObj.queryParameters = this._getSearchParams(params.queryParameters, '');
+    }
+
+    putObj.referers = params.referers;
+  }
+
+  return this._jsonRequest({
+    method: 'PUT',
+    url: '/1/keys/' + key,
+    body: putObj,
+    hostType: 'write',
+    callback: callback
+  });
+};
+/**
+ * Initialize a new batch of search queries
+ * @deprecated use client.search()
+ */
+
+
+AlgoliaSearch.prototype.startQueriesBatch = deprecate(function startQueriesBatchDeprecated() {
+  this._batch = [];
+}, deprecatedMessage('client.startQueriesBatch()', 'client.search()'));
+/**
+ * Add a search query in the batch
+ * @deprecated use client.search()
+ */
+
+AlgoliaSearch.prototype.addQueryInBatch = deprecate(function addQueryInBatchDeprecated(indexName, query, args) {
+  this._batch.push({
+    indexName: indexName,
+    query: query,
+    params: args
+  });
+}, deprecatedMessage('client.addQueryInBatch()', 'client.search()'));
+/**
+ * Launch the batch of queries using XMLHttpRequest.
+ * @deprecated use client.search()
+ */
+
+AlgoliaSearch.prototype.sendQueriesBatch = deprecate(function sendQueriesBatchDeprecated(callback) {
+  return this.search(this._batch, callback);
+}, deprecatedMessage('client.sendQueriesBatch()', 'client.search()'));
+/**
+ * Perform write operations across multiple indexes.
+ *
+ * To reduce the amount of time spent on network round trips,
+ * you can create, update, or delete several objects in one call,
+ * using the batch endpoint (all operations are done in the given order).
+ *
+ * Available actions:
+ *   - addObject
+ *   - updateObject
+ *   - partialUpdateObject
+ *   - partialUpdateObjectNoCreate
+ *   - deleteObject
+ *
+ * https://www.algolia.com/doc/rest_api#Indexes
+ * @param  {Object[]} operations An array of operations to perform
+ * @return {Promise|undefined} Returns a promise if no callback given
+ * @example
+ * client.batch([{
+ *   action: 'addObject',
+ *   indexName: 'clients',
+ *   body: {
+ *     name: 'Bill'
+ *   }
+ * }, {
+ *   action: 'udpateObject',
+ *   indexName: 'fruits',
+ *   body: {
+ *     objectID: '29138',
+ *     name: 'banana'
+ *   }
+ * }], cb)
+ */
+
+AlgoliaSearch.prototype.batch = function (operations, callback) {
+  var isArray = require('isarray');
+
+  var usage = 'Usage: client.batch(operations[, callback])';
+
+  if (!isArray(operations)) {
+    throw new Error(usage);
+  }
+
+  return this._jsonRequest({
+    method: 'POST',
+    url: '/1/indexes/*/batch',
+    body: {
+      requests: operations
+    },
+    hostType: 'write',
+    callback: callback
+  });
+};
+/**
+ * Assign or Move a userID to a cluster
+ *
+ * @param {string} data.userID The userID to assign to a new cluster
+ * @param {string} data.cluster The cluster to assign the user to
+ * @return {Promise|undefined} Returns a promise if no callback given
+ * @example
+ * client.assignUserID({ cluster: 'c1-test', userID: 'some-user' });
+ */
+
+
+AlgoliaSearch.prototype.assignUserID = function (data, callback) {
+  if (!data.userID || !data.cluster) {
+    throw new errors.AlgoliaSearchError('You have to provide both a userID and cluster', data);
+  }
+
+  return this._jsonRequest({
+    method: 'POST',
+    url: '/1/clusters/mapping',
+    hostType: 'write',
+    body: {
+      cluster: data.cluster
+    },
+    callback: callback,
+    headers: {
+      'x-algolia-user-id': data.userID
+    }
+  });
+};
+/**
+ * Get the top userIDs
+ *
+ * (the callback is the second argument)
+ *
+ * @return {Promise|undefined} Returns a promise if no callback given
+ * @example
+ * client.getTopUserID();
+ */
+
+
+AlgoliaSearch.prototype.getTopUserID = function (callback) {
+  return this._jsonRequest({
+    method: 'GET',
+    url: '/1/clusters/mapping/top',
+    hostType: 'read',
+    callback: callback
+  });
+};
+/**
+ * Get userID
+ *
+ * @param {string} data.userID The userID to get info about
+ * @return {Promise|undefined} Returns a promise if no callback given
+ * @example
+ * client.getUserID({ userID: 'some-user' });
+ */
+
+
+AlgoliaSearch.prototype.getUserID = function (data, callback) {
+  if (!data.userID) {
+    throw new errors.AlgoliaSearchError('You have to provide a userID', {
+      debugData: data
+    });
+  }
+
+  return this._jsonRequest({
+    method: 'GET',
+    url: '/1/clusters/mapping/' + data.userID,
+    hostType: 'read',
+    callback: callback
+  });
+};
+/**
+ * List all the clusters
+ *
+ * (the callback is the second argument)
+ *
+ * @return {Promise|undefined} Returns a promise if no callback given
+ * @example
+ * client.listClusters();
+ */
+
+
+AlgoliaSearch.prototype.listClusters = function (callback) {
+  return this._jsonRequest({
+    method: 'GET',
+    url: '/1/clusters',
+    hostType: 'read',
+    callback: callback
+  });
+};
+/**
+ * List the userIDs
+ *
+ * (the callback is the second argument)
+ *
+ * @param {string} data.hitsPerPage How many hits on every page
+ * @param {string} data.page The page to retrieve
+ * @return {Promise|undefined} Returns a promise if no callback given
+ * @example
+ * client.listClusters();
+ * client.listClusters({ page: 3, hitsPerPage: 30});
+ */
+
+
+AlgoliaSearch.prototype.listUserIDs = function (data, callback) {
+  return this._jsonRequest({
+    method: 'GET',
+    url: '/1/clusters/mapping',
+    body: data,
+    hostType: 'read',
+    callback: callback
+  });
+};
+/**
+ * Remove an userID
+ *
+ * @param {string} data.userID The userID to assign to a new cluster
+ * @return {Promise|undefined} Returns a promise if no callback given
+ * @example
+ * client.removeUserID({ userID: 'some-user' });
+ */
+
+
+AlgoliaSearch.prototype.removeUserID = function (data, callback) {
+  if (!data.userID) {
+    throw new errors.AlgoliaSearchError('You have to provide a userID', {
+      debugData: data
+    });
+  }
+
+  return this._jsonRequest({
+    method: 'DELETE',
+    url: '/1/clusters/mapping',
+    hostType: 'write',
+    callback: callback,
+    headers: {
+      'x-algolia-user-id': data.userID
+    }
+  });
+};
+/**
+ * Search for userIDs
+ *
+ * @param {string} data.cluster The cluster to target
+ * @param {string} data.query The query to execute
+ * @param {string} data.hitsPerPage How many hits on every page
+ * @param {string} data.page The page to retrieve
+ * @return {Promise|undefined} Returns a promise if no callback given
+ * @example
+ * client.searchUserIDs({ cluster: 'c1-test', query: 'some-user' });
+ * client.searchUserIDs({
+ *   cluster: "c1-test",
+ *   query: "some-user",
+ *   page: 3,
+ *   hitsPerPage: 2
+ * });
+ */
+
+
+AlgoliaSearch.prototype.searchUserIDs = function (data, callback) {
+  return this._jsonRequest({
+    method: 'POST',
+    url: '/1/clusters/mapping/search',
+    body: data,
+    hostType: 'read',
+    callback: callback
+  });
+};
+/**
+ * Set strategy for personalization
+ *
+ * @param {Object} data
+ * @param {Object} data.eventsScoring Associate a score to an event
+ * @param {Object} data.eventsScoring.<eventName> The name of the event
+ * @param {Number} data.eventsScoring.<eventName>.score The score to associate to <eventName>
+ * @param {String} data.eventsScoring.<eventName>.type Either "click", "conversion" or "view"
+ * @param {Object} data.facetsScoring Associate a score to a facet
+ * @param {Object} data.facetsScoring.<facetName> The name of the facet
+ * @param {Number} data.facetsScoring.<facetName>.score The score to associate to <facetName>
+ * @return {Promise|undefined} Returns a promise if no callback given
+ * @example
+ * client.setPersonalizationStrategy({
+ *   eventsScoring: {
+ *      "Add to cart": { score: 50, type: "conversion" },
+ *      Purchase: { score: 100, type: "conversion" }
+ *   },
+ *   facetsScoring: {
+ *      brand: { score: 100 },
+ *      categories: { score: 10 }
+ *   }
+ * });
+ */
+
+
+AlgoliaSearch.prototype.setPersonalizationStrategy = function (data, callback) {
+  return this._jsonRequest({
+    method: 'POST',
+    url: '/1/recommendation/personalization/strategy',
+    body: data,
+    hostType: 'write',
+    callback: callback
+  });
+};
+/**
+ * Get strategy for personalization
+ *
+ * @return {Promise|undefined} Returns a promise if no callback given
+ * @example
+ * client.getPersonalizationStrategy();
+ */
+
+
+AlgoliaSearch.prototype.getPersonalizationStrategy = function (callback) {
+  return this._jsonRequest({
+    method: 'GET',
+    url: '/1/recommendation/personalization/strategy',
+    hostType: 'read',
+    callback: callback
+  });
+}; // environment specific methods
+
+
+AlgoliaSearch.prototype.destroy = notImplemented;
+AlgoliaSearch.prototype.enableRateLimitForward = notImplemented;
+AlgoliaSearch.prototype.disableRateLimitForward = notImplemented;
+AlgoliaSearch.prototype.useSecuredAPIKey = notImplemented;
+AlgoliaSearch.prototype.disableSecuredAPIKey = notImplemented;
+AlgoliaSearch.prototype.generateSecuredApiKey = notImplemented;
+
+function notImplemented() {
+  var message = 'Not implemented in this environment.\n' + 'If you feel this is a mistake, write to support@algolia.com';
+  throw new errors.AlgoliaSearchError(message);
+}
+},{"./Index.js":"../node_modules/algoliasearch/src/Index.js","./deprecate.js":"../node_modules/algoliasearch/src/deprecate.js","./deprecatedMessage.js":"../node_modules/algoliasearch/src/deprecatedMessage.js","./AlgoliaSearchCore.js":"../node_modules/algoliasearch/src/AlgoliaSearchCore.js","inherits":"../node_modules/inherits/inherits_browser.js","./errors":"../node_modules/algoliasearch/src/errors.js","./clone.js":"../node_modules/algoliasearch/src/clone.js","./createAnalyticsClient.js":"../node_modules/algoliasearch/src/createAnalyticsClient.js","isarray":"../node_modules/isarray/index.js"}],"../node_modules/global/window.js":[function(require,module,exports) {
 var global = arguments[3];
-var e,d=arguments[3];e="undefined"!=typeof window?window:void 0!==d?d:"undefined"!=typeof self?self:{},module.exports=e;
-},{}],"Zt7E":[function(require,module,exports) {
+var win;
+
+if (typeof window !== "undefined") {
+    win = window;
+} else if (typeof global !== "undefined") {
+    win = global;
+} else if (typeof self !== "undefined"){
+    win = self;
+} else {
+    win = {};
+}
+
+module.exports = win;
+
+},{}],"../node_modules/es6-promise/dist/es6-promise.js":[function(require,module,exports) {
 var define;
 var global = arguments[3];
 var process = require("process");
-var t,e=arguments[3],r=require("process");!function(e,r){"object"==typeof exports&&"undefined"!=typeof module?module.exports=r():"function"==typeof t&&t.amd?t(r):e.ES6Promise=r()}(this,function(){"use strict";function t(t){return"function"==typeof t}var n=Array.isArray?Array.isArray:function(t){return"[object Array]"===Object.prototype.toString.call(t)},o=0,i=void 0,s=void 0,u=function(t,e){p[o]=t,p[o+1]=e,2===(o+=2)&&(s?s(_):w())};var c="undefined"!=typeof window?window:void 0,a=c||{},f=a.MutationObserver||a.WebKitMutationObserver,l="undefined"==typeof self&&void 0!==r&&"[object process]"==={}.toString.call(r),h="undefined"!=typeof Uint8ClampedArray&&"undefined"!=typeof importScripts&&"undefined"!=typeof MessageChannel;function v(){var t=setTimeout;return function(){return t(_,1)}}var p=new Array(1e3);function _(){for(var t=0;t<o;t+=2){(0,p[t])(p[t+1]),p[t]=void 0,p[t+1]=void 0}o=0}var d,y,m,b,w=void 0;function g(t,e){var r=this,n=new this.constructor(S);void 0===n[j]&&N(n);var o=r._state;if(o){var i=arguments[o-1];u(function(){return K(o,n,i,r._result)})}else k(r,n,t,e);return n}function A(t){if(t&&"object"==typeof t&&t.constructor===this)return t;var e=new this(S);return O(e,t),e}l?w=function(){return r.nextTick(_)}:f?(y=0,m=new f(_),b=document.createTextNode(""),m.observe(b,{characterData:!0}),w=function(){b.data=y=++y%2}):h?((d=new MessageChannel).port1.onmessage=_,w=function(){return d.port2.postMessage(0)}):w=void 0===c&&"function"==typeof require?function(){try{var t=Function("return this")().require("vertx");return void 0!==(i=t.runOnLoop||t.runOnContext)?function(){i(_)}:v()}catch(e){return v()}}():v();var j=Math.random().toString(36).substring(2);function S(){}var E=void 0,T=1,M=2,P={error:null};function x(t){try{return t.then}catch(e){return P.error=e,P}}function C(e,r,n){r.constructor===e.constructor&&n===g&&r.constructor.resolve===A?function(t,e){e._state===T?F(t,e._result):e._state===M?Y(t,e._result):k(e,void 0,function(e){return O(t,e)},function(e){return Y(t,e)})}(e,r):n===P?(Y(e,P.error),P.error=null):void 0===n?F(e,r):t(n)?function(t,e,r){u(function(t){var n=!1,o=function(t,e,r,n){try{t.call(e,r,n)}catch(o){return o}}(r,e,function(r){n||(n=!0,e!==r?O(t,r):F(t,r))},function(e){n||(n=!0,Y(t,e))},t._label);!n&&o&&(n=!0,Y(t,o))},t)}(e,r,n):F(e,r)}function O(t,e){var r,n;t===e?Y(t,new TypeError("You cannot resolve a promise with itself")):(n=typeof(r=e),null===r||"object"!==n&&"function"!==n?F(t,e):C(t,e,x(e)))}function q(t){t._onerror&&t._onerror(t._result),D(t)}function F(t,e){t._state===E&&(t._result=e,t._state=T,0!==t._subscribers.length&&u(D,t))}function Y(t,e){t._state===E&&(t._state=M,t._result=e,u(q,t))}function k(t,e,r,n){var o=t._subscribers,i=o.length;t._onerror=null,o[i]=e,o[i+T]=r,o[i+M]=n,0===i&&t._state&&u(D,t)}function D(t){var e=t._subscribers,r=t._state;if(0!==e.length){for(var n=void 0,o=void 0,i=t._result,s=0;s<e.length;s+=3)n=e[s],o=e[s+r],n?K(r,n,o,i):o(i);t._subscribers.length=0}}function K(e,r,n,o){var i=t(n),s=void 0,u=void 0,c=void 0,a=void 0;if(i){if((s=function(t,e){try{return t(e)}catch(r){return P.error=r,P}}(n,o))===P?(a=!0,u=s.error,s.error=null):c=!0,r===s)return void Y(r,new TypeError("A promises callback cannot return that same promise."))}else s=o,c=!0;r._state!==E||(i&&c?O(r,s):a?Y(r,u):e===T?F(r,s):e===M&&Y(r,s))}var L=0;function N(t){t[j]=L++,t._state=void 0,t._result=void 0,t._subscribers=[]}var U=function(){function t(t,e){this._instanceConstructor=t,this.promise=new t(S),this.promise[j]||N(this.promise),n(e)?(this.length=e.length,this._remaining=e.length,this._result=new Array(this.length),0===this.length?F(this.promise,this._result):(this.length=this.length||0,this._enumerate(e),0===this._remaining&&F(this.promise,this._result))):Y(this.promise,new Error("Array Methods must be provided an Array"))}return t.prototype._enumerate=function(t){for(var e=0;this._state===E&&e<t.length;e++)this._eachEntry(t[e],e)},t.prototype._eachEntry=function(t,e){var r=this._instanceConstructor,n=r.resolve;if(n===A){var o=x(t);if(o===g&&t._state!==E)this._settledAt(t._state,e,t._result);else if("function"!=typeof o)this._remaining--,this._result[e]=t;else if(r===W){var i=new r(S);C(i,t,o),this._willSettleAt(i,e)}else this._willSettleAt(new r(function(e){return e(t)}),e)}else this._willSettleAt(n(t),e)},t.prototype._settledAt=function(t,e,r){var n=this.promise;n._state===E&&(this._remaining--,t===M?Y(n,r):this._result[e]=r),0===this._remaining&&F(n,this._result)},t.prototype._willSettleAt=function(t,e){var r=this;k(t,void 0,function(t){return r._settledAt(T,e,t)},function(t){return r._settledAt(M,e,t)})},t}();var W=function(){function e(t){this[j]=L++,this._result=this._state=void 0,this._subscribers=[],S!==t&&("function"!=typeof t&&function(){throw new TypeError("You must pass a resolver function as the first argument to the promise constructor")}(),this instanceof e?function(t,e){try{e(function(e){O(t,e)},function(e){Y(t,e)})}catch(r){Y(t,r)}}(this,t):function(){throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.")}())}return e.prototype.catch=function(t){return this.then(null,t)},e.prototype.finally=function(e){var r=this.constructor;return t(e)?this.then(function(t){return r.resolve(e()).then(function(){return t})},function(t){return r.resolve(e()).then(function(){throw t})}):this.then(e,e)},e}();return W.prototype.then=g,W.all=function(t){return new U(this,t).promise},W.race=function(t){var e=this;return n(t)?new e(function(r,n){for(var o=t.length,i=0;i<o;i++)e.resolve(t[i]).then(r,n)}):new e(function(t,e){return e(new TypeError("You must pass an array to race."))})},W.resolve=A,W.reject=function(t){var e=new this(S);return Y(e,t),e},W._setScheduler=function(t){s=t},W._setAsap=function(t){u=t},W._asap=u,W.polyfill=function(){var t=void 0;if(void 0!==e)t=e;else if("undefined"!=typeof self)t=self;else try{t=Function("return this")()}catch(o){throw new Error("polyfill failed because global object is unavailable in this environment")}var r=t.Promise;if(r){var n=null;try{n=Object.prototype.toString.call(r.resolve())}catch(o){}if("[object Promise]"===n&&!r.cast)return}t.Promise=W},W.Promise=W,W});
-},{"process":"DHOa"}],"bvhO":[function(require,module,exports) {
-"use strict";var n=function(n){switch(typeof n){case"string":return n;case"boolean":return n?"true":"false";case"number":return isFinite(n)?n:"";default:return""}};module.exports=function(o,u,c,a){return u=u||"&",c=c||"=",null===o&&(o=void 0),"object"==typeof o?r(t(o),function(t){var a=encodeURIComponent(n(t))+c;return e(o[t])?r(o[t],function(e){return a+encodeURIComponent(n(e))}).join(u):a+encodeURIComponent(n(o[t]))}).join(u):a?encodeURIComponent(n(a))+c+encodeURIComponent(n(o)):""};var e=Array.isArray||function(n){return"[object Array]"===Object.prototype.toString.call(n)};function r(n,e){if(n.map)return n.map(e);for(var r=[],t=0;t<n.length;t++)r.push(e(n[t],t));return r}var t=Object.keys||function(n){var e=[];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&e.push(r);return e};
-},{}],"QStr":[function(require,module,exports) {
-"use strict";module.exports=r;var e=require("querystring-es3/encode");function r(r,t){return/\?/.test(r)?r+="&":r+="?",r+e(t)}
-},{"querystring-es3/encode":"bvhO"}],"dhxR":[function(require,module,exports) {
-"use strict";module.exports=o;var e=require("../errors"),t=0;function o(o,n,r){if("GET"===n.method){n.debug("JSONP: start");var d=!1,a=!1;t+=1;var i=document.getElementsByTagName("head")[0],l=document.createElement("script"),c="algoliaJSONP_"+t,u=!1;window[c]=function(e){!function(){try{delete window[c],delete window[c+"_loaded"]}catch(e){window[c]=window[c+"_loaded"]=void 0}}(),a?n.debug("JSONP: Late answer, ignoring"):(d=!0,S(),r(null,{body:e,responseText:JSON.stringify(e)}))},o+="&callback="+c,n.jsonBody&&n.jsonBody.params&&(o+="&"+n.jsonBody.params);var s=setTimeout(function(){n.debug("JSONP: Script timeout"),a=!0,S(),r(new e.RequestTimeout)},n.timeouts.complete);l.onreadystatechange=function(){"loaded"!==this.readyState&&"complete"!==this.readyState||m()},l.onload=m,l.onerror=function(){if(n.debug("JSONP: Script error"),u||a)return;S(),r(new e.JSONPScriptError)},l.async=!0,l.defer=!0,l.src=o,i.appendChild(l)}else r(new Error("Method "+n.method+" "+o+" is not supported by JSONP."));function m(){n.debug("JSONP: success"),u||a||(u=!0,d||(n.debug("JSONP: Fail. Script loaded but did not call the callback"),S(),r(new e.JSONPScriptFail)))}function S(){clearTimeout(s),l.onload=null,l.onreadystatechange=null,l.onerror=null,i.removeChild(l)}}
-},{"../errors":"QKhG"}],"J6GP":[function(require,module,exports) {
-"use strict";function r(r,e){return Object.prototype.hasOwnProperty.call(r,e)}module.exports=function(t,n,o,a){n=n||"&",o=o||"=";var s={};if("string"!=typeof t||0===t.length)return s;var p=/\+/g;t=t.split(n);var u=1e3;a&&"number"==typeof a.maxKeys&&(u=a.maxKeys);var c=t.length;u>0&&c>u&&(c=u);for(var i=0;i<c;++i){var y,l,f,v,b=t[i].replace(p,"%20"),d=b.indexOf(o);d>=0?(y=b.substr(0,d),l=b.substr(d+1)):(y=b,l=""),f=decodeURIComponent(y),v=decodeURIComponent(l),r(s,f)?e(s[f])?s[f].push(v):s[f]=[s[f],v]:s[f]=v}return s};var e=Array.isArray||function(r){return"[object Array]"===Object.prototype.toString.call(r)};
-},{}],"+00f":[function(require,module,exports) {
-"use strict";exports.decode=exports.parse=require("./decode"),exports.encode=exports.stringify=require("./encode");
-},{"./decode":"J6GP","./encode":"bvhO"}],"/f3m":[function(require,module,exports) {
-module.exports=t;var e=require("querystring-es3"),r=require("./buildSearchMethod.js");function t(t){return function(a,s,o){var l=require("./clone.js");(o=o&&l(o)||{}).hosts=o.hosts||["places-dsn.algolia.net","places-1.algolianet.com","places-2.algolianet.com","places-3.algolianet.com"],0!==arguments.length&&"object"!=typeof a&&void 0!==a||(a="",s="",o._allowEmptyCredentials=!0);var n=t(a,s,o).initIndex("places");return n.search=r("query","/1/places/query"),n.reverse=function(r,t){var a=e.encode(r);return this.as._jsonRequest({method:"GET",url:"/1/places/reverse?"+a,hostType:"read",callback:t})},n.getObject=function(e,r){return this.as._jsonRequest({method:"GET",url:"/1/places/"+encodeURIComponent(e),hostType:"read",callback:r})},n}}
-},{"querystring-es3":"+00f","./buildSearchMethod.js":"Yu17","./clone.js":"S7SM"}],"6O7z":[function(require,module,exports) {
-"use strict";module.exports="3.33.0";
-},{}],"wrxj":[function(require,module,exports) {
+/*!
+ * @overview es6-promise - a tiny implementation of Promises/A+.
+ * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
+ * @license   Licensed under MIT license
+ *            See https://raw.githubusercontent.com/stefanpenner/es6-promise/master/LICENSE
+ * @version   v4.2.6+9869a4bc
+ */
 
-"use strict";var e=require("global"),t=e.Promise||require("es6-promise").Promise;module.exports=function(r,n){var o=require("inherits"),s=require("../errors"),a=require("./inline-headers"),i=require("./jsonp-request"),u=require("../places.js");function c(e,t,r){return(r=require("../clone.js")(r||{}))._ua=r._ua||c.ua,new p(e,t,r)}n=n||"",c.version=require("../version.js"),c.ua="Algolia for JavaScript ("+c.version+"); "+n,c.initPlaces=u(c),e.__algolia={debug:require("debug"),algoliasearch:c};var l={hasXMLHttpRequest:"XMLHttpRequest"in e,hasXDomainRequest:"XDomainRequest"in e};function p(){r.apply(this,arguments)}return l.hasXMLHttpRequest&&(l.cors="withCredentials"in new XMLHttpRequest),o(p,r),p.prototype._request=function(e,r){return new t(function(t,n){if(l.cors||l.hasXDomainRequest){e=a(e,r.headers);var o,i,u=r.body,c=l.cors?new XMLHttpRequest:new XDomainRequest,p=!1;o=setTimeout(d,r.timeouts.connect),c.onprogress=function(){p||q()},"onreadystatechange"in c&&(c.onreadystatechange=function(){!p&&c.readyState>1&&q()}),c.onload=function(){if(i)return;var e;clearTimeout(o);try{e={body:JSON.parse(c.responseText),responseText:c.responseText,statusCode:c.status,headers:c.getAllResponseHeaders&&c.getAllResponseHeaders()||{}}}catch(r){e=new s.UnparsableJSON({more:c.responseText})}e instanceof s.UnparsableJSON?n(e):t(e)},c.onerror=function(e){if(i)return;clearTimeout(o),n(new s.Network({more:e}))},c instanceof XMLHttpRequest?(c.open(r.method,e,!0),r.forceAuthHeaders&&(c.setRequestHeader("x-algolia-application-id",r.headers["x-algolia-application-id"]),c.setRequestHeader("x-algolia-api-key",r.headers["x-algolia-api-key"]))):c.open(r.method,e),l.cors&&(u&&("POST"===r.method?c.setRequestHeader("content-type","application/x-www-form-urlencoded"):c.setRequestHeader("content-type","application/json")),c.setRequestHeader("accept","application/json")),u?c.send(u):c.send()}else n(new s.Network("CORS not supported"));function d(){i=!0,c.abort(),n(new s.RequestTimeout)}function q(){p=!0,clearTimeout(o),o=setTimeout(d,r.timeouts.complete)}})},p.prototype._request.fallback=function(e,r){return e=a(e,r.headers),new t(function(t,n){i(e,r,function(e,r){e?n(e):t(r)})})},p.prototype._promise={reject:function(e){return t.reject(e)},resolve:function(e){return t.resolve(e)},delay:function(e){return new t(function(t){setTimeout(t,e)})},all:function(e){return t.all(e)}},c};
-},{"global":"tALL","es6-promise":"Zt7E","inherits":"4Bm0","../errors":"QKhG","./inline-headers":"QStr","./jsonp-request":"dhxR","../places.js":"/f3m","../clone.js":"S7SM","../version.js":"6O7z","debug":"jcLW"}],"rauQ":[function(require,module,exports) {
-"use strict";var e=require("../../AlgoliaSearch.js"),r=require("../createAlgoliasearch.js");module.exports=r(e,"Browser");
-},{"../../AlgoliaSearch.js":"4izX","../createAlgoliasearch.js":"wrxj"}],"MNpE":[function(require,module,exports) {
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global.ES6Promise = factory());
+}(this, (function () { 'use strict';
+
+function objectOrFunction(x) {
+  var type = typeof x;
+  return x !== null && (type === 'object' || type === 'function');
+}
+
+function isFunction(x) {
+  return typeof x === 'function';
+}
+
+
+
+var _isArray = void 0;
+if (Array.isArray) {
+  _isArray = Array.isArray;
+} else {
+  _isArray = function (x) {
+    return Object.prototype.toString.call(x) === '[object Array]';
+  };
+}
+
+var isArray = _isArray;
+
+var len = 0;
+var vertxNext = void 0;
+var customSchedulerFn = void 0;
+
+var asap = function asap(callback, arg) {
+  queue[len] = callback;
+  queue[len + 1] = arg;
+  len += 2;
+  if (len === 2) {
+    // If len is 2, that means that we need to schedule an async flush.
+    // If additional callbacks are queued before the queue is flushed, they
+    // will be processed by this flush that we are scheduling.
+    if (customSchedulerFn) {
+      customSchedulerFn(flush);
+    } else {
+      scheduleFlush();
+    }
+  }
+};
+
+function setScheduler(scheduleFn) {
+  customSchedulerFn = scheduleFn;
+}
+
+function setAsap(asapFn) {
+  asap = asapFn;
+}
+
+var browserWindow = typeof window !== 'undefined' ? window : undefined;
+var browserGlobal = browserWindow || {};
+var BrowserMutationObserver = browserGlobal.MutationObserver || browserGlobal.WebKitMutationObserver;
+var isNode = typeof self === 'undefined' && typeof process !== 'undefined' && {}.toString.call(process) === '[object process]';
+
+// test for web worker but not in IE10
+var isWorker = typeof Uint8ClampedArray !== 'undefined' && typeof importScripts !== 'undefined' && typeof MessageChannel !== 'undefined';
+
+// node
+function useNextTick() {
+  // node version 0.10.x displays a deprecation warning when nextTick is used recursively
+  // see https://github.com/cujojs/when/issues/410 for details
+  return function () {
+    return process.nextTick(flush);
+  };
+}
+
+// vertx
+function useVertxTimer() {
+  if (typeof vertxNext !== 'undefined') {
+    return function () {
+      vertxNext(flush);
+    };
+  }
+
+  return useSetTimeout();
+}
+
+function useMutationObserver() {
+  var iterations = 0;
+  var observer = new BrowserMutationObserver(flush);
+  var node = document.createTextNode('');
+  observer.observe(node, { characterData: true });
+
+  return function () {
+    node.data = iterations = ++iterations % 2;
+  };
+}
+
+// web worker
+function useMessageChannel() {
+  var channel = new MessageChannel();
+  channel.port1.onmessage = flush;
+  return function () {
+    return channel.port2.postMessage(0);
+  };
+}
+
+function useSetTimeout() {
+  // Store setTimeout reference so es6-promise will be unaffected by
+  // other code modifying setTimeout (like sinon.useFakeTimers())
+  var globalSetTimeout = setTimeout;
+  return function () {
+    return globalSetTimeout(flush, 1);
+  };
+}
+
+var queue = new Array(1000);
+function flush() {
+  for (var i = 0; i < len; i += 2) {
+    var callback = queue[i];
+    var arg = queue[i + 1];
+
+    callback(arg);
+
+    queue[i] = undefined;
+    queue[i + 1] = undefined;
+  }
+
+  len = 0;
+}
+
+function attemptVertx() {
+  try {
+    var vertx = Function('return this')().require('vertx');
+    vertxNext = vertx.runOnLoop || vertx.runOnContext;
+    return useVertxTimer();
+  } catch (e) {
+    return useSetTimeout();
+  }
+}
+
+var scheduleFlush = void 0;
+// Decide what async method to use to triggering processing of queued callbacks:
+if (isNode) {
+  scheduleFlush = useNextTick();
+} else if (BrowserMutationObserver) {
+  scheduleFlush = useMutationObserver();
+} else if (isWorker) {
+  scheduleFlush = useMessageChannel();
+} else if (browserWindow === undefined && typeof require === 'function') {
+  scheduleFlush = attemptVertx();
+} else {
+  scheduleFlush = useSetTimeout();
+}
+
+function then(onFulfillment, onRejection) {
+  var parent = this;
+
+  var child = new this.constructor(noop);
+
+  if (child[PROMISE_ID] === undefined) {
+    makePromise(child);
+  }
+
+  var _state = parent._state;
+
+
+  if (_state) {
+    var callback = arguments[_state - 1];
+    asap(function () {
+      return invokeCallback(_state, child, callback, parent._result);
+    });
+  } else {
+    subscribe(parent, child, onFulfillment, onRejection);
+  }
+
+  return child;
+}
+
+/**
+  `Promise.resolve` returns a promise that will become resolved with the
+  passed `value`. It is shorthand for the following:
+
+  ```javascript
+  let promise = new Promise(function(resolve, reject){
+    resolve(1);
+  });
+
+  promise.then(function(value){
+    // value === 1
+  });
+  ```
+
+  Instead of writing the above, your code now simply becomes the following:
+
+  ```javascript
+  let promise = Promise.resolve(1);
+
+  promise.then(function(value){
+    // value === 1
+  });
+  ```
+
+  @method resolve
+  @static
+  @param {Any} value value that the returned promise will be resolved with
+  Useful for tooling.
+  @return {Promise} a promise that will become fulfilled with the given
+  `value`
+*/
+function resolve$1(object) {
+  /*jshint validthis:true */
+  var Constructor = this;
+
+  if (object && typeof object === 'object' && object.constructor === Constructor) {
+    return object;
+  }
+
+  var promise = new Constructor(noop);
+  resolve(promise, object);
+  return promise;
+}
+
+var PROMISE_ID = Math.random().toString(36).substring(2);
+
+function noop() {}
+
+var PENDING = void 0;
+var FULFILLED = 1;
+var REJECTED = 2;
+
+var TRY_CATCH_ERROR = { error: null };
+
+function selfFulfillment() {
+  return new TypeError("You cannot resolve a promise with itself");
+}
+
+function cannotReturnOwn() {
+  return new TypeError('A promises callback cannot return that same promise.');
+}
+
+function getThen(promise) {
+  try {
+    return promise.then;
+  } catch (error) {
+    TRY_CATCH_ERROR.error = error;
+    return TRY_CATCH_ERROR;
+  }
+}
+
+function tryThen(then$$1, value, fulfillmentHandler, rejectionHandler) {
+  try {
+    then$$1.call(value, fulfillmentHandler, rejectionHandler);
+  } catch (e) {
+    return e;
+  }
+}
+
+function handleForeignThenable(promise, thenable, then$$1) {
+  asap(function (promise) {
+    var sealed = false;
+    var error = tryThen(then$$1, thenable, function (value) {
+      if (sealed) {
+        return;
+      }
+      sealed = true;
+      if (thenable !== value) {
+        resolve(promise, value);
+      } else {
+        fulfill(promise, value);
+      }
+    }, function (reason) {
+      if (sealed) {
+        return;
+      }
+      sealed = true;
+
+      reject(promise, reason);
+    }, 'Settle: ' + (promise._label || ' unknown promise'));
+
+    if (!sealed && error) {
+      sealed = true;
+      reject(promise, error);
+    }
+  }, promise);
+}
+
+function handleOwnThenable(promise, thenable) {
+  if (thenable._state === FULFILLED) {
+    fulfill(promise, thenable._result);
+  } else if (thenable._state === REJECTED) {
+    reject(promise, thenable._result);
+  } else {
+    subscribe(thenable, undefined, function (value) {
+      return resolve(promise, value);
+    }, function (reason) {
+      return reject(promise, reason);
+    });
+  }
+}
+
+function handleMaybeThenable(promise, maybeThenable, then$$1) {
+  if (maybeThenable.constructor === promise.constructor && then$$1 === then && maybeThenable.constructor.resolve === resolve$1) {
+    handleOwnThenable(promise, maybeThenable);
+  } else {
+    if (then$$1 === TRY_CATCH_ERROR) {
+      reject(promise, TRY_CATCH_ERROR.error);
+      TRY_CATCH_ERROR.error = null;
+    } else if (then$$1 === undefined) {
+      fulfill(promise, maybeThenable);
+    } else if (isFunction(then$$1)) {
+      handleForeignThenable(promise, maybeThenable, then$$1);
+    } else {
+      fulfill(promise, maybeThenable);
+    }
+  }
+}
+
+function resolve(promise, value) {
+  if (promise === value) {
+    reject(promise, selfFulfillment());
+  } else if (objectOrFunction(value)) {
+    handleMaybeThenable(promise, value, getThen(value));
+  } else {
+    fulfill(promise, value);
+  }
+}
+
+function publishRejection(promise) {
+  if (promise._onerror) {
+    promise._onerror(promise._result);
+  }
+
+  publish(promise);
+}
+
+function fulfill(promise, value) {
+  if (promise._state !== PENDING) {
+    return;
+  }
+
+  promise._result = value;
+  promise._state = FULFILLED;
+
+  if (promise._subscribers.length !== 0) {
+    asap(publish, promise);
+  }
+}
+
+function reject(promise, reason) {
+  if (promise._state !== PENDING) {
+    return;
+  }
+  promise._state = REJECTED;
+  promise._result = reason;
+
+  asap(publishRejection, promise);
+}
+
+function subscribe(parent, child, onFulfillment, onRejection) {
+  var _subscribers = parent._subscribers;
+  var length = _subscribers.length;
+
+
+  parent._onerror = null;
+
+  _subscribers[length] = child;
+  _subscribers[length + FULFILLED] = onFulfillment;
+  _subscribers[length + REJECTED] = onRejection;
+
+  if (length === 0 && parent._state) {
+    asap(publish, parent);
+  }
+}
+
+function publish(promise) {
+  var subscribers = promise._subscribers;
+  var settled = promise._state;
+
+  if (subscribers.length === 0) {
+    return;
+  }
+
+  var child = void 0,
+      callback = void 0,
+      detail = promise._result;
+
+  for (var i = 0; i < subscribers.length; i += 3) {
+    child = subscribers[i];
+    callback = subscribers[i + settled];
+
+    if (child) {
+      invokeCallback(settled, child, callback, detail);
+    } else {
+      callback(detail);
+    }
+  }
+
+  promise._subscribers.length = 0;
+}
+
+function tryCatch(callback, detail) {
+  try {
+    return callback(detail);
+  } catch (e) {
+    TRY_CATCH_ERROR.error = e;
+    return TRY_CATCH_ERROR;
+  }
+}
+
+function invokeCallback(settled, promise, callback, detail) {
+  var hasCallback = isFunction(callback),
+      value = void 0,
+      error = void 0,
+      succeeded = void 0,
+      failed = void 0;
+
+  if (hasCallback) {
+    value = tryCatch(callback, detail);
+
+    if (value === TRY_CATCH_ERROR) {
+      failed = true;
+      error = value.error;
+      value.error = null;
+    } else {
+      succeeded = true;
+    }
+
+    if (promise === value) {
+      reject(promise, cannotReturnOwn());
+      return;
+    }
+  } else {
+    value = detail;
+    succeeded = true;
+  }
+
+  if (promise._state !== PENDING) {
+    // noop
+  } else if (hasCallback && succeeded) {
+    resolve(promise, value);
+  } else if (failed) {
+    reject(promise, error);
+  } else if (settled === FULFILLED) {
+    fulfill(promise, value);
+  } else if (settled === REJECTED) {
+    reject(promise, value);
+  }
+}
+
+function initializePromise(promise, resolver) {
+  try {
+    resolver(function resolvePromise(value) {
+      resolve(promise, value);
+    }, function rejectPromise(reason) {
+      reject(promise, reason);
+    });
+  } catch (e) {
+    reject(promise, e);
+  }
+}
+
+var id = 0;
+function nextId() {
+  return id++;
+}
+
+function makePromise(promise) {
+  promise[PROMISE_ID] = id++;
+  promise._state = undefined;
+  promise._result = undefined;
+  promise._subscribers = [];
+}
+
+function validationError() {
+  return new Error('Array Methods must be provided an Array');
+}
+
+var Enumerator = function () {
+  function Enumerator(Constructor, input) {
+    this._instanceConstructor = Constructor;
+    this.promise = new Constructor(noop);
+
+    if (!this.promise[PROMISE_ID]) {
+      makePromise(this.promise);
+    }
+
+    if (isArray(input)) {
+      this.length = input.length;
+      this._remaining = input.length;
+
+      this._result = new Array(this.length);
+
+      if (this.length === 0) {
+        fulfill(this.promise, this._result);
+      } else {
+        this.length = this.length || 0;
+        this._enumerate(input);
+        if (this._remaining === 0) {
+          fulfill(this.promise, this._result);
+        }
+      }
+    } else {
+      reject(this.promise, validationError());
+    }
+  }
+
+  Enumerator.prototype._enumerate = function _enumerate(input) {
+    for (var i = 0; this._state === PENDING && i < input.length; i++) {
+      this._eachEntry(input[i], i);
+    }
+  };
+
+  Enumerator.prototype._eachEntry = function _eachEntry(entry, i) {
+    var c = this._instanceConstructor;
+    var resolve$$1 = c.resolve;
+
+
+    if (resolve$$1 === resolve$1) {
+      var _then = getThen(entry);
+
+      if (_then === then && entry._state !== PENDING) {
+        this._settledAt(entry._state, i, entry._result);
+      } else if (typeof _then !== 'function') {
+        this._remaining--;
+        this._result[i] = entry;
+      } else if (c === Promise$1) {
+        var promise = new c(noop);
+        handleMaybeThenable(promise, entry, _then);
+        this._willSettleAt(promise, i);
+      } else {
+        this._willSettleAt(new c(function (resolve$$1) {
+          return resolve$$1(entry);
+        }), i);
+      }
+    } else {
+      this._willSettleAt(resolve$$1(entry), i);
+    }
+  };
+
+  Enumerator.prototype._settledAt = function _settledAt(state, i, value) {
+    var promise = this.promise;
+
+
+    if (promise._state === PENDING) {
+      this._remaining--;
+
+      if (state === REJECTED) {
+        reject(promise, value);
+      } else {
+        this._result[i] = value;
+      }
+    }
+
+    if (this._remaining === 0) {
+      fulfill(promise, this._result);
+    }
+  };
+
+  Enumerator.prototype._willSettleAt = function _willSettleAt(promise, i) {
+    var enumerator = this;
+
+    subscribe(promise, undefined, function (value) {
+      return enumerator._settledAt(FULFILLED, i, value);
+    }, function (reason) {
+      return enumerator._settledAt(REJECTED, i, reason);
+    });
+  };
+
+  return Enumerator;
+}();
+
+/**
+  `Promise.all` accepts an array of promises, and returns a new promise which
+  is fulfilled with an array of fulfillment values for the passed promises, or
+  rejected with the reason of the first passed promise to be rejected. It casts all
+  elements of the passed iterable to promises as it runs this algorithm.
+
+  Example:
+
+  ```javascript
+  let promise1 = resolve(1);
+  let promise2 = resolve(2);
+  let promise3 = resolve(3);
+  let promises = [ promise1, promise2, promise3 ];
+
+  Promise.all(promises).then(function(array){
+    // The array here would be [ 1, 2, 3 ];
+  });
+  ```
+
+  If any of the `promises` given to `all` are rejected, the first promise
+  that is rejected will be given as an argument to the returned promises's
+  rejection handler. For example:
+
+  Example:
+
+  ```javascript
+  let promise1 = resolve(1);
+  let promise2 = reject(new Error("2"));
+  let promise3 = reject(new Error("3"));
+  let promises = [ promise1, promise2, promise3 ];
+
+  Promise.all(promises).then(function(array){
+    // Code here never runs because there are rejected promises!
+  }, function(error) {
+    // error.message === "2"
+  });
+  ```
+
+  @method all
+  @static
+  @param {Array} entries array of promises
+  @param {String} label optional string for labeling the promise.
+  Useful for tooling.
+  @return {Promise} promise that is fulfilled when all `promises` have been
+  fulfilled, or rejected if any of them become rejected.
+  @static
+*/
+function all(entries) {
+  return new Enumerator(this, entries).promise;
+}
+
+/**
+  `Promise.race` returns a new promise which is settled in the same way as the
+  first passed promise to settle.
+
+  Example:
+
+  ```javascript
+  let promise1 = new Promise(function(resolve, reject){
+    setTimeout(function(){
+      resolve('promise 1');
+    }, 200);
+  });
+
+  let promise2 = new Promise(function(resolve, reject){
+    setTimeout(function(){
+      resolve('promise 2');
+    }, 100);
+  });
+
+  Promise.race([promise1, promise2]).then(function(result){
+    // result === 'promise 2' because it was resolved before promise1
+    // was resolved.
+  });
+  ```
+
+  `Promise.race` is deterministic in that only the state of the first
+  settled promise matters. For example, even if other promises given to the
+  `promises` array argument are resolved, but the first settled promise has
+  become rejected before the other promises became fulfilled, the returned
+  promise will become rejected:
+
+  ```javascript
+  let promise1 = new Promise(function(resolve, reject){
+    setTimeout(function(){
+      resolve('promise 1');
+    }, 200);
+  });
+
+  let promise2 = new Promise(function(resolve, reject){
+    setTimeout(function(){
+      reject(new Error('promise 2'));
+    }, 100);
+  });
+
+  Promise.race([promise1, promise2]).then(function(result){
+    // Code here never runs
+  }, function(reason){
+    // reason.message === 'promise 2' because promise 2 became rejected before
+    // promise 1 became fulfilled
+  });
+  ```
+
+  An example real-world use case is implementing timeouts:
+
+  ```javascript
+  Promise.race([ajax('foo.json'), timeout(5000)])
+  ```
+
+  @method race
+  @static
+  @param {Array} promises array of promises to observe
+  Useful for tooling.
+  @return {Promise} a promise which settles in the same way as the first passed
+  promise to settle.
+*/
+function race(entries) {
+  /*jshint validthis:true */
+  var Constructor = this;
+
+  if (!isArray(entries)) {
+    return new Constructor(function (_, reject) {
+      return reject(new TypeError('You must pass an array to race.'));
+    });
+  } else {
+    return new Constructor(function (resolve, reject) {
+      var length = entries.length;
+      for (var i = 0; i < length; i++) {
+        Constructor.resolve(entries[i]).then(resolve, reject);
+      }
+    });
+  }
+}
+
+/**
+  `Promise.reject` returns a promise rejected with the passed `reason`.
+  It is shorthand for the following:
+
+  ```javascript
+  let promise = new Promise(function(resolve, reject){
+    reject(new Error('WHOOPS'));
+  });
+
+  promise.then(function(value){
+    // Code here doesn't run because the promise is rejected!
+  }, function(reason){
+    // reason.message === 'WHOOPS'
+  });
+  ```
+
+  Instead of writing the above, your code now simply becomes the following:
+
+  ```javascript
+  let promise = Promise.reject(new Error('WHOOPS'));
+
+  promise.then(function(value){
+    // Code here doesn't run because the promise is rejected!
+  }, function(reason){
+    // reason.message === 'WHOOPS'
+  });
+  ```
+
+  @method reject
+  @static
+  @param {Any} reason value that the returned promise will be rejected with.
+  Useful for tooling.
+  @return {Promise} a promise rejected with the given `reason`.
+*/
+function reject$1(reason) {
+  /*jshint validthis:true */
+  var Constructor = this;
+  var promise = new Constructor(noop);
+  reject(promise, reason);
+  return promise;
+}
+
+function needsResolver() {
+  throw new TypeError('You must pass a resolver function as the first argument to the promise constructor');
+}
+
+function needsNew() {
+  throw new TypeError("Failed to construct 'Promise': Please use the 'new' operator, this object constructor cannot be called as a function.");
+}
+
+/**
+  Promise objects represent the eventual result of an asynchronous operation. The
+  primary way of interacting with a promise is through its `then` method, which
+  registers callbacks to receive either a promise's eventual value or the reason
+  why the promise cannot be fulfilled.
+
+  Terminology
+  -----------
+
+  - `promise` is an object or function with a `then` method whose behavior conforms to this specification.
+  - `thenable` is an object or function that defines a `then` method.
+  - `value` is any legal JavaScript value (including undefined, a thenable, or a promise).
+  - `exception` is a value that is thrown using the throw statement.
+  - `reason` is a value that indicates why a promise was rejected.
+  - `settled` the final resting state of a promise, fulfilled or rejected.
+
+  A promise can be in one of three states: pending, fulfilled, or rejected.
+
+  Promises that are fulfilled have a fulfillment value and are in the fulfilled
+  state.  Promises that are rejected have a rejection reason and are in the
+  rejected state.  A fulfillment value is never a thenable.
+
+  Promises can also be said to *resolve* a value.  If this value is also a
+  promise, then the original promise's settled state will match the value's
+  settled state.  So a promise that *resolves* a promise that rejects will
+  itself reject, and a promise that *resolves* a promise that fulfills will
+  itself fulfill.
+
+
+  Basic Usage:
+  ------------
+
+  ```js
+  let promise = new Promise(function(resolve, reject) {
+    // on success
+    resolve(value);
+
+    // on failure
+    reject(reason);
+  });
+
+  promise.then(function(value) {
+    // on fulfillment
+  }, function(reason) {
+    // on rejection
+  });
+  ```
+
+  Advanced Usage:
+  ---------------
+
+  Promises shine when abstracting away asynchronous interactions such as
+  `XMLHttpRequest`s.
+
+  ```js
+  function getJSON(url) {
+    return new Promise(function(resolve, reject){
+      let xhr = new XMLHttpRequest();
+
+      xhr.open('GET', url);
+      xhr.onreadystatechange = handler;
+      xhr.responseType = 'json';
+      xhr.setRequestHeader('Accept', 'application/json');
+      xhr.send();
+
+      function handler() {
+        if (this.readyState === this.DONE) {
+          if (this.status === 200) {
+            resolve(this.response);
+          } else {
+            reject(new Error('getJSON: `' + url + '` failed with status: [' + this.status + ']'));
+          }
+        }
+      };
+    });
+  }
+
+  getJSON('/posts.json').then(function(json) {
+    // on fulfillment
+  }, function(reason) {
+    // on rejection
+  });
+  ```
+
+  Unlike callbacks, promises are great composable primitives.
+
+  ```js
+  Promise.all([
+    getJSON('/posts'),
+    getJSON('/comments')
+  ]).then(function(values){
+    values[0] // => postsJSON
+    values[1] // => commentsJSON
+
+    return values;
+  });
+  ```
+
+  @class Promise
+  @param {Function} resolver
+  Useful for tooling.
+  @constructor
+*/
+
+var Promise$1 = function () {
+  function Promise(resolver) {
+    this[PROMISE_ID] = nextId();
+    this._result = this._state = undefined;
+    this._subscribers = [];
+
+    if (noop !== resolver) {
+      typeof resolver !== 'function' && needsResolver();
+      this instanceof Promise ? initializePromise(this, resolver) : needsNew();
+    }
+  }
+
+  /**
+  The primary way of interacting with a promise is through its `then` method,
+  which registers callbacks to receive either a promise's eventual value or the
+  reason why the promise cannot be fulfilled.
+   ```js
+  findUser().then(function(user){
+    // user is available
+  }, function(reason){
+    // user is unavailable, and you are given the reason why
+  });
+  ```
+   Chaining
+  --------
+   The return value of `then` is itself a promise.  This second, 'downstream'
+  promise is resolved with the return value of the first promise's fulfillment
+  or rejection handler, or rejected if the handler throws an exception.
+   ```js
+  findUser().then(function (user) {
+    return user.name;
+  }, function (reason) {
+    return 'default name';
+  }).then(function (userName) {
+    // If `findUser` fulfilled, `userName` will be the user's name, otherwise it
+    // will be `'default name'`
+  });
+   findUser().then(function (user) {
+    throw new Error('Found user, but still unhappy');
+  }, function (reason) {
+    throw new Error('`findUser` rejected and we're unhappy');
+  }).then(function (value) {
+    // never reached
+  }, function (reason) {
+    // if `findUser` fulfilled, `reason` will be 'Found user, but still unhappy'.
+    // If `findUser` rejected, `reason` will be '`findUser` rejected and we're unhappy'.
+  });
+  ```
+  If the downstream promise does not specify a rejection handler, rejection reasons will be propagated further downstream.
+   ```js
+  findUser().then(function (user) {
+    throw new PedagogicalException('Upstream error');
+  }).then(function (value) {
+    // never reached
+  }).then(function (value) {
+    // never reached
+  }, function (reason) {
+    // The `PedgagocialException` is propagated all the way down to here
+  });
+  ```
+   Assimilation
+  ------------
+   Sometimes the value you want to propagate to a downstream promise can only be
+  retrieved asynchronously. This can be achieved by returning a promise in the
+  fulfillment or rejection handler. The downstream promise will then be pending
+  until the returned promise is settled. This is called *assimilation*.
+   ```js
+  findUser().then(function (user) {
+    return findCommentsByAuthor(user);
+  }).then(function (comments) {
+    // The user's comments are now available
+  });
+  ```
+   If the assimliated promise rejects, then the downstream promise will also reject.
+   ```js
+  findUser().then(function (user) {
+    return findCommentsByAuthor(user);
+  }).then(function (comments) {
+    // If `findCommentsByAuthor` fulfills, we'll have the value here
+  }, function (reason) {
+    // If `findCommentsByAuthor` rejects, we'll have the reason here
+  });
+  ```
+   Simple Example
+  --------------
+   Synchronous Example
+   ```javascript
+  let result;
+   try {
+    result = findResult();
+    // success
+  } catch(reason) {
+    // failure
+  }
+  ```
+   Errback Example
+   ```js
+  findResult(function(result, err){
+    if (err) {
+      // failure
+    } else {
+      // success
+    }
+  });
+  ```
+   Promise Example;
+   ```javascript
+  findResult().then(function(result){
+    // success
+  }, function(reason){
+    // failure
+  });
+  ```
+   Advanced Example
+  --------------
+   Synchronous Example
+   ```javascript
+  let author, books;
+   try {
+    author = findAuthor();
+    books  = findBooksByAuthor(author);
+    // success
+  } catch(reason) {
+    // failure
+  }
+  ```
+   Errback Example
+   ```js
+   function foundBooks(books) {
+   }
+   function failure(reason) {
+   }
+   findAuthor(function(author, err){
+    if (err) {
+      failure(err);
+      // failure
+    } else {
+      try {
+        findBoooksByAuthor(author, function(books, err) {
+          if (err) {
+            failure(err);
+          } else {
+            try {
+              foundBooks(books);
+            } catch(reason) {
+              failure(reason);
+            }
+          }
+        });
+      } catch(error) {
+        failure(err);
+      }
+      // success
+    }
+  });
+  ```
+   Promise Example;
+   ```javascript
+  findAuthor().
+    then(findBooksByAuthor).
+    then(function(books){
+      // found books
+  }).catch(function(reason){
+    // something went wrong
+  });
+  ```
+   @method then
+  @param {Function} onFulfilled
+  @param {Function} onRejected
+  Useful for tooling.
+  @return {Promise}
+  */
+
+  /**
+  `catch` is simply sugar for `then(undefined, onRejection)` which makes it the same
+  as the catch block of a try/catch statement.
+  ```js
+  function findAuthor(){
+  throw new Error('couldn't find that author');
+  }
+  // synchronous
+  try {
+  findAuthor();
+  } catch(reason) {
+  // something went wrong
+  }
+  // async with promises
+  findAuthor().catch(function(reason){
+  // something went wrong
+  });
+  ```
+  @method catch
+  @param {Function} onRejection
+  Useful for tooling.
+  @return {Promise}
+  */
+
+
+  Promise.prototype.catch = function _catch(onRejection) {
+    return this.then(null, onRejection);
+  };
+
+  /**
+    `finally` will be invoked regardless of the promise's fate just as native
+    try/catch/finally behaves
+  
+    Synchronous example:
+  
+    ```js
+    findAuthor() {
+      if (Math.random() > 0.5) {
+        throw new Error();
+      }
+      return new Author();
+    }
+  
+    try {
+      return findAuthor(); // succeed or fail
+    } catch(error) {
+      return findOtherAuther();
+    } finally {
+      // always runs
+      // doesn't affect the return value
+    }
+    ```
+  
+    Asynchronous example:
+  
+    ```js
+    findAuthor().catch(function(reason){
+      return findOtherAuther();
+    }).finally(function(){
+      // author was either found, or not
+    });
+    ```
+  
+    @method finally
+    @param {Function} callback
+    @return {Promise}
+  */
+
+
+  Promise.prototype.finally = function _finally(callback) {
+    var promise = this;
+    var constructor = promise.constructor;
+
+    if (isFunction(callback)) {
+      return promise.then(function (value) {
+        return constructor.resolve(callback()).then(function () {
+          return value;
+        });
+      }, function (reason) {
+        return constructor.resolve(callback()).then(function () {
+          throw reason;
+        });
+      });
+    }
+
+    return promise.then(callback, callback);
+  };
+
+  return Promise;
+}();
+
+Promise$1.prototype.then = then;
+Promise$1.all = all;
+Promise$1.race = race;
+Promise$1.resolve = resolve$1;
+Promise$1.reject = reject$1;
+Promise$1._setScheduler = setScheduler;
+Promise$1._setAsap = setAsap;
+Promise$1._asap = asap;
+
+/*global self*/
+function polyfill() {
+  var local = void 0;
+
+  if (typeof global !== 'undefined') {
+    local = global;
+  } else if (typeof self !== 'undefined') {
+    local = self;
+  } else {
+    try {
+      local = Function('return this')();
+    } catch (e) {
+      throw new Error('polyfill failed because global object is unavailable in this environment');
+    }
+  }
+
+  var P = local.Promise;
+
+  if (P) {
+    var promiseToString = null;
+    try {
+      promiseToString = Object.prototype.toString.call(P.resolve());
+    } catch (e) {
+      // silently ignored
+    }
+
+    if (promiseToString === '[object Promise]' && !P.cast) {
+      return;
+    }
+  }
+
+  local.Promise = Promise$1;
+}
+
+// Strange compat..
+Promise$1.polyfill = polyfill;
+Promise$1.Promise = Promise$1;
+
+return Promise$1;
+
+})));
+
+
+
+
+
+},{"process":"../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/node_modules/process/browser.js"}],"../node_modules/querystring-es3/encode.js":[function(require,module,exports) {
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+'use strict';
+
+var stringifyPrimitive = function (v) {
+  switch (typeof v) {
+    case 'string':
+      return v;
+
+    case 'boolean':
+      return v ? 'true' : 'false';
+
+    case 'number':
+      return isFinite(v) ? v : '';
+
+    default:
+      return '';
+  }
+};
+
+module.exports = function (obj, sep, eq, name) {
+  sep = sep || '&';
+  eq = eq || '=';
+
+  if (obj === null) {
+    obj = undefined;
+  }
+
+  if (typeof obj === 'object') {
+    return map(objectKeys(obj), function (k) {
+      var ks = encodeURIComponent(stringifyPrimitive(k)) + eq;
+
+      if (isArray(obj[k])) {
+        return map(obj[k], function (v) {
+          return ks + encodeURIComponent(stringifyPrimitive(v));
+        }).join(sep);
+      } else {
+        return ks + encodeURIComponent(stringifyPrimitive(obj[k]));
+      }
+    }).join(sep);
+  }
+
+  if (!name) return '';
+  return encodeURIComponent(stringifyPrimitive(name)) + eq + encodeURIComponent(stringifyPrimitive(obj));
+};
+
+var isArray = Array.isArray || function (xs) {
+  return Object.prototype.toString.call(xs) === '[object Array]';
+};
+
+function map(xs, f) {
+  if (xs.map) return xs.map(f);
+  var res = [];
+
+  for (var i = 0; i < xs.length; i++) {
+    res.push(f(xs[i], i));
+  }
+
+  return res;
+}
+
+var objectKeys = Object.keys || function (obj) {
+  var res = [];
+
+  for (var key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) res.push(key);
+  }
+
+  return res;
+};
+},{}],"../node_modules/algoliasearch/src/browser/inline-headers.js":[function(require,module,exports) {
+'use strict';
+
+module.exports = inlineHeaders;
+
+var encode = require('querystring-es3/encode');
+
+function inlineHeaders(url, headers) {
+  if (/\?/.test(url)) {
+    url += '&';
+  } else {
+    url += '?';
+  }
+
+  return url + encode(headers);
+}
+},{"querystring-es3/encode":"../node_modules/querystring-es3/encode.js"}],"../node_modules/algoliasearch/src/browser/jsonp-request.js":[function(require,module,exports) {
+'use strict';
+
+module.exports = jsonpRequest;
+
+var errors = require('../errors');
+
+var JSONPCounter = 0;
+
+function jsonpRequest(url, opts, cb) {
+  if (opts.method !== 'GET') {
+    cb(new Error('Method ' + opts.method + ' ' + url + ' is not supported by JSONP.'));
+    return;
+  }
+
+  opts.debug('JSONP: start');
+  var cbCalled = false;
+  var timedOut = false;
+  JSONPCounter += 1;
+  var head = document.getElementsByTagName('head')[0];
+  var script = document.createElement('script');
+  var cbName = 'algoliaJSONP_' + JSONPCounter;
+  var done = false;
+
+  window[cbName] = function (data) {
+    removeGlobals();
+
+    if (timedOut) {
+      opts.debug('JSONP: Late answer, ignoring');
+      return;
+    }
+
+    cbCalled = true;
+    clean();
+    cb(null, {
+      body: data,
+      responseText: JSON.stringify(data)
+      /* ,
+      // We do not send the statusCode, there's no statusCode in JSONP, it will be
+      // computed using data.status && data.message like with XDR
+      statusCode*/
+
+    });
+  }; // add callback by hand
+
+
+  url += '&callback=' + cbName; // add body params manually
+
+  if (opts.jsonBody && opts.jsonBody.params) {
+    url += '&' + opts.jsonBody.params;
+  }
+
+  var ontimeout = setTimeout(timeout, opts.timeouts.complete); // script onreadystatechange needed only for
+  // <= IE8
+  // https://github.com/angular/angular.js/issues/4523
+
+  script.onreadystatechange = readystatechange;
+  script.onload = success;
+  script.onerror = error;
+  script.async = true;
+  script.defer = true;
+  script.src = url;
+  head.appendChild(script);
+
+  function success() {
+    opts.debug('JSONP: success');
+
+    if (done || timedOut) {
+      return;
+    }
+
+    done = true; // script loaded but did not call the fn => script loading error
+
+    if (!cbCalled) {
+      opts.debug('JSONP: Fail. Script loaded but did not call the callback');
+      clean();
+      cb(new errors.JSONPScriptFail());
+    }
+  }
+
+  function readystatechange() {
+    if (this.readyState === 'loaded' || this.readyState === 'complete') {
+      success();
+    }
+  }
+
+  function clean() {
+    clearTimeout(ontimeout);
+    script.onload = null;
+    script.onreadystatechange = null;
+    script.onerror = null;
+    head.removeChild(script);
+  }
+
+  function removeGlobals() {
+    try {
+      delete window[cbName];
+      delete window[cbName + '_loaded'];
+    } catch (e) {
+      window[cbName] = window[cbName + '_loaded'] = undefined;
+    }
+  }
+
+  function timeout() {
+    opts.debug('JSONP: Script timeout');
+    timedOut = true;
+    clean();
+    cb(new errors.RequestTimeout());
+  }
+
+  function error() {
+    opts.debug('JSONP: Script error');
+
+    if (done || timedOut) {
+      return;
+    }
+
+    clean();
+    cb(new errors.JSONPScriptError());
+  }
+}
+},{"../errors":"../node_modules/algoliasearch/src/errors.js"}],"../node_modules/querystring-es3/decode.js":[function(require,module,exports) {
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+'use strict'; // If obj.hasOwnProperty has been overridden, then calling
+// obj.hasOwnProperty(prop) will break.
+// See: https://github.com/joyent/node/issues/1707
+
+function hasOwnProperty(obj, prop) {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
+
+module.exports = function (qs, sep, eq, options) {
+  sep = sep || '&';
+  eq = eq || '=';
+  var obj = {};
+
+  if (typeof qs !== 'string' || qs.length === 0) {
+    return obj;
+  }
+
+  var regexp = /\+/g;
+  qs = qs.split(sep);
+  var maxKeys = 1000;
+
+  if (options && typeof options.maxKeys === 'number') {
+    maxKeys = options.maxKeys;
+  }
+
+  var len = qs.length; // maxKeys <= 0 means that we should not limit keys count
+
+  if (maxKeys > 0 && len > maxKeys) {
+    len = maxKeys;
+  }
+
+  for (var i = 0; i < len; ++i) {
+    var x = qs[i].replace(regexp, '%20'),
+        idx = x.indexOf(eq),
+        kstr,
+        vstr,
+        k,
+        v;
+
+    if (idx >= 0) {
+      kstr = x.substr(0, idx);
+      vstr = x.substr(idx + 1);
+    } else {
+      kstr = x;
+      vstr = '';
+    }
+
+    k = decodeURIComponent(kstr);
+    v = decodeURIComponent(vstr);
+
+    if (!hasOwnProperty(obj, k)) {
+      obj[k] = v;
+    } else if (isArray(obj[k])) {
+      obj[k].push(v);
+    } else {
+      obj[k] = [obj[k], v];
+    }
+  }
+
+  return obj;
+};
+
+var isArray = Array.isArray || function (xs) {
+  return Object.prototype.toString.call(xs) === '[object Array]';
+};
+},{}],"../node_modules/querystring-es3/index.js":[function(require,module,exports) {
+'use strict';
+
+exports.decode = exports.parse = require('./decode');
+exports.encode = exports.stringify = require('./encode');
+},{"./decode":"../node_modules/querystring-es3/decode.js","./encode":"../node_modules/querystring-es3/encode.js"}],"../node_modules/algoliasearch/src/places.js":[function(require,module,exports) {
+module.exports = createPlacesClient;
+
+var qs3 = require('querystring-es3');
+
+var buildSearchMethod = require('./buildSearchMethod.js');
+
+function createPlacesClient(algoliasearch) {
+  return function places(appID, apiKey, opts) {
+    var cloneDeep = require('./clone.js');
+
+    opts = opts && cloneDeep(opts) || {};
+    opts.hosts = opts.hosts || ['places-dsn.algolia.net', 'places-1.algolianet.com', 'places-2.algolianet.com', 'places-3.algolianet.com']; // allow initPlaces() no arguments => community rate limited
+
+    if (arguments.length === 0 || typeof appID === 'object' || appID === undefined) {
+      appID = '';
+      apiKey = '';
+      opts._allowEmptyCredentials = true;
+    }
+
+    var client = algoliasearch(appID, apiKey, opts);
+    var index = client.initIndex('places');
+    index.search = buildSearchMethod('query', '/1/places/query');
+
+    index.reverse = function (options, callback) {
+      var encoded = qs3.encode(options);
+      return this.as._jsonRequest({
+        method: 'GET',
+        url: '/1/places/reverse?' + encoded,
+        hostType: 'read',
+        callback: callback
+      });
+    };
+
+    index.getObject = function (objectID, callback) {
+      return this.as._jsonRequest({
+        method: 'GET',
+        url: '/1/places/' + encodeURIComponent(objectID),
+        hostType: 'read',
+        callback: callback
+      });
+    };
+
+    return index;
+  };
+}
+},{"querystring-es3":"../node_modules/querystring-es3/index.js","./buildSearchMethod.js":"../node_modules/algoliasearch/src/buildSearchMethod.js","./clone.js":"../node_modules/algoliasearch/src/clone.js"}],"../node_modules/algoliasearch/src/version.js":[function(require,module,exports) {
+'use strict';
+
+module.exports = '3.33.0';
+},{}],"../node_modules/algoliasearch/src/browser/createAlgoliasearch.js":[function(require,module,exports) {
+
+'use strict';
+
+var global = require('global');
+
+var Promise = global.Promise || require('es6-promise').Promise; // This is the standalone browser build entry point
+// Browser implementation of the Algolia Search JavaScript client,
+// using XMLHttpRequest, XDomainRequest and JSONP as fallback
+
+
+module.exports = function createAlgoliasearch(AlgoliaSearch, uaSuffix) {
+  var inherits = require('inherits');
+
+  var errors = require('../errors');
+
+  var inlineHeaders = require('./inline-headers');
+
+  var jsonpRequest = require('./jsonp-request');
+
+  var places = require('../places.js');
+
+  uaSuffix = uaSuffix || '';
+
+  if ("development" === 'debug') {
+    require('debug').enable('algoliasearch*');
+  }
+
+  function algoliasearch(applicationID, apiKey, opts) {
+    var cloneDeep = require('../clone.js');
+
+    opts = cloneDeep(opts || {});
+    opts._ua = opts._ua || algoliasearch.ua;
+    return new AlgoliaSearchBrowser(applicationID, apiKey, opts);
+  }
+
+  algoliasearch.version = require('../version.js');
+  algoliasearch.ua = 'Algolia for JavaScript (' + algoliasearch.version + '); ' + uaSuffix;
+  algoliasearch.initPlaces = places(algoliasearch); // we expose into window no matter how we are used, this will allow
+  // us to easily debug any website running algolia
+
+  global.__algolia = {
+    debug: require('debug'),
+    algoliasearch: algoliasearch
+  };
+  var support = {
+    hasXMLHttpRequest: 'XMLHttpRequest' in global,
+    hasXDomainRequest: 'XDomainRequest' in global
+  };
+
+  if (support.hasXMLHttpRequest) {
+    support.cors = 'withCredentials' in new XMLHttpRequest();
+  }
+
+  function AlgoliaSearchBrowser() {
+    // call AlgoliaSearch constructor
+    AlgoliaSearch.apply(this, arguments);
+  }
+
+  inherits(AlgoliaSearchBrowser, AlgoliaSearch);
+
+  AlgoliaSearchBrowser.prototype._request = function request(url, opts) {
+    return new Promise(function wrapRequest(resolve, reject) {
+      // no cors or XDomainRequest, no request
+      if (!support.cors && !support.hasXDomainRequest) {
+        // very old browser, not supported
+        reject(new errors.Network('CORS not supported'));
+        return;
+      }
+
+      url = inlineHeaders(url, opts.headers);
+      var body = opts.body;
+      var req = support.cors ? new XMLHttpRequest() : new XDomainRequest();
+      var reqTimeout;
+      var timedOut;
+      var connected = false;
+      reqTimeout = setTimeout(onTimeout, opts.timeouts.connect); // we set an empty onprogress listener
+      // so that XDomainRequest on IE9 is not aborted
+      // refs:
+      //  - https://github.com/algolia/algoliasearch-client-js/issues/76
+      //  - https://social.msdn.microsoft.com/Forums/ie/en-US/30ef3add-767c-4436-b8a9-f1ca19b4812e/ie9-rtm-xdomainrequest-issued-requests-may-abort-if-all-event-handlers-not-specified?forum=iewebdevelopment
+
+      req.onprogress = onProgress;
+      if ('onreadystatechange' in req) req.onreadystatechange = onReadyStateChange;
+      req.onload = onLoad;
+      req.onerror = onError; // do not rely on default XHR async flag, as some analytics code like hotjar
+      // breaks it and set it to false by default
+
+      if (req instanceof XMLHttpRequest) {
+        req.open(opts.method, url, true); // The Analytics API never accepts Auth headers as query string
+        // this option exists specifically for them.
+
+        if (opts.forceAuthHeaders) {
+          req.setRequestHeader('x-algolia-application-id', opts.headers['x-algolia-application-id']);
+          req.setRequestHeader('x-algolia-api-key', opts.headers['x-algolia-api-key']);
+        }
+      } else {
+        req.open(opts.method, url);
+      } // headers are meant to be sent after open
+
+
+      if (support.cors) {
+        if (body) {
+          if (opts.method === 'POST') {
+            // https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS#Simple_requests
+            req.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+          } else {
+            req.setRequestHeader('content-type', 'application/json');
+          }
+        }
+
+        req.setRequestHeader('accept', 'application/json');
+      }
+
+      if (body) {
+        req.send(body);
+      } else {
+        req.send();
+      } // event object not received in IE8, at least
+      // but we do not use it, still important to note
+
+
+      function onLoad()
+      /* event */
+      {
+        // When browser does not supports req.timeout, we can
+        // have both a load and timeout event, since handled by a dumb setTimeout
+        if (timedOut) {
+          return;
+        }
+
+        clearTimeout(reqTimeout);
+        var out;
+
+        try {
+          out = {
+            body: JSON.parse(req.responseText),
+            responseText: req.responseText,
+            statusCode: req.status,
+            // XDomainRequest does not have any response headers
+            headers: req.getAllResponseHeaders && req.getAllResponseHeaders() || {}
+          };
+        } catch (e) {
+          out = new errors.UnparsableJSON({
+            more: req.responseText
+          });
+        }
+
+        if (out instanceof errors.UnparsableJSON) {
+          reject(out);
+        } else {
+          resolve(out);
+        }
+      }
+
+      function onError(event) {
+        if (timedOut) {
+          return;
+        }
+
+        clearTimeout(reqTimeout); // error event is trigerred both with XDR/XHR on:
+        //   - DNS error
+        //   - unallowed cross domain request
+
+        reject(new errors.Network({
+          more: event
+        }));
+      }
+
+      function onTimeout() {
+        timedOut = true;
+        req.abort();
+        reject(new errors.RequestTimeout());
+      }
+
+      function onConnect() {
+        connected = true;
+        clearTimeout(reqTimeout);
+        reqTimeout = setTimeout(onTimeout, opts.timeouts.complete);
+      }
+
+      function onProgress() {
+        if (!connected) onConnect();
+      }
+
+      function onReadyStateChange() {
+        if (!connected && req.readyState > 1) onConnect();
+      }
+    });
+  };
+
+  AlgoliaSearchBrowser.prototype._request.fallback = function requestFallback(url, opts) {
+    url = inlineHeaders(url, opts.headers);
+    return new Promise(function wrapJsonpRequest(resolve, reject) {
+      jsonpRequest(url, opts, function jsonpRequestDone(err, content) {
+        if (err) {
+          reject(err);
+          return;
+        }
+
+        resolve(content);
+      });
+    });
+  };
+
+  AlgoliaSearchBrowser.prototype._promise = {
+    reject: function rejectPromise(val) {
+      return Promise.reject(val);
+    },
+    resolve: function resolvePromise(val) {
+      return Promise.resolve(val);
+    },
+    delay: function delayPromise(ms) {
+      return new Promise(function resolveOnTimeout(resolve
+      /* , reject*/
+      ) {
+        setTimeout(resolve, ms);
+      });
+    },
+    all: function all(promises) {
+      return Promise.all(promises);
+    }
+  };
+  return algoliasearch;
+};
+},{"global":"../node_modules/global/window.js","es6-promise":"../node_modules/es6-promise/dist/es6-promise.js","inherits":"../node_modules/inherits/inherits_browser.js","../errors":"../node_modules/algoliasearch/src/errors.js","./inline-headers":"../node_modules/algoliasearch/src/browser/inline-headers.js","./jsonp-request":"../node_modules/algoliasearch/src/browser/jsonp-request.js","../places.js":"../node_modules/algoliasearch/src/places.js","../clone.js":"../node_modules/algoliasearch/src/clone.js","../version.js":"../node_modules/algoliasearch/src/version.js","debug":"../node_modules/debug/src/browser.js"}],"../node_modules/algoliasearch/src/browser/builds/algoliasearch.js":[function(require,module,exports) {
+'use strict';
+
+var AlgoliaSearch = require('../../AlgoliaSearch.js');
+
+var createAlgoliasearch = require('../createAlgoliasearch.js');
+
+module.exports = createAlgoliasearch(AlgoliaSearch, 'Browser');
+},{"../../AlgoliaSearch.js":"../node_modules/algoliasearch/src/AlgoliaSearch.js","../createAlgoliasearch.js":"../node_modules/algoliasearch/src/browser/createAlgoliasearch.js"}],"../node_modules/deepmerge/dist/umd.js":[function(require,module,exports) {
 var define;
 var global = arguments[3];
-var r,e=arguments[3];!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?module.exports=t():"function"==typeof r&&r.amd?r(t):e.deepmerge=t()}(this,function(){"use strict";var r=function(r){return function(r){return!!r&&"object"==typeof r}(r)&&!function(r){var t=Object.prototype.toString.call(r);return"[object RegExp]"===t||"[object Date]"===t||function(r){return r.$$typeof===e}(r)}(r)};var e="function"==typeof Symbol&&Symbol.for?Symbol.for("react.element"):60103;function t(r,e){return!1!==e.clone&&e.isMergeableObject(r)?u((t=r,Array.isArray(t)?[]:{}),r,e):r;var t}function n(r,e,n){return r.concat(e).map(function(r){return t(r,n)})}function o(r,e,n){var o={};return n.isMergeableObject(r)&&Object.keys(r).forEach(function(e){o[e]=t(r[e],n)}),Object.keys(e).forEach(function(c){n.isMergeableObject(e[c])&&r[c]?o[c]=function(r,e){if(!e.customMerge)return u;var t=e.customMerge(r);return"function"==typeof t?t:u}(c,n)(r[c],e[c],n):o[c]=t(e[c],n)}),o}function u(e,u,c){(c=c||{}).arrayMerge=c.arrayMerge||n,c.isMergeableObject=c.isMergeableObject||r;var a=Array.isArray(u);return a===Array.isArray(e)?a?c.arrayMerge(e,u,c):o(e,u,c):t(u,c)}return u.all=function(r,e){if(!Array.isArray(r))throw new Error("first argument should be an array");return r.reduce(function(r,t){return u(r,t,e)},{})},u});
-},{}],"FO+Z":[function(require,module,exports) {
-"use strict";function t(o){return(t="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(o)}function o(t){return"string"==typeof t||t instanceof String}function r(t){return"number"==typeof t&&isFinite(t)}function n(t){return Array.isArray(t)}function e(t){return"function"==typeof t}function i(o){return o&&"object"===t(o)&&o.constructor===Object}Object.defineProperty(exports,"__esModule",{value:!0}),exports.isString=o,exports.isNumber=r,exports.isArray=n,exports.isFunction=e,exports.isObject=i;
-},{}],"JCLd":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.init=u,exports.update=l;var e,i=require("./utils"),t="";function n(){var i=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"",t=e.templates.base(i,e),n=Docsify.dom.create("div",t),o=Docsify.dom.find("aside");Docsify.dom.toggleClass(n,"search"),Docsify.dom.before(o,n)}function o(i){var n=e.algolia,o=e.templates,s=o.resultSet,r=o.resultItem;return n.multi?i.results.map(function(n){return s(n,i,t,e)}).join(""):i.hits.map(function(t){return r(t,i,e)}).join("")}function s(n){var s,r=arguments.length>1&&void 0!==arguments[1]&&arguments[1],a=Docsify.dom.find("div.search"),c=Docsify.dom.find(a,"input"),d=Docsify.dom.find(a,".results-panel"),u=Docsify.dom.find(a,".clear-button"),l=Docsify.dom.find(".sidebar-nav"),f=Docsify.dom.find(".app-name");if(!n)return d.classList.remove("show"),u.classList.remove("show"),d.innerHTML="",e.hideOtherSidebarContent&&(l.classList.remove("hide"),f.classList.remove("hide")),void(r&&(c.value=""));var m=e.algolia,p=m.multi?m.client:m.indexMap[m.currentIndex(m.indexMap)];(0,i.isArray)(m.indexes)||!m.multi?(s=m.multi?m.indexes.map(function(e){return{indexName:e.index,query:n}}):n,p.search(s).then(o).then(function(i){d.classList.add("show"),u.classList.add("show"),d.innerHTML=i||'<p class="empty">'.concat(t,"</p>"),e.hideOtherSidebarContent&&(l.classList.add("hide"),f.classList.add("hide"))})):console.error("Algolia Search Plugin: When multi search is enabled, you must provided more than one index")}function r(e){var i,t=Docsify.dom.find("div.search"),n=Docsify.dom.find(t,"input"),o=Docsify.dom.find(t,".input-wrap");Docsify.dom.on(t,"click",function(e){return"A"!==e.target.tagName&&e.stopPropagation()}),Docsify.dom.on(n,"input",function(t){clearTimeout(i),i=setTimeout(function(){return s(t.target.value.trim(),e)},100)}),Docsify.dom.on(o,"click",function(e){"INPUT"!==e.target.tagName&&(n.value="",s())}),window.DocsifyAlgoliaSearchPlugin.clearResults=function(){s(null,!(arguments.length>0&&void 0!==arguments[0])||arguments[0])}}function a(e,t){var n=Docsify.dom.getNode('.search input[type="search"]');if(n)if((0,i.isString)(e))n.placeholder=e;else{var o=Object.keys(e).filter(function(e){return t.indexOf(e)>-1})[0];n.placeholder=e[o]}}function c(e,n){if((0,i.isString)(e))t=e;else{var o=Object.keys(e).filter(function(e){return n.indexOf(e)>-1})[0];t=e[o]}}function d(i){e=i}function u(i,t){var o=t.router.parse().query.s;d(i),Docsify.dom.style(e.templates.style(e)),n(o),r(),o&&setTimeout(function(){return s(o)},500)}function l(e,i){a(e.placeholder,i.route.path),c(e.noData,i.route.path)}
-},{"./utils":"FO+Z"}],"I3Wr":[function(require,module,exports) {
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=void 0;var n=require("./utils"),e=function(){var n=arguments.length>0&&void 0!==arguments[0]?arguments[0]:"";arguments.length>1&&arguments[1];return'\n    <div class="input-wrap">\n        <input type="search" value="'.concat(n,'" />\n        <div class="clear-button">\n            <svg width="26" height="24">\n                <circle cx="12" cy="12" r="11" fill="#ccc" />\n                <path stroke="white" stroke-width="2" d="M8.25,8.25,15.75,15.75" />\n                <path stroke="white" stroke-width="2"d="M8.25,15.75,15.75,8.25" />\n            </svg>\n        </div>\n    </div>\n    <div class="results-panel"></div>\n    </div>\n')},t=function(n){return"\n    .sidebar {\n        --search-link-hover-color: #fff;\n        padding-top: 0;\n    }\n\n    .search {\n        margin-bottom: 20px;\n        padding: 6px;\n        border-bottom: 1px solid #eee;\n    }\n\n    .search .input-wrap {\n        display: flex;\n        align-items: center;\n    }\n\n    .search .results-panel {\n        display: none;\n    }\n\n    .search .results-panel.show {\n        display: block;\n    }\n\n    .search a:hover {\n        color: var(--search-link-hover-color);\n    }\n\n    .search input {\n        outline: none;\n        border: none;\n        width: 100%;\n        padding: 0 7px;\n        line-height: 36px;\n        font-size: 14px;\n    }\n\n    .search input::-webkit-search-decoration,\n    .search input::-webkit-search-cancel-button,\n    .search input {\n        -webkit-appearance: none;\n        -moz-appearance: none;\n        appearance: none;\n    }\n    .search .clear-button {\n        width: 36px;\n        text-align: right;\n        display: none;\n    }\n\n    .search .clear-button.show {\n        display: block;\n    }\n\n    .search .clear-button svg {\n        transform: scale(.5);\n    }\n\n    .search h2 {\n        font-size: 17px;\n        margin: 10px 0;\n    }\n\n    .search a {\n        text-decoration: none;\n        color: inherit;\n    }\n\n    .search .matching-post {\n        border-bottom: 1px solid #eee;\n    }\n\n    .search .matching-post:last-child {\n        border-bottom: 0;\n    }\n\n    .search p {\n        font-size: 14px;\n        overflow: hidden;\n        text-overflow: ellipsis;\n        display: -webkit-box;\n        -webkit-line-clamp: 2;\n        -webkit-box-orient: vertical;\n    }\n\n    .search p.empty {\n        text-align: center;\n    }\n\n    .app-name.hide, .sidebar-nav.hide {\n        display: none;\n    }\n"},a=function(n){var e=n._highlightResult.title,t=n._snippetResult.body;return'\n        <div class="matching-post">\n            <a href="'.concat(n.slug,'">\n                <h2>').concat(e.value,"</h2>\n                <p>").concat(t.value,"</p>\n            </a>\n        </div>\n    ")},i=function(e,t,a,i){var r=e.hits,s=e.index,o=i.templates,c=i.algolia.multi,l="<p>".concat(a,"</p>"),h=s;return r.length&&(l=r.map(function(n){return o.resultItem(n,t,i)}).join("")),(0,n.isObject)(c)&&(h=c[s]),'\n        <div class="matching-set">\n            <h2 class="matching-set-heading">'.concat(h,"</h2>\n            ").concat(l,"\n        </div>\n    ")},r={base:e,style:t,resultItem:a,resultSet:i};exports.default=r;
-},{"./utils":"FO+Z"}],"Focm":[function(require,module,exports) {
-"use strict";var e=t(require("algoliasearch")),i=t(require("deepmerge")),a=require("./component"),l=require("./utils"),n=t(require("./render"));function t(e){return e&&e.__esModule?e:{default:e}}var o,d={placeholder:"Type to search",noData:"No Results!",hideOtherSidebarContent:!1,namespace:void 0,templates:{base:n.default.base,style:n.default.style,resultItem:n.default.resultItem,resultSet:n.default.resultSet},algolia:{multi:void 0,token:void 0,appId:void 0,indexes:void 0,defaultIndex:void 0,indexMap:{},currentIndex:function(){return this.defaultIndex}}},s=function(n,t){var s=t.config.search;if((o=(0,l.isObject)(s)?(0,i.default)(d,s):DEFAUlT_CONFIG).algolia.client=(0,e.default)(o.algolia.appId,o.algolia.token),(0,l.isArray)(o.algolia.indexes))o.algolia.indexes.forEach(function(e){if((0,l.isObject)(e)){var i=o.algolia.client.initIndex(e.index);i.setSettings(e.settings),o.algolia.indexMap[e.index]=i}else{var a=o.algolia.client.initIndex(e);o.algolia.indexMap[e]=a}});else if((0,l.isObject)(o.algolia.indexes)){var r=o.algolia.indexes,u=o.algolia.client.initIndex(r.index);u.setSettings(r.settings),o.algolia.indexMap[r.index]=u}else{if(!(0,l.isString)(o.algolia.indexes))return void console.error("Invalid configuration");var c=o.algolia.indexes,g=o.algolia.client.initIndex(c);o.algolia.indexMap[c]=g}n.mounted(function(){(0,a.init)(o,t)}),n.doneEach(function(){(0,a.update)(o,t)}),window.DocsifyAlgoliaSearchPlugin={config:o}};$docsify.plugins=[].concat(s,$docsify.plugins);
-},{"algoliasearch":"rauQ","deepmerge":"MNpE","./component":"JCLd","./utils":"FO+Z","./render":"I3Wr"}]},{},["Focm"], null)
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() : typeof define === 'function' && define.amd ? define(factory) : global.deepmerge = factory();
+})(this, function () {
+  'use strict';
+
+  var isMergeableObject = function isMergeableObject(value) {
+    return isNonNullObject(value) && !isSpecial(value);
+  };
+
+  function isNonNullObject(value) {
+    return !!value && typeof value === 'object';
+  }
+
+  function isSpecial(value) {
+    var stringValue = Object.prototype.toString.call(value);
+    return stringValue === '[object RegExp]' || stringValue === '[object Date]' || isReactElement(value);
+  } // see https://github.com/facebook/react/blob/b5ac963fb791d1298e7f396236383bc955f916c1/src/isomorphic/classic/element/ReactElement.js#L21-L25
+
+
+  var canUseSymbol = typeof Symbol === 'function' && Symbol.for;
+  var REACT_ELEMENT_TYPE = canUseSymbol ? Symbol.for('react.element') : 0xeac7;
+
+  function isReactElement(value) {
+    return value.$$typeof === REACT_ELEMENT_TYPE;
+  }
+
+  function emptyTarget(val) {
+    return Array.isArray(val) ? [] : {};
+  }
+
+  function cloneUnlessOtherwiseSpecified(value, options) {
+    return options.clone !== false && options.isMergeableObject(value) ? deepmerge(emptyTarget(value), value, options) : value;
+  }
+
+  function defaultArrayMerge(target, source, options) {
+    return target.concat(source).map(function (element) {
+      return cloneUnlessOtherwiseSpecified(element, options);
+    });
+  }
+
+  function getMergeFunction(key, options) {
+    if (!options.customMerge) {
+      return deepmerge;
+    }
+
+    var customMerge = options.customMerge(key);
+    return typeof customMerge === 'function' ? customMerge : deepmerge;
+  }
+
+  function mergeObject(target, source, options) {
+    var destination = {};
+
+    if (options.isMergeableObject(target)) {
+      Object.keys(target).forEach(function (key) {
+        destination[key] = cloneUnlessOtherwiseSpecified(target[key], options);
+      });
+    }
+
+    Object.keys(source).forEach(function (key) {
+      if (!options.isMergeableObject(source[key]) || !target[key]) {
+        destination[key] = cloneUnlessOtherwiseSpecified(source[key], options);
+      } else {
+        destination[key] = getMergeFunction(key, options)(target[key], source[key], options);
+      }
+    });
+    return destination;
+  }
+
+  function deepmerge(target, source, options) {
+    options = options || {};
+    options.arrayMerge = options.arrayMerge || defaultArrayMerge;
+    options.isMergeableObject = options.isMergeableObject || isMergeableObject;
+    var sourceIsArray = Array.isArray(source);
+    var targetIsArray = Array.isArray(target);
+    var sourceAndTargetTypesMatch = sourceIsArray === targetIsArray;
+
+    if (!sourceAndTargetTypesMatch) {
+      return cloneUnlessOtherwiseSpecified(source, options);
+    } else if (sourceIsArray) {
+      return options.arrayMerge(target, source, options);
+    } else {
+      return mergeObject(target, source, options);
+    }
+  }
+
+  deepmerge.all = function deepmergeAll(array, options) {
+    if (!Array.isArray(array)) {
+      throw new Error('first argument should be an array');
+    }
+
+    return array.reduce(function (prev, next) {
+      return deepmerge(prev, next, options);
+    }, {});
+  };
+
+  var deepmerge_1 = deepmerge;
+  return deepmerge_1;
+});
+},{}],"utils.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.isString = isString;
+exports.isNumber = isNumber;
+exports.isArray = isArray;
+exports.isFunction = isFunction;
+exports.isObject = isObject;
+
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+/**
+ * Check if value is a string
+ *
+ * @param {*} value
+ */
+function isString(value) {
+  return typeof value === 'string' || value instanceof String;
+}
+/**
+ * Check if value is a number
+ *
+ * @param {*} value
+ */
+
+
+function isNumber(value) {
+  return typeof value === 'number' && isFinite(value);
+}
+/**
+ * Check if value is an array
+ *
+ * @param {*} value
+ */
+
+
+function isArray(value) {
+  return Array.isArray(value);
+}
+/**
+ * Check if value is a function
+ *
+ * @param {*} value
+ */
+
+
+function isFunction(value) {
+  return typeof value === 'function';
+}
+/**
+ * Check if value is an object
+ *
+ * @param {*} value
+ */
+
+
+function isObject(value) {
+  return value && _typeof(value) === 'object' && value.constructor === Object;
+}
+},{}],"component.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.init = init;
+exports.update = update;
+
+var _utils = require("./utils");
+
+var NO_DATA_TEXT = '';
+var options;
+
+function renderBase() {
+  var defaultValue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var html = options.templates.base(defaultValue, options);
+  var el = Docsify.dom.create('div', html);
+  var aside = Docsify.dom.find('aside');
+  Docsify.dom.toggleClass(el, 'search');
+  Docsify.dom.before(aside, el);
+}
+
+function renderResponse(response) {
+  var _options = options,
+      algolia = _options.algolia;
+  var _options$templates = options.templates,
+      resultSet = _options$templates.resultSet,
+      resultItem = _options$templates.resultItem;
+
+  if (algolia.multi) {
+    var results = response.results;
+    return results.map(function (results) {
+      return resultSet(results, response, NO_DATA_TEXT, options);
+    }).join('');
+  } else {
+    var hits = response.hits;
+    return hits.map(function (result) {
+      return resultItem(result, response, options);
+    }).join('');
+  }
+}
+
+function doSearch(value) {
+  var clearInput = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  var $search = Docsify.dom.find('div.search');
+  var $input = Docsify.dom.find($search, 'input');
+  var $panel = Docsify.dom.find($search, '.results-panel');
+  var $clearBtn = Docsify.dom.find($search, '.clear-button');
+  var $sidebarNav = Docsify.dom.find('.sidebar-nav');
+  var $appName = Docsify.dom.find('.app-name');
+  var query;
+
+  if (!value) {
+    $panel.classList.remove('show');
+    $clearBtn.classList.remove('show');
+    $panel.innerHTML = '';
+
+    if (options.hideOtherSidebarContent) {
+      $sidebarNav.classList.remove('hide');
+      $appName.classList.remove('hide');
+    }
+
+    if (clearInput) {
+      $input.value = '';
+    }
+
+    return;
+  }
+
+  var _options2 = options,
+      algolia = _options2.algolia;
+  var searchClient = algolia.multi ? algolia.client : algolia.indexMap[algolia.currentIndex(algolia.indexMap)];
+
+  if (!(0, _utils.isArray)(algolia.indexes) && algolia.multi) {
+    console.error('Algolia Search Plugin: When multi search is enabled, you must provided more than one index');
+    return;
+  }
+
+  if (algolia.multi) {
+    query = algolia.indexes.map(function (_ref) {
+      var index = _ref.index;
+      return {
+        indexName: index,
+        query: value
+      };
+    });
+  } else {
+    query = value;
+  }
+
+  searchClient.search(query).then(renderResponse).then(function (html) {
+    $panel.classList.add('show');
+    $clearBtn.classList.add('show');
+    $panel.innerHTML = html || "<p class=\"empty\">".concat(NO_DATA_TEXT, "</p>");
+
+    if (options.hideOtherSidebarContent) {
+      $sidebarNav.classList.add('hide');
+      $appName.classList.add('hide');
+    }
+  });
+}
+
+function bindEvents(indexMap) {
+  var $search = Docsify.dom.find('div.search');
+  var $input = Docsify.dom.find($search, 'input');
+  var $inputWrap = Docsify.dom.find($search, '.input-wrap');
+  var timeId; // Prevent to Fold sidebar
+
+  Docsify.dom.on($search, 'click', function (e) {
+    return e.target.tagName !== 'A' && e.stopPropagation();
+  });
+  Docsify.dom.on($input, 'input', function (e) {
+    clearTimeout(timeId), timeId = setTimeout(function () {
+      return doSearch(e.target.value.trim(), indexMap);
+    }, 100);
+  });
+  Docsify.dom.on($inputWrap, 'click', function (e) {
+    // Click input outside
+    if (e.target.tagName !== 'INPUT') {
+      $input.value = '';
+      doSearch();
+    }
+  });
+
+  window.DocsifyAlgoliaSearchPlugin.clearResults = function () {
+    var clearResults = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+    doSearch(null, clearResults);
+  };
+}
+
+function updatePlaceholder(text, path) {
+  var $input = Docsify.dom.getNode('.search input[type="search"]');
+
+  if (!$input) {
+    return;
+  }
+
+  if ((0, _utils.isString)(text)) {
+    $input.placeholder = text;
+  } else {
+    var match = Object.keys(text).filter(function (key) {
+      return path.indexOf(key) > -1;
+    })[0];
+    $input.placeholder = text[match];
+  }
+}
+
+function updateNoData(text, path) {
+  if ((0, _utils.isString)(text)) {
+    NO_DATA_TEXT = text;
+  } else {
+    var match = Object.keys(text).filter(function (key) {
+      return path.indexOf(key) > -1;
+    })[0];
+    NO_DATA_TEXT = text[match];
+  }
+}
+
+function updateOptions(opts) {
+  options = opts;
+}
+
+function init(opts, vm) {
+  var keywords = vm.router.parse().query.s;
+  updateOptions(opts);
+  Docsify.dom.style(options.templates.style(options));
+  renderBase(keywords);
+  bindEvents();
+  keywords && setTimeout(function () {
+    return doSearch(keywords);
+  }, 500);
+}
+
+function update(opts, vm) {
+  updatePlaceholder(opts.placeholder, vm.route.path);
+  updateNoData(opts.noData, vm.route.path);
+}
+},{"./utils":"utils.js"}],"render.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _utils = require("./utils");
+
+var style = function style(options) {
+  return "\n    .sidebar {\n        --search-link-hover-color: #fff;\n        padding-top: 0;\n    }\n\n    .search {\n        margin-bottom: 20px;\n        padding: 6px;\n        border-bottom: 1px solid #eee;\n    }\n\n    .search .results-attribution {\n        width: 150px;\n        margin-top: 15px;\n        display: block;\n    }\n\n    .search .results-attribution svg {\n        width: 100%;\n    }\n\n    .search .input-wrap {\n        display: flex;\n        align-items: center;\n    }\n\n    .search .results-panel {\n        display: none;\n    }\n\n    .search .results-panel.show {\n        display: block;\n    }\n\n    .search a:hover {\n        color: var(--search-link-hover-color);\n    }\n\n    .search input {\n        outline: none;\n        border: none;\n        width: 100%;\n        padding: 0 7px;\n        line-height: 36px;\n        font-size: 14px;\n    }\n\n    .search input::-webkit-search-decoration,\n    .search input::-webkit-search-cancel-button,\n    .search input {\n        -webkit-appearance: none;\n        -moz-appearance: none;\n        appearance: none;\n    }\n    .search .clear-button {\n        width: 36px;\n        text-align: right;\n        display: none;\n    }\n\n    .search .clear-button.show {\n        display: block;\n    }\n\n    .search .clear-button svg {\n        transform: scale(.5);\n    }\n\n    .search h2 {\n        font-size: 17px;\n        margin: 10px 0;\n    }\n\n    .search a {\n        text-decoration: none;\n        color: inherit;\n    }\n\n    .search .matching-post {\n        border-bottom: 1px solid #eee;\n    }\n\n    .search .matching-post:last-child {\n        border-bottom: 0;\n    }\n\n    .search p {\n        font-size: 14px;\n        overflow: hidden;\n        text-overflow: ellipsis;\n        display: -webkit-box;\n        -webkit-line-clamp: 2;\n        -webkit-box-orient: vertical;\n    }\n\n    .search p.empty {\n        text-align: center;\n    }\n\n    .app-name.hide, .sidebar-nav.hide {\n        display: none;\n    }\n";
+};
+
+var base = function base() {
+  var defaultValue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var options = arguments.length > 1 ? arguments[1] : undefined;
+  return "\n    <div class=\"input-wrap\">\n        <input type=\"search\" value=\"".concat(defaultValue, "\" />\n        <div class=\"clear-button\">\n            <svg width=\"26\" height=\"24\">\n                <circle cx=\"12\" cy=\"12\" r=\"11\" fill=\"#ccc\" />\n                <path stroke=\"white\" stroke-width=\"2\" d=\"M8.25,8.25,15.75,15.75\" />\n                <path stroke=\"white\" stroke-width=\"2\"d=\"M8.25,15.75,15.75,8.25\" />\n            </svg>\n        </div>\n    </div>\n    <div class=\"results-panel\"></div>\n    <a href=\"https://www.algolia.com/\" class=\"results-attribution\" target=\"_blank\">\n        <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 168 24\"><g fill=\"none\"><path fill=\"#FFF\" d=\"M120.925 18.804c-4.386.02-4.386-3.54-4.386-4.106l-.007-13.336 2.675-.424v13.254c0 .322 0 2.358 1.718 2.364v2.248zm-10.846-2.18c.821 0 1.43-.047 1.855-.129v-2.719a6.334 6.334 0 0 0-1.574-.199 5.7 5.7 0 0 0-.897.069 2.699 2.699 0 0 0-.814.24c-.24.116-.439.28-.582.491-.15.212-.219.335-.219.656 0 .628.219.991.616 1.23s.938.362 1.615.362zm-.233-9.7c.883 0 1.629.109 2.231.328.602.218 1.088.525 1.444.915.363.396.609.922.76 1.483.157.56.232 1.175.232 1.85v6.874a32.5 32.5 0 0 1-1.868.314c-.834.123-1.772.185-2.813.185-.69 0-1.327-.069-1.895-.198a4.001 4.001 0 0 1-1.471-.636 3.085 3.085 0 0 1-.951-1.134c-.226-.465-.343-1.12-.343-1.803 0-.656.13-1.073.384-1.525a3.24 3.24 0 0 1 1.047-1.106c.445-.287.95-.492 1.532-.615a8.8 8.8 0 0 1 1.82-.185 8.404 8.404 0 0 1 1.972.24v-.438c0-.307-.035-.6-.11-.874a1.88 1.88 0 0 0-.384-.73 1.784 1.784 0 0 0-.724-.493 3.164 3.164 0 0 0-1.143-.205c-.616 0-1.177.075-1.69.164a7.735 7.735 0 0 0-1.26.307l-.321-2.192c.335-.117.834-.233 1.478-.349a10.98 10.98 0 0 1 2.073-.178zm52.842 9.626c.822 0 1.43-.048 1.854-.13V13.7a6.347 6.347 0 0 0-1.574-.199c-.294 0-.595.021-.896.069a2.7 2.7 0 0 0-.814.24 1.46 1.46 0 0 0-.582.491c-.15.212-.218.335-.218.656 0 .628.218.991.615 1.23.404.245.938.362 1.615.362zm-.226-9.694c.883 0 1.629.108 2.231.327.602.219 1.088.526 1.444.915.355.39.609.923.759 1.483a6.8 6.8 0 0 1 .233 1.852v6.873c-.41.088-1.034.19-1.868.314-.834.123-1.772.184-2.813.184-.69 0-1.327-.068-1.895-.198a4.001 4.001 0 0 1-1.471-.635 3.085 3.085 0 0 1-.951-1.134c-.226-.465-.343-1.12-.343-1.804 0-.656.13-1.073.384-1.524.26-.45.608-.82 1.047-1.107.445-.286.95-.491 1.532-.614a8.803 8.803 0 0 1 2.751-.13c.329.034.671.096 1.04.185v-.437a3.3 3.3 0 0 0-.109-.875 1.873 1.873 0 0 0-.384-.731 1.784 1.784 0 0 0-.724-.492 3.165 3.165 0 0 0-1.143-.205c-.616 0-1.177.075-1.69.164a7.75 7.75 0 0 0-1.26.307l-.321-2.193c.335-.116.834-.232 1.478-.348a11.633 11.633 0 0 1 2.073-.177zm-8.034-1.271a1.626 1.626 0 0 1-1.628-1.62c0-.895.725-1.62 1.628-1.62.904 0 1.63.725 1.63 1.62 0 .895-.733 1.62-1.63 1.62zm1.348 13.22h-2.689V7.27l2.69-.423v11.956zm-4.714 0c-4.386.02-4.386-3.54-4.386-4.107l-.008-13.336 2.676-.424v13.254c0 .322 0 2.358 1.718 2.364v2.248zm-8.698-5.903c0-1.156-.253-2.119-.746-2.788-.493-.677-1.183-1.01-2.067-1.01-.882 0-1.574.333-2.065 1.01-.493.676-.733 1.632-.733 2.788 0 1.168.246 1.953.74 2.63.492.683 1.183 1.018 2.066 1.018.882 0 1.574-.342 2.067-1.019.492-.683.738-1.46.738-2.63zm2.737-.007c0 .902-.13 1.584-.397 2.33a5.52 5.52 0 0 1-1.128 1.906 4.986 4.986 0 0 1-1.752 1.223c-.685.286-1.739.45-2.265.45-.528-.006-1.574-.157-2.252-.45a5.096 5.096 0 0 1-1.744-1.223c-.487-.527-.863-1.162-1.137-1.906a6.345 6.345 0 0 1-.41-2.33c0-.902.123-1.77.397-2.508a5.554 5.554 0 0 1 1.15-1.892 5.133 5.133 0 0 1 1.75-1.216c.679-.287 1.425-.423 2.232-.423.808 0 1.553.142 2.237.423a4.88 4.88 0 0 1 1.753 1.216 5.644 5.644 0 0 1 1.135 1.892c.287.738.431 1.606.431 2.508zm-20.138 0c0 1.12.246 2.363.738 2.882.493.52 1.13.78 1.91.78.424 0 .828-.062 1.204-.178.377-.116.677-.253.917-.417V9.33a10.476 10.476 0 0 0-1.766-.226c-.971-.028-1.71.37-2.23 1.004-.513.636-.773 1.75-.773 2.788zm7.438 5.274c0 1.824-.466 3.156-1.404 4.004-.936.846-2.367 1.27-4.296 1.27-.705 0-2.17-.137-3.34-.396l.431-2.118c.98.205 2.272.26 2.95.26 1.074 0 1.84-.219 2.299-.656.459-.437.684-1.086.684-1.948v-.437a8.07 8.07 0 0 1-1.047.397c-.43.13-.93.198-1.492.198-.739 0-1.41-.116-2.018-.349a4.206 4.206 0 0 1-1.567-1.025c-.431-.45-.774-1.017-1.013-1.694-.24-.677-.363-1.885-.363-2.773 0-.834.13-1.88.384-2.577.26-.696.629-1.298 1.129-1.796.493-.498 1.095-.881 1.8-1.162a6.605 6.605 0 0 1 2.428-.457c.87 0 1.67.109 2.45.24.78.129 1.444.265 1.985.415V18.17zM6.972 6.677v1.627c-.712-.446-1.52-.67-2.425-.67-.585 0-1.045.13-1.38.391a1.24 1.24 0 0 0-.502 1.03c0 .425.164.765.494 1.02.33.256.835.532 1.516.83.447.192.795.356 1.045.495.25.138.537.332.862.582.324.25.563.548.718.894.154.345.23.741.23 1.188 0 .947-.334 1.691-1.004 2.234-.67.542-1.537.814-2.601.814-1.18 0-2.16-.229-2.936-.686v-1.708c.84.628 1.814.942 2.92.942.585 0 1.048-.136 1.388-.407.34-.271.51-.646.51-1.125 0-.287-.1-.55-.302-.79-.203-.24-.42-.42-.655-.542-.234-.123-.585-.29-1.053-.503a61.27 61.27 0 0 1-.582-.271 13.67 13.67 0 0 1-.55-.287 4.275 4.275 0 0 1-.567-.351 6.92 6.92 0 0 1-.455-.4c-.18-.17-.31-.34-.39-.51-.08-.17-.155-.37-.224-.598a2.553 2.553 0 0 1-.104-.742c0-.915.333-1.638.998-2.17.664-.532 1.523-.798 2.576-.798.968 0 1.793.17 2.473.51zm7.468 5.696v-.287c-.022-.607-.187-1.088-.495-1.444-.309-.357-.75-.535-1.324-.535-.532 0-.99.194-1.373.583-.382.388-.622.949-.717 1.683h3.909zm1.005 2.792v1.404c-.596.34-1.383.51-2.362.51-1.255 0-2.255-.377-3-1.132-.744-.755-1.116-1.744-1.116-2.968 0-1.297.34-2.316 1.021-3.055.68-.74 1.548-1.11 2.6-1.11 1.033 0 1.852.323 2.458.966.606.644.91 1.572.91 2.784 0 .33-.033.676-.096 1.038h-5.314c.107.702.405 1.239.894 1.611.49.372 1.106.558 1.85.558.862 0 1.58-.202 2.155-.606zm6.605-1.77h-1.212c-.596 0-1.045.116-1.349.35-.303.234-.454.532-.454.894 0 .372.117.664.35.877.235.213.575.32 1.022.32.51 0 .912-.142 1.204-.424.293-.281.44-.651.44-1.108v-.91zm-4.068-2.554V9.325c.627-.361 1.457-.542 2.489-.542 2.116 0 3.175 1.026 3.175 3.08V17h-1.548v-.957c-.415.68-1.143 1.02-2.186 1.02-.766 0-1.38-.22-1.843-.661-.462-.442-.694-1.003-.694-1.684 0-.776.293-1.38.878-1.81.585-.431 1.404-.647 2.457-.647h1.34V11.8c0-.554-.133-.971-.399-1.253-.266-.282-.707-.423-1.324-.423a4.07 4.07 0 0 0-2.345.718zm9.333-1.93v1.42c.394-1 1.101-1.5 2.123-1.5.148 0 .313.016.494.048v1.531a1.885 1.885 0 0 0-.75-.143c-.542 0-.989.24-1.34.718-.351.479-.527 1.048-.527 1.707V17h-1.563V8.91h1.563zm5.01 4.084c.022.82.272 1.492.75 2.019.479.526 1.15.79 2.01.79.639 0 1.235-.176 1.788-.527v1.404c-.521.319-1.186.479-1.995.479-1.265 0-2.276-.4-3.031-1.197-.755-.798-1.133-1.792-1.133-2.984 0-1.16.38-2.151 1.14-2.975.761-.825 1.79-1.237 3.088-1.237.702 0 1.346.149 1.93.447v1.436a3.242 3.242 0 0 0-1.77-.495c-.84 0-1.513.266-2.019.798-.505.532-.758 1.213-.758 2.042zM40.24 5.72v4.579c.458-1 1.293-1.5 2.505-1.5.787 0 1.42.245 1.899.734.479.49.718 1.17.718 2.042V17h-1.564v-5.106c0-.553-.14-.98-.422-1.284-.282-.303-.652-.455-1.11-.455-.531 0-1.002.202-1.411.606-.41.405-.615 1.022-.615 1.851V17h-1.563V5.72h1.563zm14.966 10.02c.596 0 1.096-.253 1.5-.758.404-.506.606-1.157.606-1.955 0-.915-.202-1.62-.606-2.114-.404-.495-.92-.742-1.548-.742-.553 0-1.05.224-1.491.67-.442.447-.662 1.133-.662 2.058 0 .958.212 1.67.638 2.138.425.469.946.703 1.563.703zM53.004 5.72v4.42c.574-.894 1.388-1.341 2.44-1.341 1.022 0 1.857.383 2.506 1.149.649.766.973 1.781.973 3.047 0 1.138-.309 2.109-.925 2.912-.617.803-1.463 1.205-2.537 1.205-1.075 0-1.894-.447-2.457-1.34V17h-1.58V5.72h1.58zm9.908 11.104l-3.223-7.913h1.739l1.005 2.632 1.26 3.415c.096-.32.48-1.458 1.15-3.415l.909-2.632h1.66l-2.92 7.866c-.777 2.074-1.963 3.11-3.559 3.11a2.92 2.92 0 0 1-.734-.079v-1.34c.17.042.351.064.543.064 1.032 0 1.755-.57 2.17-1.708z\"/><path fill=\"#5468FF\" d=\"M78.988.938h16.594a2.968 2.968 0 0 1 2.966 2.966V20.5a2.967 2.967 0 0 1-2.966 2.964H78.988a2.967 2.967 0 0 1-2.966-2.964V3.897A2.961 2.961 0 0 1 78.988.938z\"/><path fill=\"#FFF\" d=\"M89.632 5.967v-.772a.978.978 0 0 0-.978-.977h-2.28a.978.978 0 0 0-.978.977v.793c0 .088.082.15.171.13a7.127 7.127 0 0 1 1.984-.28c.65 0 1.295.088 1.917.259.082.02.164-.04.164-.13m-6.248 1.01l-.39-.389a.977.977 0 0 0-1.382 0l-.465.465a.973.973 0 0 0 0 1.38l.383.383c.062.061.15.047.205-.014.226-.307.472-.601.746-.874.281-.28.568-.526.883-.751.068-.042.075-.137.02-.2m4.16 2.453v3.341c0 .096.104.165.192.117l2.97-1.537c.068-.034.089-.117.055-.184a3.695 3.695 0 0 0-3.08-1.866c-.068 0-.136.054-.136.13m0 8.048a4.489 4.489 0 0 1-4.49-4.482 4.488 4.488 0 0 1 4.49-4.482 4.488 4.488 0 0 1 4.489 4.482 4.484 4.484 0 0 1-4.49 4.482m0-10.85a6.363 6.363 0 1 0 0 12.729 6.37 6.37 0 0 0 6.372-6.368 6.358 6.358 0 0 0-6.371-6.36\"/></g></svg>\n    </a>\n");
+};
+
+var resultItem = function resultItem(result) {
+  var title = result._highlightResult.title;
+  var body = result._snippetResult.body;
+  return "\n        <div class=\"matching-post\">\n            <a href=\"".concat(result.slug, "\">\n                <h2>").concat(title.value, "</h2>\n                <p>").concat(body.value, "</p>\n            </a>\n        </div>\n    ");
+};
+
+var resultSet = function resultSet(set, response, noData, options) {
+  var hits = set.hits,
+      index = set.index;
+  var templates = options.templates,
+      multi = options.algolia.multi;
+  var innerHTML = "<p>".concat(noData, "</p>");
+  var label = index;
+
+  if (hits.length) {
+    innerHTML = hits.map(function (result) {
+      return templates.resultItem(result, response, options);
+    }).join('');
+  }
+
+  if ((0, _utils.isObject)(multi)) {
+    label = multi[index];
+  }
+
+  return "\n        <div class=\"matching-set\">\n            <h2 class=\"matching-set-heading\">".concat(label, "</h2>\n            ").concat(innerHTML, "\n        </div>\n    ");
+};
+
+var _default = {
+  base: base,
+  style: style,
+  resultItem: resultItem,
+  resultSet: resultSet
+};
+exports.default = _default;
+},{"./utils":"utils.js"}],"index.js":[function(require,module,exports) {
+"use strict";
+
+var _algoliasearch = _interopRequireDefault(require("algoliasearch"));
+
+var _deepmerge = _interopRequireDefault(require("deepmerge"));
+
+var _component = require("./component");
+
+var _utils = require("./utils");
+
+var _render = _interopRequireDefault(require("./render"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var DEFAULT_CONFIG = {
+  placeholder: 'Type to search',
+  noData: 'No Results!',
+  hideOtherSidebarContent: false,
+  namespace: undefined,
+  templates: {
+    base: _render.default.base,
+    style: _render.default.style,
+    resultItem: _render.default.resultItem,
+    resultSet: _render.default.resultSet
+  },
+  algolia: {
+    multi: undefined,
+    token: undefined,
+    appId: undefined,
+    indexes: undefined,
+    defaultIndex: undefined,
+    indexMap: {},
+    currentIndex: function currentIndex() {
+      return this.defaultIndex;
+    }
+  }
+};
+var CONFIG;
+
+var install = function install(hook, vm) {
+  var opts = vm.config.search; // Merge user options with default
+
+  if ((0, _utils.isObject)(opts)) {
+    CONFIG = (0, _deepmerge.default)(DEFAULT_CONFIG, opts);
+  } else {
+    CONFIG = DEFAUlT_CONFIG;
+  } // Set up algolia client
+
+
+  CONFIG.algolia.client = (0, _algoliasearch.default)(CONFIG.algolia.appId, CONFIG.algolia.token); // Create search client and configure indexes if necessary
+
+  if ((0, _utils.isArray)(CONFIG.algolia.indexes)) {
+    CONFIG.algolia.indexes.forEach(function (index) {
+      if ((0, _utils.isObject)(index)) {
+        var client = CONFIG.algolia.client.initIndex(index.index);
+        client.setSettings(index.settings);
+        CONFIG.algolia.indexMap[index.index] = client;
+      } else {
+        var _client = CONFIG.algolia.client.initIndex(index);
+
+        CONFIG.algolia.indexMap[index] = _client;
+      }
+    });
+  } else if ((0, _utils.isObject)(CONFIG.algolia.indexes)) {
+    var index = CONFIG.algolia.indexes;
+    var client = CONFIG.algolia.client.initIndex(index.index);
+    client.setSettings(index.settings);
+    CONFIG.algolia.indexMap[index.index] = client;
+  } else if ((0, _utils.isString)(CONFIG.algolia.indexes)) {
+    var _index = CONFIG.algolia.indexes;
+
+    var _client2 = CONFIG.algolia.client.initIndex(_index);
+
+    CONFIG.algolia.indexMap[_index] = _client2;
+  } else {
+    console.error('Invalid configuration');
+    return;
+  }
+
+  hook.mounted(function () {
+    (0, _component.init)(CONFIG, vm);
+  });
+  hook.doneEach(function () {
+    (0, _component.update)(CONFIG, vm);
+  });
+  window.DocsifyAlgoliaSearchPlugin = {
+    config: CONFIG
+  };
+};
+
+$docsify.plugins = [].concat(install, $docsify.plugins);
+},{"algoliasearch":"../node_modules/algoliasearch/src/browser/builds/algoliasearch.js","deepmerge":"../node_modules/deepmerge/dist/umd.js","./component":"component.js","./utils":"utils.js","./render":"render.js"}],"../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+var global = arguments[3];
+var OVERLAY_ID = '__parcel__error__overlay__';
+var OldModule = module.bundle.Module;
+
+function Module(moduleName) {
+  OldModule.call(this, moduleName);
+  this.hot = {
+    data: module.bundle.hotData,
+    _acceptCallbacks: [],
+    _disposeCallbacks: [],
+    accept: function (fn) {
+      this._acceptCallbacks.push(fn || function () {});
+    },
+    dispose: function (fn) {
+      this._disposeCallbacks.push(fn);
+    }
+  };
+  module.bundle.hotData = null;
+}
+
+module.bundle.Module = Module;
+var checkedAssets, assetsToAccept;
+var parent = module.bundle.parent;
+
+if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
+  var hostname = "" || location.hostname;
+  var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63348" + '/');
+
+  ws.onmessage = function (event) {
+    checkedAssets = {};
+    assetsToAccept = [];
+    var data = JSON.parse(event.data);
+
+    if (data.type === 'update') {
+      var handled = false;
+      data.assets.forEach(function (asset) {
+        if (!asset.isNew) {
+          var didAccept = hmrAcceptCheck(global.parcelRequire, asset.id);
+
+          if (didAccept) {
+            handled = true;
+          }
+        }
+      }); // Enable HMR for CSS by default.
+
+      handled = handled || data.assets.every(function (asset) {
+        return asset.type === 'css' && asset.generated.js;
+      });
+
+      if (handled) {
+        console.clear();
+        data.assets.forEach(function (asset) {
+          hmrApply(global.parcelRequire, asset);
+        });
+        assetsToAccept.forEach(function (v) {
+          hmrAcceptRun(v[0], v[1]);
+        });
+      } else {
+        window.location.reload();
+      }
+    }
+
+    if (data.type === 'reload') {
+      ws.close();
+
+      ws.onclose = function () {
+        location.reload();
+      };
+    }
+
+    if (data.type === 'error-resolved') {
+      console.log('[parcel] ✨ Error resolved');
+      removeErrorOverlay();
+    }
+
+    if (data.type === 'error') {
+      console.error('[parcel] 🚨  ' + data.error.message + '\n' + data.error.stack);
+      removeErrorOverlay();
+      var overlay = createErrorOverlay(data);
+      document.body.appendChild(overlay);
+    }
+  };
+}
+
+function removeErrorOverlay() {
+  var overlay = document.getElementById(OVERLAY_ID);
+
+  if (overlay) {
+    overlay.remove();
+  }
+}
+
+function createErrorOverlay(data) {
+  var overlay = document.createElement('div');
+  overlay.id = OVERLAY_ID; // html encode message and stack trace
+
+  var message = document.createElement('div');
+  var stackTrace = document.createElement('pre');
+  message.innerText = data.error.message;
+  stackTrace.innerText = data.error.stack;
+  overlay.innerHTML = '<div style="background: black; font-size: 16px; color: white; position: fixed; height: 100%; width: 100%; top: 0px; left: 0px; padding: 30px; opacity: 0.85; font-family: Menlo, Consolas, monospace; z-index: 9999;">' + '<span style="background: red; padding: 2px 4px; border-radius: 2px;">ERROR</span>' + '<span style="top: 2px; margin-left: 5px; position: relative;">🚨</span>' + '<div style="font-size: 18px; font-weight: bold; margin-top: 20px;">' + message.innerHTML + '</div>' + '<pre>' + stackTrace.innerHTML + '</pre>' + '</div>';
+  return overlay;
+}
+
+function getParents(bundle, id) {
+  var modules = bundle.modules;
+
+  if (!modules) {
+    return [];
+  }
+
+  var parents = [];
+  var k, d, dep;
+
+  for (k in modules) {
+    for (d in modules[k][1]) {
+      dep = modules[k][1][d];
+
+      if (dep === id || Array.isArray(dep) && dep[dep.length - 1] === id) {
+        parents.push(k);
+      }
+    }
+  }
+
+  if (bundle.parent) {
+    parents = parents.concat(getParents(bundle.parent, id));
+  }
+
+  return parents;
+}
+
+function hmrApply(bundle, asset) {
+  var modules = bundle.modules;
+
+  if (!modules) {
+    return;
+  }
+
+  if (modules[asset.id] || !bundle.parent) {
+    var fn = new Function('require', 'module', 'exports', asset.generated.js);
+    asset.isNew = !modules[asset.id];
+    modules[asset.id] = [fn, asset.deps];
+  } else if (bundle.parent) {
+    hmrApply(bundle.parent, asset);
+  }
+}
+
+function hmrAcceptCheck(bundle, id) {
+  var modules = bundle.modules;
+
+  if (!modules) {
+    return;
+  }
+
+  if (!modules[id] && bundle.parent) {
+    return hmrAcceptCheck(bundle.parent, id);
+  }
+
+  if (checkedAssets[id]) {
+    return;
+  }
+
+  checkedAssets[id] = true;
+  var cached = bundle.cache[id];
+  assetsToAccept.push([bundle, id]);
+
+  if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
+    return true;
+  }
+
+  return getParents(global.parcelRequire, id).some(function (id) {
+    return hmrAcceptCheck(global.parcelRequire, id);
+  });
+}
+
+function hmrAcceptRun(bundle, id) {
+  var cached = bundle.cache[id];
+  bundle.hotData = {};
+
+  if (cached) {
+    cached.hot.data = bundle.hotData;
+  }
+
+  if (cached && cached.hot && cached.hot._disposeCallbacks.length) {
+    cached.hot._disposeCallbacks.forEach(function (cb) {
+      cb(bundle.hotData);
+    });
+  }
+
+  delete bundle.cache[id];
+  bundle(id);
+  cached = bundle.cache[id];
+
+  if (cached && cached.hot && cached.hot._acceptCallbacks.length) {
+    cached.hot._acceptCallbacks.forEach(function (cb) {
+      cb();
+    });
+
+    return true;
+  }
+}
+},{}]},{},["../../../../.nvm/versions/node/v10.15.3/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
 //# sourceMappingURL=/index.js.map

@@ -2,6 +2,20 @@
 
 This plugin is a modification of the [full text search plugin](https://docsify.js.org/#/plugins?id=full-text-search) with many of the same settings that leverages algolia search.
 
+**NOTE** This plugin will not sync any documents to algolia, you will need to do that manually.
+
+## Installation
+
+Copy the following code into your `index.html` file below the settings
+
+```html
+<script src="//unpkg.com/docsify-algolia-search-plugin"></script>
+```
+
+## Options
+
+A full list of configurable options is below.
+
 | Parameter    | Type                | Description                                                                                                                                                                                                                                                               | Default                                  | Required |
 |--------------|---------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|----------|
 | token        | string              | Public API token                                                                                                                                                                                                                                                          | -                                        | ✓        |
@@ -10,10 +24,6 @@ This plugin is a modification of the [full text search plugin](https://docsify.j
 | multi        | boolean|array       | Display the results from multiple indexes                                                                                                                                                                                                                                 | -                                        |          |
 | indexes      | string|object|array | The indexes to be searched                                                                                                                                                                                                                                                | A list of indexes with optional settings | ✓        |
 | currentIndex | function            |  If you need to specify the current index based on certain conditions, i.e. a slug in your url for different versions of documentation you can do it here.  This function must return the name of the index.  This function passes the `indexMap` as it's only parameter. |  -                                       |          |
-
-## Options
-
-A full list of configurable options is below.
 
 ```html
 <script>
