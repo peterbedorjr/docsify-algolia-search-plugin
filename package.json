@@ -5,9 +5,11 @@
     "type": "git",
     "url": "https://github.com/peterbedorjr/docsify-algolia-search-plugin"
   },
-  "main": "dist/index.js",
+  "main": "dist/index.min.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel src/index.js",
+    "build": "parcel build src/index.js",
+    "build:prod": "parcel build src/index.js -o index.min.js"
   },
   "keywords": [],
   "author": "Peter Bedor",
